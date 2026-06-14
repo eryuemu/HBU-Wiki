@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: '/HBU-Wiki/',
   title: "HBU Wiki",
   description: "一个关于河北大学的开源知识库",
   themeConfig: {
