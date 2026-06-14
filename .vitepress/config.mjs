@@ -1,8 +1,8 @@
-"import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: \"HBU Wiki\",
-  description: \"一个关于河北大学的开源知识库\",
+  title: "HBU Wiki",
+  description: "一个关于河北大学的开源知识库",
   themeConfig: {
     logo: 'https://www.hbu.edu.cn/images/logo.png',
     nav: [
@@ -63,10 +63,10 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/your-username/hbu-wiki' }
+      { icon: 'github', link: 'https://github.com/eryuemu/HBU-Wiki' }
     ],
 
     docFooter: { prev: '上一页', next: '下一页' },
     outline: { label: '本页目录', level: 'deep' }
   }
-})"
+})

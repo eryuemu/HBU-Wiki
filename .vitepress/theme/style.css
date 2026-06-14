@@ -1,0 +1,653 @@
+/* ============================================
+   HBU Wiki — 全局样式
+   支持明暗模式切换
+   ============================================ */
+
+/* ---------- 设计令牌：亮色模式 ---------- */
+:root {
+  /* 主色调 —— 河北大学校色蓝 */
+  --hbu-blue: #1E56B0;
+  --hbu-blue-light: #2E6FD8;
+  --hbu-blue-dark: #143D85;
+  --hbu-blue-muted: rgba(30, 86, 176, 0.08);
+
+  /* 背景层级 */
+  --bg-base: #ffffff;
+  --bg-surface: #f5f6f8;
+  --bg-elevated: #ebedf0;
+
+  /* 文字层级 */
+  --text-primary: #1a1d27;
+  --text-secondary: #5c6280;
+  --text-muted: #9aa0b8;
+
+  /* 边框 */
+  --border-subtle: #e0e2e8;
+  --border-active: rgba(30, 86, 176, 0.3);
+
+  /* 阴影 */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 8px 24px rgba(30, 86, 176, 0.12);
+}
+
+/* ---------- 设计令牌：暗色模式（纯黑） ---------- */
+.dark {
+  --hbu-blue-muted: rgba(30, 86, 176, 0.12);
+
+  --bg-base: #000000;
+  --bg-surface: #0a0a0a;
+  --bg-elevated: #161616;
+
+  --text-primary: #e5e5e5;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
+
+  --border-subtle: #1f1f1f;
+  --border-active: rgba(30, 86, 176, 0.38);
+
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 8px 32px rgba(30, 86, 176, 0.15);
+}
+
+/* ---------- 字体 & 圆角（不变） ---------- */
+:root {
+  --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+}
+
+/* ---------- 覆盖 VitePress 默认主题变量 ---------- */
+:root {
+  --vp-c-brand-1: var(--hbu-blue);
+  --vp-c-brand-2: var(--hbu-blue-light);
+  --vp-c-brand-3: var(--hbu-blue-dark);
+  --vp-c-brand-soft: var(--hbu-blue-muted);
+
+  --vp-c-bg: var(--bg-base);
+  --vp-c-bg-alt: var(--bg-surface);
+  --vp-c-bg-elv: var(--bg-elevated);
+  --vp-c-bg-soft: var(--bg-surface);
+
+  --vp-c-text-1: var(--text-primary);
+  --vp-c-text-2: var(--text-secondary);
+  --vp-c-text-3: var(--text-muted);
+
+  --vp-c-border: var(--border-subtle);
+  --vp-c-border-alt: var(--border-subtle);
+  --vp-c-divider: var(--border-subtle);
+
+  --vp-c-default-1: var(--text-secondary);
+  --vp-c-default-2: var(--text-secondary);
+  --vp-c-default-3: var(--text-muted);
+  --vp-c-default-soft: var(--hbu-blue-muted);
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, var(--hbu-blue), var(--hbu-blue-light));
+  --vp-home-hero-image-background-image: radial-gradient(circle, var(--hbu-blue-muted) 0%, transparent 70%);
+  --vp-home-hero-image-filter: blur(56px);
+
+  --vp-button-brand-bg: var(--hbu-blue);
+  --vp-button-brand-hover-bg: var(--hbu-blue-light);
+  --vp-button-brand-active-bg: var(--hbu-blue-dark);
+  --vp-button-alt-border: var(--border-subtle);
+  --vp-button-alt-hover-border: var(--hbu-blue);
+  --vp-button-alt-hover-text: var(--hbu-blue-light);
+
+  --vp-sidebar-bg-color: var(--bg-surface);
+
+  --vp-font-family-base: var(--font-sans);
+  --vp-font-family-mono: var(--font-mono);
+}
+
+.dark {
+  --vp-c-bg: var(--bg-base);
+  --vp-c-bg-alt: var(--bg-surface);
+  --vp-c-bg-elv: var(--bg-elevated);
+  --vp-c-bg-soft: var(--bg-surface);
+}
+
+/* ============================================
+   导航栏 —— 毛玻璃 + 品牌色
+   ============================================ */
+.VPNav {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid var(--border-subtle) !important;
+}
+
+.dark .VPNav {
+  background: rgba(10, 10, 10, 0.85) !important;
+}
+
+.VPNavBar .title {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+}
+
+/* 导航栏 logo：亮色模式变深色 */
+.VPNavBarTitle .logo {
+  filter: brightness(0.15);
+}
+
+.dark .VPNavBarTitle .logo {
+  filter: none;
+}
+
+.VPNavBar .VPNavBarMenuLink.active,
+.VPNavBar .VPNavBarMenuGroup.active .text {
+  color: var(--hbu-blue) !important;
+}
+
+.dark .VPNavBar .VPNavBarMenuLink.active,
+.dark .VPNavBar .VPNavBarMenuGroup.active .text {
+  color: var(--hbu-blue-light) !important;
+}
+
+.VPNavBarMenuLink,
+.VPNavBarMenuGroup .text {
+  transition: color 0.2s ease;
+}
+
+.VPNavBarMenuLink:hover,
+.VPNavBarMenuGroup:hover .text {
+  color: var(--hbu-blue) !important;
+}
+
+.dark .VPNavBarMenuLink:hover,
+.dark .VPNavBarMenuGroup:hover .text {
+  color: var(--hbu-blue-light) !important;
+}
+
+/* ============================================
+   侧边栏
+   ============================================ */
+.VPSidebar {
+  background: var(--bg-surface) !important;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.VPSidebar .group .title {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.VPSidebarItem.level-0 .text {
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.VPSidebarItem.level-0 .text:hover {
+  color: var(--text-primary);
+}
+
+.VPSidebarItem.level-0.is-active > .item > .indicator {
+  background-color: var(--hbu-blue);
+}
+
+.VPSidebarItem.level-0.is-active > .item .text {
+  color: var(--hbu-blue);
+  font-weight: 600;
+}
+
+.dark .VPSidebarItem.level-0.is-active > .item .text {
+  color: var(--hbu-blue-light);
+}
+
+/* ============================================
+   首页 Hero 区域
+   ============================================ */
+.VPHero .name {
+  font-size: clamp(40px, 8vw, 72px) !important;
+  line-height: 1.1 !important;
+  background: linear-gradient(135deg, var(--hbu-blue) 0%, var(--hbu-blue-light) 60%, #4a8af4 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.VPHero .text {
+  font-size: clamp(28px, 5vw, 48px) !important;
+  color: var(--text-primary) !important;
+  font-weight: 700;
+}
+
+.VPHero .tagline {
+  font-size: 18px !important;
+  color: var(--text-secondary) !important;
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* 校徽 —— 悬浮 + 3D 交互 */
+.VPHero .VPImage {
+  animation: hero-float 4s ease-in-out infinite;
+  display: block;
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.hero-3d-wrapper:hover .VPImage {
+  animation-play-state: paused;
+}
+
+/* 亮色模式：白色校徽变深色 */
+.VPHero .VPImage {
+  filter: brightness(0.15);
+}
+
+.dark .VPHero .VPImage {
+  filter: none;
+}
+
+/* 暗色模式：消除面板边缘，融入背景 */
+.dark .VPHero .image-bg {
+  background: transparent !important;
+  box-shadow: 0 10px 80px 40px rgba(0, 0, 0, 0.9);
+}
+
+/* Hero 按钮 */
+.VPHero .actions .VPButton.brand {
+  background: var(--hbu-blue) !important;
+  border: none !important;
+  color: #fff !important;
+  border-radius: var(--radius-full) !important;
+  padding: 12px 32px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 16px rgba(30, 86, 176, 0.25);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease !important;
+}
+
+.VPHero .actions .VPButton.brand:hover {
+  background: var(--hbu-blue-light) !important;
+  box-shadow: 0 6px 24px rgba(30, 86, 176, 0.4);
+  transform: translateY(-2px);
+}
+
+.VPHero .actions .VPButton.alt {
+  border-radius: var(--radius-full) !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+  padding: 12px 32px !important;
+  font-size: 16px !important;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
+}
+
+.VPHero .actions .VPButton.alt:hover {
+  border-color: var(--hbu-blue) !important;
+  color: var(--hbu-blue) !important;
+  transform: translateY(-2px);
+}
+
+.dark .VPHero .actions .VPButton.alt:hover {
+  color: var(--hbu-blue-light) !important;
+}
+
+/* ============================================
+   首页 Feature 卡片 —— 干净简洁
+   ============================================ */
+.VPFeature {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 24px !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+
+.VPFeature:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: var(--shadow-hover) !important;
+  border-color: var(--border-active) !important;
+}
+
+.VPFeature .icon {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--hbu-blue-muted) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 16px !important;
+}
+
+.VPFeature .icon svg {
+  color: var(--hbu-blue);
+  transition: transform 0.25s ease;
+}
+
+.dark .VPFeature .icon svg {
+  color: var(--hbu-blue-light);
+}
+
+.VPFeature:hover .icon svg {
+  transform: scale(1.08);
+}
+
+.VPFeature .title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: 8px !important;
+}
+
+.VPFeature .details {
+  font-size: 14px !important;
+  color: var(--text-secondary) !important;
+  line-height: 1.6;
+}
+
+/* ============================================
+   文档页面
+   ============================================ */
+.vp-doc h1 {
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  border-bottom: 2px solid var(--hbu-blue-muted);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+}
+
+.vp-doc h2 {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  margin-top: 40px !important;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.vp-doc h3 {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+}
+
+.vp-doc p,
+.vp-doc li {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.vp-doc a {
+  color: var(--hbu-blue) !important;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.dark .vp-doc a {
+  color: var(--hbu-blue-light) !important;
+}
+
+.vp-doc a:hover {
+  border-bottom-color: var(--hbu-blue);
+}
+
+.dark .vp-doc a:hover {
+  border-bottom-color: var(--hbu-blue-light);
+}
+
+.vp-doc strong {
+  color: var(--text-primary);
+}
+
+.vp-doc code {
+  background: var(--bg-elevated) !important;
+  color: var(--hbu-blue) !important;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+}
+
+.dark .vp-doc code {
+  color: var(--hbu-blue-light) !important;
+}
+
+.vp-doc blockquote {
+  border-left: 3px solid var(--hbu-blue) !important;
+  background: var(--hbu-blue-muted) !important;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 12px 16px;
+}
+
+.vp-doc blockquote p {
+  color: var(--text-primary);
+}
+
+/* 提示框 */
+.vp-doc .custom-block {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--border-subtle) !important;
+  background: var(--bg-surface) !important;
+  padding: 16px 20px !important;
+}
+
+.vp-doc .custom-block.tip {
+  border-left: 4px solid var(--hbu-blue) !important;
+  background: var(--hbu-blue-muted) !important;
+}
+
+.vp-doc .custom-block.warning {
+  border-left: 4px solid #d4940a !important;
+  background: rgba(212, 148, 10, 0.06) !important;
+}
+
+.dark .vp-doc .custom-block.warning {
+  border-left: 4px solid #e6a817 !important;
+  background: rgba(230, 168, 23, 0.08) !important;
+}
+
+.vp-doc .custom-block.danger {
+  border-left: 4px solid #c0392b !important;
+  background: rgba(192, 57, 43, 0.06) !important;
+}
+
+.dark .vp-doc .custom-block.danger {
+  border-left: 4px solid #e63946 !important;
+  background: rgba(230, 57, 70, 0.08) !important;
+}
+
+/* 表格 */
+.vp-doc table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.vp-doc th {
+  background: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.vp-doc td {
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 10px 16px;
+  color: var(--text-secondary);
+}
+
+.vp-doc tr:hover td {
+  background: var(--hbu-blue-muted);
+}
+
+/* ============================================
+   页面过渡动画
+   ============================================ */
+.VPContent {
+  animation: page-enter 0.4s ease both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.VPDoc {
+  animation: doc-enter 0.35s ease both;
+  animation-delay: 0.05s;
+}
+
+@keyframes doc-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.VPHero {
+  animation: hero-enter 0.6s ease both;
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.VPFeature {
+  animation: feature-enter 0.4s ease both;
+}
+
+.VPFeature:nth-child(1) { animation-delay: 0.1s; }
+.VPFeature:nth-child(2) { animation-delay: 0.18s; }
+.VPFeature:nth-child(3) { animation-delay: 0.26s; }
+.VPFeature:nth-child(4) { animation-delay: 0.34s; }
+.VPFeature:nth-child(5) { animation-delay: 0.42s; }
+
+@keyframes feature-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   全局过渡 & 交互增强
+   ============================================ */
+.VPButton,
+.VPNavBarMenuLink,
+.VPSidebarItem .text {
+  cursor: pointer;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+::selection {
+  background: rgba(30, 86, 176, 0.25);
+  color: var(--text-primary);
+}
+
+.dark ::selection {
+  background: rgba(30, 86, 176, 0.35);
+}
+
+/* ============================================
+   页脚
+   ============================================ */
+.VPFooter {
+  background: var(--bg-surface) !important;
+  border-top: 1px solid var(--border-subtle) !important;
+  color: var(--text-muted) !important;
+}
+
+/* ============================================
+   大纲 (Outline)
+   ============================================ */
+.VPDocOutlineItem .outline-link {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.VPDocOutlineItem .outline-link.active,
+.VPDocOutlineItem .outline-link:hover {
+  color: var(--hbu-blue);
+}
+
+.dark .VPDocOutlineItem .outline-link.active,
+.dark .VPDocOutlineItem .outline-link:hover {
+  color: var(--hbu-blue-light);
+}
+
+/* ============================================
+   响应式调整
+   ============================================ */
+@media (max-width: 768px) {
+  .VPHero .name {
+    font-size: 36px !important;
+  }
+
+  .VPHero .text {
+    font-size: 24px !important;
+  }
+
+  .VPHero .tagline {
+    font-size: 15px !important;
+  }
+}
+
+/* ============================================
+   路由切换过渡（由 Layout.vue 触发）
+   ============================================ */
+.VPContent.page-transition-active {
+  animation: hbu-page-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hbu-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
