@@ -226,6 +226,22 @@
 .VPHero .VPImage {
   animation: hero-float 4s ease-in-out infinite;
   display: block;
+  max-width: 192px !important;
+  max-height: none !important;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 640px) {
+  .VPHero .VPImage {
+    max-width: 256px !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPHero .VPImage {
+    max-width: 320px !important;
+  }
 }
 
 @keyframes hero-float {
