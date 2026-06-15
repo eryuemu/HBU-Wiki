@@ -632,6 +632,26 @@
   .VPHero .tagline {
     font-size: 15px !important;
   }
+
+  /* 移动端 hero 区域文字居中 */
+  .VPHero .main {
+    text-align: center;
+  }
+
+  .VPHero .tagline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .VPHero .actions {
+    justify-content: center;
+  }
+
+  /* 移动端 logo 居中 */
+  .VPHero .image {
+    display: flex !important;
+    justify-content: center;
+  }
 }
 
 /* ============================================
