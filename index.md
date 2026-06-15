@@ -5,9 +5,6 @@ hero:
   name: "HBU Wiki"
   text: "河北大学"
   tagline: 发现、记录、分享校园生活的每一个角落
-  image:
-    src: https://www.hbu.edu.cn/images/logo.png
-    alt: HBU Logo
   actions:
     - theme: brand
       text: 立即进入
