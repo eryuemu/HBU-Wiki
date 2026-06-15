@@ -220,7 +220,6 @@
   font-size: 18px !important;
   color: var(--text-secondary) !important;
   line-height: 1.6;
-  max-width: 480px;
 }
 
 /* 校徽 —— 悬浮 + 3D 交互 */
@@ -620,64 +619,6 @@
 /* ============================================
    响应式调整
    ============================================ */
-
-/* 移动端 hero 区域强制居中（覆盖 VitePress scoped 样式） */
-.VPHero .main {
-  text-align: center !important;
-}
-
-.VPHero .heading {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-}
-
-.VPHero .name,
-.VPHero .text {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.VPHero .tagline {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.VPHero .actions {
-  justify-content: center !important;
-}
-
-.VPHero .image {
-  display: flex !important;
-  justify-content: center !important;
-}
-
-/* 桌面端恢复默认 */
-@media (min-width: 960px) {
-  .VPHero .main {
-    text-align: left !important;
-  }
-
-  .VPHero .heading {
-    align-items: flex-start !important;
-  }
-
-  .VPHero .name,
-  .VPHero .text {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .VPHero .tagline {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .VPHero .actions {
-    justify-content: flex-start !important;
-  }
-}
-
 @media (max-width: 768px) {
   .VPHero .name {
     font-size: 36px !important;
