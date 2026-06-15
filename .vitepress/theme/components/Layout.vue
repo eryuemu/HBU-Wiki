@@ -33,6 +33,26 @@ function initHeroEffect() {
   const img = document.querySelector('.VPHero .VPImage')
   if (!wrapper || !img) return
 
+  // 校徽图片尺寸约束：防止宽幅图片在移动端溢出
+  function constrainHeroImage() {
+    const w = window.innerWidth
+    if (w < 640) {
+      img.style.maxWidth = '192px'
+      img.style.maxHeight = 'none'
+    } else if (w < 960) {
+      img.style.maxWidth = '256px'
+      img.style.maxHeight = 'none'
+    } else {
+      img.style.maxWidth = '320px'
+      img.style.maxHeight = 'none'
+    }
+    img.style.width = 'auto'
+    img.style.height = 'auto'
+  }
+  constrainHeroImage()
+  window.addEventListener('resize', constrainHeroImage)
+  cleanupFns.push(() => window.removeEventListener('resize', constrainHeroImage))
+
   // 已初始化过就跳过
   if (wrapper.dataset.hero3d === 'true') return
   wrapper.dataset.hero3d = 'true'
