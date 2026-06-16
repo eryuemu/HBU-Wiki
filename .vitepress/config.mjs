@@ -21,6 +21,7 @@ export default defineConfig({
           { text: '学校概况', link: '/general/intro' },
           { text: '校园地图', link: '/general/map' },
           { text: '校历与节点', link: '/general/calendar' },
+          { text: '新生指引', link: '/general/freshmen' },
         ]
       },
       {
@@ -31,6 +32,9 @@ export default defineConfig({
           { text: '图书馆指南', link: '/academics/library' },
           { text: '教务办事处', link: '/academics/office' },
           { text: '实验与科研', link: '/academics/research' },
+          { text: '奖学金与综测', link: '/academics/scholarships' },
+          { text: '升学与求职', link: '/academics/career' },
+          { text: '毕业与离校', link: '/academics/graduation' },
         ]
       },
       {
@@ -41,6 +45,9 @@ export default defineConfig({
           { text: '住宿生活', link: '/life/dormitory' },
           { text: '交通出行', link: '/life/transport' },
           { text: '医疗/后勤', link: '/life/service' },
+          { text: '军训生存指南', link: '/life/military-training' },
+          { text: '快递与驿站', link: '/life/express' },
+          { text: '周边商圈与娱乐', link: '/life/surroundings' },
         ]
       },
       {
@@ -59,6 +66,8 @@ export default defineConfig({
           { text: '常用链接', link: '/tools/links' },
           { text: '下载专区', link: '/tools/download' },
           { text: '避坑指南', link: '/tools/avoid-traps' },
+          { text: '校园网与 VPN', link: '/tools/network' },
+          { text: '正版软件与服务', link: '/tools/software' },
         ]
       }
     ],
