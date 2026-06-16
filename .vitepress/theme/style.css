@@ -109,6 +109,14 @@
   --vp-c-bg-alt: var(--bg-surface);
   --vp-c-bg-elv: var(--bg-elevated);
   --vp-c-bg-soft: var(--bg-surface);
+
+  --vp-c-text-1: var(--text-primary);
+  --vp-c-text-2: var(--text-secondary);
+  --vp-c-text-3: var(--text-muted);
+
+  --vp-c-border: var(--border-subtle);
+  --vp-c-border-alt: var(--border-subtle);
+  --vp-c-divider: var(--border-subtle);
 }
 
 /* ============================================
