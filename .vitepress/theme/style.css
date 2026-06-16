@@ -697,17 +697,17 @@
    路由切换过渡（由 Layout.vue 触发）
    ============================================ */
 .VPContent.page-transition-active {
-  animation: hbu-page-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: hbu-page-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes hbu-page-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(14px) scale(0.995);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -725,4 +725,31 @@
   background-image: 
     radial-gradient(circle at 15% 15%, rgba(30, 86, 176, 0.07) 0%, transparent 60%),
     radial-gradient(circle at 85% 85%, rgba(30, 86, 176, 0.07) 0%, transparent 60%);
+}
+
+/* ============================================
+   鼠标跟随背景光晕（MiMo 风格桌面端专用）
+   ============================================ */
+.hbu-mouse-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(30, 86, 176, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.dark .hbu-mouse-glow {
+  background: radial-gradient(circle, rgba(46, 111, 216, 0.06) 0%, transparent 70%);
+}
+
+@media (max-width: 960px) {
+  .hbu-mouse-glow {
+    display: none !important;
+  }
 }

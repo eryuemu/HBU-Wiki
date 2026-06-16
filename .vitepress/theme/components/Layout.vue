@@ -1,7 +1,8 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
 import { useRoute } from 'vitepress'
-import { watch, nextTick, onMounted, onUnmounted } from 'vue'
+import { ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
+import StatsCounter from './StatsCounter.vue'
 import TagBar from './TagBar.vue'
 import ChannelBar from './ChannelBar.vue'
 import Contributors from './Contributors.vue'
@@ -127,20 +128,70 @@ function initHeroEffect() {
   })
 }
 
+const glowRef = ref(null)
+let glowMouseX = 0
+let glowMouseY = 0
+let glowCurrentX = 0
+let glowCurrentY = 0
+let glowRafId = null
+
+function updateGlowPosition() {
+  glowCurrentX += (glowMouseX - glowCurrentX) * 0.08
+  glowCurrentY += (glowMouseY - glowCurrentY) * 0.08
+  if (glowRef.value) {
+    glowRef.value.style.transform = `translate3d(${glowCurrentX - 300}px, ${glowCurrentY - 300}px, 0)`
+  }
+  glowRafId = requestAnimationFrame(updateGlowPosition)
+}
+
+function handleMouseMove(e) {
+  glowMouseX = e.clientX
+  glowMouseY = e.clientY
+  if (glowRef.value) {
+    glowRef.value.style.opacity = '1'
+  }
+}
+
+function handleMouseLeave() {
+  if (glowRef.value) {
+    glowRef.value.style.opacity = '0'
+  }
+}
+
+function initGlow() {
+  if (typeof window === 'undefined') return
+  window.addEventListener('mousemove', handleMouseMove)
+  document.addEventListener('mouseleave', handleMouseLeave)
+  glowRafId = requestAnimationFrame(updateGlowPosition)
+}
+
+function destroyGlow() {
+  if (typeof window === 'undefined') return
+  window.removeEventListener('mousemove', handleMouseMove)
+  document.removeEventListener('mouseleave', handleMouseLeave)
+  if (glowRafId) {
+    cancelAnimationFrame(glowRafId)
+  }
+}
+
 onMounted(() => {
   // 延迟初始化，等 VitePress 渲染完
   setTimeout(initHeroEffect, 500)
+  initGlow()
 })
 
 onUnmounted(() => {
   cleanupFns.forEach(fn => fn())
   cleanupFns = []
+  destroyGlow()
 })
 </script>
 
 <template>
+  <div class="hbu-mouse-glow" ref="glowRef"></div>
   <Layout>
     <template #home-features-after>
+      <StatsCounter />
       <TagBar />
       <ChannelBar />
       <Contributors />
