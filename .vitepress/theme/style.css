@@ -262,13 +262,13 @@
   font-size: 16px !important;
   font-weight: 600 !important;
   box-shadow: 0 4px 16px rgba(30, 86, 176, 0.25);
-  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease !important;
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .VPHero .actions .VPButton.brand:hover {
   background: var(--hbu-blue-light) !important;
   box-shadow: 0 6px 24px rgba(30, 86, 176, 0.4);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .VPHero .actions .VPButton.alt {
@@ -277,13 +277,13 @@
   color: var(--text-primary) !important;
   padding: 12px 32px !important;
   font-size: 16px !important;
-  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .VPHero .actions .VPButton.alt:hover {
   border-color: var(--hbu-blue) !important;
   color: var(--hbu-blue) !important;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .dark .VPHero .actions .VPButton.alt:hover {
@@ -294,17 +294,23 @@
    首页 Feature 卡片 —— 干净简洁
    ============================================ */
 .VPFeature {
-  background: var(--bg-surface) !important;
+  background: var(--vp-c-bg-alt) !important;
   border: 1px solid var(--border-subtle) !important;
   border-radius: var(--radius-md) !important;
   padding: 24px !important;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .VPFeature:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: var(--shadow-hover) !important;
-  border-color: var(--border-active) !important;
+  transform: translateY(-6px) !important;
+  box-shadow: 0 12px 30px rgba(30, 86, 176, 0.08) !important;
+  border-color: var(--vp-c-brand-1) !important;
+}
+
+.dark .VPFeature:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4) !important;
+  border-color: var(--vp-c-brand-1) !important;
+  background: rgba(255, 255, 255, 0.02) !important;
 }
 
 .VPFeature .icon {
@@ -650,4 +656,20 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ============================================
+   首页高级感渐变背景
+   ============================================ */
+.VPHome {
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(30, 86, 176, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 85% 85%, rgba(30, 86, 176, 0.04) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+.dark .VPHome {
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(30, 86, 176, 0.07) 0%, transparent 60%),
+    radial-gradient(circle at 85% 85%, rgba(30, 86, 176, 0.07) 0%, transparent 60%);
 }

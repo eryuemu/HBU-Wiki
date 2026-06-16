@@ -2,8 +2,12 @@
 import DefaultTheme from 'vitepress/theme'
 import { useRoute } from 'vitepress'
 import { watch, nextTick, onMounted, onUnmounted } from 'vue'
+import TagBar from './TagBar.vue'
+import ChannelBar from './ChannelBar.vue'
+import Contributors from './Contributors.vue'
 
 const { Layout } = DefaultTheme
+
 const route = useRoute()
 
 // 路由切换过渡
@@ -135,5 +139,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <Layout />
+  <Layout>
+    <template #home-features-after>
+      <TagBar />
+      <ChannelBar />
+      <Contributors />
+    </template>
+  </Layout>
 </template>
