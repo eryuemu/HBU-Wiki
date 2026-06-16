@@ -22,8 +22,12 @@ watch(
         void content.offsetWidth
         content.classList.add('page-transition-active')
       }
-      // 路由变化后重新初始化首页特效
-      setTimeout(initHeroEffect, 300)
+      // 路由变化后重新初始化首页与渐入特效
+      destroyScrollReveal()
+      setTimeout(() => {
+        initHeroEffect()
+        initScrollReveal()
+      }, 300)
     })
   }
 )
@@ -174,16 +178,61 @@ function destroyGlow() {
   }
 }
 
+let revealObserver = null
+
+function initScrollReveal() {
+  if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return
+
+  // 1. 获取所有带有 hbu-reveal 的自定义容器
+  const revealElements = document.querySelectorAll('.hbu-reveal')
+  
+  // 2. 动态为 VitePress 原生的 VPFeatures（首页卡片组）添加 hbu-reveal 类，使其也能参与渐入
+  const vpFeatures = document.querySelector('.VPFeatures')
+  if (vpFeatures) {
+    vpFeatures.classList.add('hbu-reveal')
+  }
+
+  // 再次获取所有需要 reveal 的元素（包含动态添加的）
+  const allElements = document.querySelectorAll('.hbu-reveal')
+
+  revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-active')
+        revealObserver.unobserve(entry.target)
+      }
+    })
+  }, {
+    threshold: 0.05,
+    rootMargin: '0px 0px -40px 0px'
+  })
+
+  allElements.forEach(el => {
+    revealObserver.observe(el)
+  })
+}
+
+function destroyScrollReveal() {
+  if (revealObserver) {
+    revealObserver.disconnect()
+    revealObserver = null
+  }
+}
+
 onMounted(() => {
   // 延迟初始化，等 VitePress 渲染完
   setTimeout(initHeroEffect, 500)
   initGlow()
+  nextTick(() => {
+    setTimeout(initScrollReveal, 600)
+  })
 })
 
 onUnmounted(() => {
   cleanupFns.forEach(fn => fn())
   cleanupFns = []
   destroyGlow()
+  destroyScrollReveal()
 })
 </script>
 

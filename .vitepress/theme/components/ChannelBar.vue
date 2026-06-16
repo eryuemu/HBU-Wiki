@@ -32,7 +32,7 @@ const channels = [
 </script>
 
 <template>
-  <div class="hbu-channelbar-container">
+  <div class="hbu-channelbar-container hbu-reveal">
     <div class="hbu-section-title-wrapper">
       <h2 class="hbu-section-title">🔗 常用通道 & 友情链接</h2>
       <p class="hbu-section-subtitle">一键直达河北大学常用官方服务平台</p>

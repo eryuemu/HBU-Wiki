@@ -3,8 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const stats = [
   { label: '百科板块', target: 18, suffix: '+', current: ref(0) },
-  { label: '收录条目', target: 160, suffix: '+', current: ref(0) },
-  { label: '参与共建同学', target: 320, suffix: '+', current: ref(0) }
+  { label: '收录条目', target: 160, suffix: '+', current: ref(0) }
 ]
 
 const containerRef = ref(null)
@@ -68,7 +67,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="hbu-stats-container">
+  <div ref="containerRef" class="hbu-stats-container hbu-reveal">
     <div class="hbu-stats-grid">
       <div v-for="item in stats" :key="item.label" class="hbu-stat-card">
         <div class="hbu-stat-number">
@@ -90,8 +89,10 @@ onUnmounted(() => {
 
 .hbu-stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .hbu-stat-card {
@@ -122,7 +123,7 @@ onUnmounted(() => {
 }
 
 .hbu-stat-digit {
-  font-variant-numeric: tabular-nums; /* 防止数字改变时宽度抖动 */
+  font-variant-numeric: tabular-nums;
 }
 
 .hbu-stat-suffix {

@@ -753,3 +753,18 @@
     display: none !important;
   }
 }
+
+/* ============================================
+   从下往上滑动渐入特效（MiMo 风格）
+   ============================================ */
+.hbu-reveal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.995);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.hbu-reveal.reveal-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}

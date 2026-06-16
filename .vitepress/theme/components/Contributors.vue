@@ -34,7 +34,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="hbu-contributors-container">
+  <div class="hbu-contributors-container hbu-reveal">
     <div class="hbu-section-title-wrapper">
       <h2 class="hbu-section-title">✨ 鸣谢与贡献者</h2>
       <p class="hbu-section-subtitle">感谢所有为 HBU Wiki 做出贡献的开发者与内容创作者</p>
