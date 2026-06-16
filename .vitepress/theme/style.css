@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ============================================
    HBU Wiki — 全局样式
@@ -11,53 +11,53 @@
   --hbu-blue: #1E56B0;
   --hbu-blue-light: #2E6FD8;
   --hbu-blue-dark: #143D85;
-  --hbu-blue-muted: rgba(30, 86, 176, 0.05);
+  --hbu-blue-muted: rgba(30, 86, 176, 0.04);
 
   /* 背景层级 */
   --bg-base: #ffffff;
-  --bg-surface: #f8f9fa;
-  --bg-elevated: #f1f3f4;
+  --bg-surface: #f5f5f7;
+  --bg-elevated: #e8e8ed;
 
   /* 文字层级 */
-  --text-primary: #202124;
-  --text-secondary: #5f6368;
-  --text-muted: #70757a;
+  --text-primary: #000000;
+  --text-secondary: #515154;
+  --text-muted: #86868b;
 
   /* 边框 */
-  --border-subtle: #dadce0;
-  --border-active: rgba(30, 86, 176, 0.3);
+  --border-subtle: #e5e5e7;
+  --border-active: #000000;
 
   /* 阴影 */
-  --shadow-card: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
-  --shadow-hover: 0 4px 8px 3px rgba(60,64,67,0.15), 0 1px 3px 0 rgba(60,64,67,0.3);
+  --shadow-card: none;
+  --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.03);
 }
 
-/* ---------- 设计令牌：暗色模式（谷歌云石板蓝） ---------- */
+/* ---------- 设计令牌：暗色模式（曜石黑 & 深空灰） ---------- */
 .dark {
-  --hbu-blue-muted: rgba(30, 86, 176, 0.12);
+  --hbu-blue-muted: rgba(30, 86, 176, 0.1);
 
-  --bg-base: #0f172a;
-  --bg-surface: #1e293b;
-  --bg-elevated: #334155;
+  --bg-base: #000000;
+  --bg-surface: #121212;
+  --bg-elevated: #1e1e1e;
 
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #64748b;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1a6;
+  --text-muted: #6e6e73;
 
-  --border-subtle: #334155;
-  --border-active: rgba(30, 86, 176, 0.5);
+  --border-subtle: #222222;
+  --border-active: #ffffff;
 
-  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
-  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+  --shadow-card: none;
+  --shadow-hover: 0 12px 36px rgba(255, 255, 255, 0.02);
 }
 
 /* ---------- 字体 & 圆角 ---------- */
 :root {
-  --font-sans: "Google Sans", "Product Sans", "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-sans: "MiSans", "Mi Sans", "Outfit", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
+  --radius-sm: 6px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
   --radius-full: 9999px;
 }
 
@@ -182,33 +182,31 @@
 }
 
 .VPSidebar .group .title {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   font-family: var(--font-sans);
-  font-size: 13px;
-  letter-spacing: 0.05em;
+  font-size: 13.5px;
+  letter-spacing: 0.02em;
   padding-left: 16px;
+  margin-bottom: 8px;
 }
 
 .VPSidebarItem.level-0 .item {
-  border-radius: 0 99px 99px 0;
-  margin-right: 12px;
+  border-radius: var(--radius-full);
+  margin-right: 16px;
+  margin-left: 8px;
   padding-left: 16px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
 }
 
 .VPSidebarItem.level-0 .item:hover {
-  background-color: rgba(0, 0, 0, 0.04);
-}
-
-.dark .VPSidebarItem.level-0 .item:hover {
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: var(--bg-surface);
 }
 
 .VPSidebarItem.level-0 .text {
   color: var(--text-secondary);
   transition: color 0.2s ease;
-  font-size: 14px;
+  font-size: 14.5px;
 }
 
 .VPSidebarItem.level-0 .text:hover {
@@ -216,11 +214,7 @@
 }
 
 .VPSidebarItem.level-0.is-active > .item {
-  background-color: rgba(30, 86, 176, 0.08) !important;
-}
-
-.dark .VPSidebarItem.level-0.is-active > .item {
-  background-color: rgba(46, 111, 216, 0.15) !important;
+  background-color: var(--text-primary) !important;
 }
 
 .VPSidebarItem.level-0.is-active > .item > .indicator {
@@ -228,12 +222,8 @@
 }
 
 .VPSidebarItem.level-0.is-active > .item .text {
-  color: var(--hbu-blue);
+  color: var(--bg-base) !important;
   font-weight: 600;
-}
-
-.dark .VPSidebarItem.level-0.is-active > .item .text {
-  color: var(--hbu-blue-light);
 }
 
 /* ============================================
@@ -292,63 +282,58 @@
 
 /* Hero 按钮 */
 .VPHero .actions .VPButton.brand {
-  background: var(--hbu-blue) !important;
-  border: none !important;
-  color: #fff !important;
+  background: var(--text-primary) !important;
+  border: 1px solid var(--text-primary) !important;
+  color: var(--bg-base) !important;
   border-radius: var(--radius-full) !important;
-  padding: 12px 32px !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  box-shadow: 0 4px 16px rgba(30, 86, 176, 0.25);
-  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  padding: 12px 36px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .VPHero .actions .VPButton.brand:hover {
-  background: var(--hbu-blue-light) !important;
-  box-shadow: 0 6px 24px rgba(30, 86, 176, 0.4);
-  transform: translateY(-3px);
+  opacity: 0.85;
+  transform: scale(1.02);
 }
 
 .VPHero .actions .VPButton.alt {
   border-radius: var(--radius-full) !important;
   border: 1px solid var(--border-subtle) !important;
+  background: transparent !important;
   color: var(--text-primary) !important;
-  padding: 12px 32px !important;
-  font-size: 16px !important;
-  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  padding: 12px 36px !important;
+  font-size: 15px !important;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease !important;
+  box-shadow: none !important;
 }
 
 .VPHero .actions .VPButton.alt:hover {
-  border-color: var(--hbu-blue) !important;
-  color: var(--hbu-blue) !important;
-  transform: translateY(-3px);
-}
-
-.dark .VPHero .actions .VPButton.alt:hover {
-  color: var(--hbu-blue-light) !important;
+  border-color: var(--text-primary) !important;
+  transform: scale(1.02);
 }
 
 /* ============================================
    首页 Feature 卡片 —— 干净简洁
    ============================================ */
 .VPFeature {
-  background: var(--vp-c-bg-alt) !important;
-  border: 1px solid var(--border-subtle) !important;
-  border-radius: var(--radius-md) !important;
-  padding: 24px !important;
+  background: var(--bg-surface) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--radius-lg) !important;
+  padding: 32px !important;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: none !important;
 }
 
 .VPFeature:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 12px 30px rgba(30, 86, 176, 0.08) !important;
-  border-color: var(--vp-c-brand-1) !important;
+  transform: translateY(-4px) !important;
+  border-color: var(--border-subtle) !important;
+  box-shadow: var(--shadow-hover) !important;
 }
 
 .dark .VPFeature:hover {
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4) !important;
-  border-color: var(--vp-c-brand-1) !important;
-  background: rgba(255, 255, 255, 0.02) !important;
+  background: #161616 !important;
 }
 
 .VPFeature .icon {
@@ -395,44 +380,50 @@
    文档页面
    ============================================ */
 .vp-doc h1 {
-  font-size: 34px !important;
+  font-size: 38px !important;
   font-weight: 700 !important;
   color: var(--text-primary) !important;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
   font-family: var(--font-sans);
+  line-height: 1.2 !important;
 }
 
 .vp-doc h2 {
-  font-size: 24px !important;
+  font-size: 26px !important;
   font-weight: 600 !important;
   color: var(--text-primary) !important;
-  margin-top: 36px !important;
+  letter-spacing: -0.02em;
+  margin-top: 48px !important;
   padding-top: 24px;
   border-top: 1px solid var(--border-subtle);
   font-family: var(--font-sans);
+  line-height: 1.3 !important;
 }
 
 .vp-doc h3 {
-  font-size: 20px !important;
+  font-size: 21px !important;
   font-weight: 600 !important;
   color: var(--text-primary) !important;
-  margin-top: 24px !important;
+  margin-top: 32px !important;
   font-family: var(--font-sans);
+  line-height: 1.4 !important;
 }
 
 .vp-doc p,
 .vp-doc li {
   color: var(--text-secondary);
-  line-height: 1.75;
+  line-height: 1.8;
   font-size: 15.5px;
+  letter-spacing: -0.01em;
 }
 
 .vp-doc a {
   color: var(--hbu-blue) !important;
   text-decoration: none;
+  font-weight: 500;
   border-bottom: none;
-  transition: text-decoration 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .dark .vp-doc a {
@@ -440,71 +431,67 @@
 }
 
 .vp-doc a:hover {
+  opacity: 0.8;
   text-decoration: underline;
   text-decoration-thickness: 1.5px;
 }
 
 .vp-doc strong {
   color: var(--text-primary);
+  font-weight: 600;
 }
 
 .vp-doc code {
   background: var(--bg-surface) !important;
-  color: var(--hbu-blue) !important;
+  color: var(--text-primary) !important;
   border: 1px solid var(--border-subtle);
-  border-radius: 6px;
-  padding: 2px 6px;
+  border-radius: 8px;
+  padding: 3px 8px;
   font-size: 0.88em;
   font-family: var(--font-mono);
 }
 
-.dark .vp-doc code {
-  color: var(--hbu-blue-light) !important;
-}
-
 .vp-doc blockquote {
-  border-left: 4px solid var(--hbu-blue) !important;
-  background: var(--hbu-blue-muted) !important;
+  border-left: 4px solid var(--text-primary) !important;
+  background: var(--bg-surface) !important;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  padding: 14px 20px;
-  margin: 24px 0;
+  padding: 16px 24px;
+  margin: 28px 0;
 }
 
 .vp-doc blockquote p {
   color: var(--text-primary);
+  font-size: 16px;
+  font-style: italic;
   margin: 0;
 }
 
 /* 提示框 */
 .vp-doc .custom-block {
-  border-radius: 8px !important;
+  border-radius: var(--radius-md) !important;
   border: 1px solid var(--border-subtle) !important;
   background: var(--bg-surface) !important;
-  padding: 16px 20px !important;
-  margin: 20px 0 !important;
+  padding: 20px 24px !important;
+  margin: 24px 0 !important;
 }
 
 .vp-doc .custom-block.tip {
-  border-left: 4px solid #1a73e8 !important;
-  background: rgba(26, 115, 232, 0.04) !important;
-}
-.dark .vp-doc .custom-block.tip {
-  border-left: 4px solid #8ab4f8 !important;
-  background: rgba(138, 180, 248, 0.07) !important;
+  border-left: 4px solid var(--hbu-blue) !important;
+  background: var(--hbu-blue-muted) !important;
 }
 
 .vp-doc .custom-block.warning {
-  border-left: 4px solid #f9ab00 !important;
-  background: rgba(249, 171, 0, 0.04) !important;
+  border-left: 4px solid #ff9900 !important;
+  background: rgba(255, 153, 0, 0.04) !important;
 }
 .dark .vp-doc .custom-block.warning {
-  border-left: 4px solid #fdd663 !important;
-  background: rgba(253, 214, 99, 0.07) !important;
+  border-left: 4px solid #ffaa22 !important;
+  background: rgba(255, 170, 34, 0.07) !important;
 }
 
 .vp-doc .custom-block.danger {
-  border-left: 4px solid #d93025 !important;
-  background: rgba(217, 48, 37, 0.04) !important;
+  border-left: 4px solid #ea4335 !important;
+  background: rgba(234, 67, 53, 0.04) !important;
 }
 .dark .vp-doc .custom-block.danger {
   border-left: 4px solid #f28b82 !important;
@@ -515,42 +502,40 @@
 .vp-doc table {
   border-collapse: collapse;
   width: 100%;
-  margin: 24px 0;
+  margin: 32px 0;
   border: none !important;
 }
 
 .vp-doc th {
   background: transparent !important;
   color: var(--text-primary) !important;
-  font-weight: 600;
-  padding: 12px 16px;
+  font-weight: 700;
+  padding: 14px 18px;
   text-align: left;
   border-bottom: 2px solid var(--border-subtle) !important;
 }
 
 .vp-doc td {
   border-bottom: 1px solid var(--border-subtle) !important;
-  padding: 12px 16px;
+  padding: 14px 18px;
   color: var(--text-secondary);
 }
 
 .vp-doc tr {
   background: transparent !important;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .vp-doc tr:hover td {
-  background: rgba(30, 86, 176, 0.03) !important;
-}
-.dark .vp-doc tr:hover td {
-  background: rgba(255, 255, 255, 0.01) !important;
+  background: var(--bg-surface) !important;
 }
 
 /* 代码块容器 */
 .vp-doc div[class*="language-"] {
   border: 1px solid var(--border-subtle) !important;
-  border-radius: 8px !important;
+  border-radius: var(--radius-md) !important;
   background-color: var(--bg-surface) !important;
+  box-shadow: none !important;
 }
 .dark .vp-doc div[class*="language-"] {
   background-color: var(--bg-surface) !important;
