@@ -31,7 +31,30 @@ function initHeroEffect() {
 
   const wrapper = document.querySelector('.VPHero .image')
   const img = document.querySelector('.VPHero .VPImage')
+  const container = document.querySelector('.VPHero .image-container')
   if (!wrapper || !img) return
+
+  // 校徽图片尺寸约束：防止宽幅图片在移动端溢出
+  // 用 style 标签注入，确保优先级最高
+  let heroStyle = document.getElementById('hbu-hero-img-fix')
+  if (!heroStyle) {
+    heroStyle = document.createElement('style')
+    heroStyle.id = 'hbu-hero-img-fix'
+    document.head.appendChild(heroStyle)
+  }
+  function constrainHeroImage() {
+    const w = window.innerWidth
+    let maxW = 320
+    if (w < 640) maxW = 192
+    else if (w < 960) maxW = 256
+    heroStyle.textContent = `
+      .VPHero .image-src { max-width: ${maxW}px !important; max-height: none !important; width: auto !important; height: auto !important; }
+      .VPHero .image-container { max-width: ${maxW}px !important; }
+    `
+  }
+  constrainHeroImage()
+  window.addEventListener('resize', constrainHeroImage)
+  cleanupFns.push(() => window.removeEventListener('resize', constrainHeroImage))
 
   // 已初始化过就跳过
   if (wrapper.dataset.hero3d === 'true') return
