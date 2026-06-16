@@ -229,22 +229,8 @@
 }
 
 @keyframes hero-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.hero-3d-wrapper:hover .VPImage {
-  animation-play-state: paused;
-}
-
-/* 亮色模式：白色校徽变深色 */
-.VPHero .VPImage {
-  filter: brightness(0.15);
-}
-
-@keyframes hero-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  0%, 100% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, calc(-50% - 6px)); }
 }
 
 .hero-3d-wrapper:hover .VPImage {
@@ -646,6 +632,7 @@
     font-size: 15px !important;
   }
 }
+
 
 /* ============================================
    路由切换过渡（由 Layout.vue 触发）
