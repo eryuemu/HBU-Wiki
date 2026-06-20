@@ -350,8 +350,8 @@ body::before {
 }
 
 @keyframes hero-float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
+  0%, 100% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, calc(-50% - 5px)); }
 }
 
 /* 鼠标进入 hero 区域时暂停呼吸，让 JS 接管 */
@@ -773,6 +773,19 @@ body::before {
 
   .VPHero .tagline {
     font-size: 15px !important;
+  }
+
+  .VPHero .VPImage {
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  .VPHero .image-container {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    display: flex;
+    justify-content: center;
   }
 }
 

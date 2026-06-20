@@ -45,13 +45,9 @@ function constrainHeroImage() {
       document.head.appendChild(heroStyle)
     }
   }
-  const w = window.innerWidth
-  let maxW = 320
-  if (w < 640) maxW = 192
-  else if (w < 960) maxW = 256
   heroStyle.textContent = `
-    .VPHero .image-src { max-width: ${maxW}px !important; max-height: none !important; width: auto !important; height: auto !important; }
-    .VPHero .image-container { max-width: ${maxW}px !important; }
+    .VPHero .image-src { max-width: 100% !important; max-height: none !important; width: auto !important; height: auto !important; }
+    .VPHero .image-container { max-width: 100% !important; margin: 0 auto; }
   `
 }
 
@@ -94,7 +90,7 @@ function initHeroTilt() {
     const shadowX = -currentY * 1.5
     const shadowY = currentX * 1.5
 
-    img.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`
+    img.style.transform = `translate(-50%, -50%) rotateX(${currentX}deg) rotateY(${currentY}deg)`
     // 通过 CSS 变量传递动态阴影坐标
     img.style.setProperty('--shadow-x', `${shadowX}px`)
     img.style.setProperty('--shadow-y', `${shadowY}px`)
