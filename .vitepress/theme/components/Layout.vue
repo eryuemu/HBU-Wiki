@@ -1,11 +1,7 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
 import { useRoute } from 'vitepress'
-import { ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
-import StatsCounter from './StatsCounter.vue'
-import TagBar from './TagBar.vue'
-import ChannelBar from './ChannelBar.vue'
-import Contributors from './Contributors.vue'
+import { watch, nextTick, onMounted, onUnmounted } from 'vue'
 
 const { Layout } = DefaultTheme
 
@@ -22,10 +18,11 @@ watch(
         void content.offsetWidth
         content.classList.add('page-transition-active')
       }
-      // 路由变化后重新初始化首页与渐入特效
       destroyScrollReveal()
+      destroyHeroTilt()
       setTimeout(() => {
-        initHeroEffect()
+        constrainHeroImage()
+        initHeroTilt()
         initScrollReveal()
       }, 300)
     })
@@ -34,63 +31,74 @@ watch(
 
 let cleanupFns = []
 
-function initHeroEffect() {
-  cleanupFns.forEach(fn => fn())
-  cleanupFns = []
+// ──────────────────────────────────────────────
+// 校徽图片尺寸约束
+// ──────────────────────────────────────────────
+let heroStyle = null
+function constrainHeroImage() {
+  if (typeof window === 'undefined') return
+  if (!heroStyle) {
+    heroStyle = document.getElementById('hbu-hero-img-fix')
+    if (!heroStyle) {
+      heroStyle = document.createElement('style')
+      heroStyle.id = 'hbu-hero-img-fix'
+      document.head.appendChild(heroStyle)
+    }
+  }
+  const w = window.innerWidth
+  let maxW = 320
+  if (w < 640) maxW = 192
+  else if (w < 960) maxW = 256
+  heroStyle.textContent = `
+    .VPHero .image-src { max-width: ${maxW}px !important; max-height: none !important; width: auto !important; height: auto !important; }
+    .VPHero .image-container { max-width: ${maxW}px !important; }
+  `
+}
+
+// ──────────────────────────────────────────────
+// 校徽 3D 轻柔倾斜 + 动态投影
+// ──────────────────────────────────────────────
+let tiltCleanup = null
+
+function initHeroTilt() {
+  if (typeof window === 'undefined') return
+  // 移动端不启用
+  if (window.innerWidth < 960) return
 
   const wrapper = document.querySelector('.VPHero .image')
   const img = document.querySelector('.VPHero .VPImage')
-  const container = document.querySelector('.VPHero .image-container')
   if (!wrapper || !img) return
+  if (wrapper.dataset.tiltInit === 'true') return
+  wrapper.dataset.tiltInit = 'true'
 
-  // 校徽图片尺寸约束：防止宽幅图片在移动端溢出
-  // 用 style 标签注入，确保优先级最高
-  let heroStyle = document.getElementById('hbu-hero-img-fix')
-  if (!heroStyle) {
-    heroStyle = document.createElement('style')
-    heroStyle.id = 'hbu-hero-img-fix'
-    document.head.appendChild(heroStyle)
-  }
-  function constrainHeroImage() {
-    const w = window.innerWidth
-    let maxW = 320
-    if (w < 640) maxW = 192
-    else if (w < 960) maxW = 256
-    heroStyle.textContent = `
-      .VPHero .image-src { max-width: ${maxW}px !important; max-height: none !important; width: auto !important; height: auto !important; }
-      .VPHero .image-container { max-width: ${maxW}px !important; }
-    `
-  }
-  constrainHeroImage()
-  window.addEventListener('resize', constrainHeroImage)
-  cleanupFns.push(() => window.removeEventListener('resize', constrainHeroImage))
+  // 移除 JS 初始化内联 filter，交由 CSS 处理
+  img.style.removeProperty('filter')
 
-  // 已初始化过就跳过
-  if (wrapper.dataset.hero3d === 'true') return
-  wrapper.dataset.hero3d = 'true'
+  wrapper.style.perspective = '600px'
+  wrapper.style.perspectiveOrigin = 'center center'
 
-  // 设置 3D 透视
-  wrapper.style.transformStyle = 'preserve-3d'
-  wrapper.style.transition = 'transform 0.1s ease-out'
-  wrapper.style.willChange = 'transform'
-  wrapper.style.display = 'inline-block'
-
-  // 光影层
-  let shine = wrapper.querySelector('.hero-shine')
-  if (!shine) {
-    shine = document.createElement('div')
-    shine.className = 'hero-shine'
-    shine.style.cssText = 'position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;opacity:0;transition:opacity .3s ease;'
-    wrapper.appendChild(shine)
-  }
-
+  let targetX = 0, targetY = 0
+  let currentX = 0, currentY = 0
   let rafId = null
-  let targetX = 0, targetY = 0, currentX = 0, currentY = 0
+  const MAX_DEG = 4 // 最大倾斜角度，克制
+
+  function lerp(a, b, t) {
+    return a + (b - a) * t
+  }
 
   function animate() {
-    currentX += (targetX - currentX) * 0.08
-    currentY += (targetY - currentY) * 0.08
-    wrapper.style.transform = `perspective(800px) rotateX(${currentX}deg) rotateY(${currentY}deg)`
+    currentX = lerp(currentX, targetX, 0.06)
+    currentY = lerp(currentY, targetY, 0.06)
+
+    // 动态投影：随倾斜方向轻微偏移
+    const shadowX = -currentY * 1.5
+    const shadowY = currentX * 1.5
+
+    img.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`
+    // 通过 CSS 变量传递动态阴影坐标
+    img.style.setProperty('--shadow-x', `${shadowX}px`)
+    img.style.setProperty('--shadow-y', `${shadowY}px`)
+
     if (Math.abs(targetX - currentX) > 0.01 || Math.abs(targetY - currentY) > 0.01) {
       rafId = requestAnimationFrame(animate)
     } else {
@@ -100,16 +108,11 @@ function initHeroEffect() {
 
   function onMove(e) {
     const rect = wrapper.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    const cx = rect.width / 2
-    const cy = rect.height / 2
+    const x = (e.clientX - rect.left) / rect.width - 0.5  // -0.5 ~ 0.5
+    const y = (e.clientY - rect.top) / rect.height - 0.5
 
-    targetX = -((y - cy) / cy) * 12
-    targetY = ((x - cx) / cx) * 12
-
-    shine.style.background = `radial-gradient(circle at ${(x/rect.width)*100}% ${(y/rect.height)*100}%, rgba(255,255,255,0.2) 0%, transparent 60%)`
-    shine.style.opacity = '1'
+    targetY = x * MAX_DEG * 2
+    targetX = -y * MAX_DEG * 2
 
     if (!rafId) rafId = requestAnimationFrame(animate)
   }
@@ -117,82 +120,43 @@ function initHeroEffect() {
   function onLeave() {
     targetX = 0
     targetY = 0
-    shine.style.opacity = '0'
     if (!rafId) rafId = requestAnimationFrame(animate)
   }
 
   wrapper.addEventListener('mousemove', onMove)
   wrapper.addEventListener('mouseleave', onLeave)
 
-  cleanupFns.push(() => {
+  // 进场时给一个微妙的呼吸动画，鼠标进入后暂停
+  img.style.transition = 'transform 0.15s ease-out'
+
+  tiltCleanup = () => {
     wrapper.removeEventListener('mousemove', onMove)
     wrapper.removeEventListener('mouseleave', onLeave)
     if (rafId) cancelAnimationFrame(rafId)
-    wrapper.dataset.hero3d = ''
-  })
-}
-
-const glowRef = ref(null)
-let glowMouseX = 0
-let glowMouseY = 0
-let glowCurrentX = 0
-let glowCurrentY = 0
-let glowRafId = null
-
-function updateGlowPosition() {
-  glowCurrentX += (glowMouseX - glowCurrentX) * 0.08
-  glowCurrentY += (glowMouseY - glowCurrentY) * 0.08
-  if (glowRef.value) {
-    glowRef.value.style.transform = `translate3d(${glowCurrentX - 300}px, ${glowCurrentY - 300}px, 0)`
-  }
-  glowRafId = requestAnimationFrame(updateGlowPosition)
-}
-
-function handleMouseMove(e) {
-  glowMouseX = e.clientX
-  glowMouseY = e.clientY
-  if (glowRef.value) {
-    glowRef.value.style.opacity = '1'
+    wrapper.dataset.tiltInit = ''
   }
 }
 
-function handleMouseLeave() {
-  if (glowRef.value) {
-    glowRef.value.style.opacity = '0'
+function destroyHeroTilt() {
+  if (tiltCleanup) {
+    tiltCleanup()
+    tiltCleanup = null
   }
 }
 
-function initGlow() {
-  if (typeof window === 'undefined') return
-  window.addEventListener('mousemove', handleMouseMove)
-  document.addEventListener('mouseleave', handleMouseLeave)
-  glowRafId = requestAnimationFrame(updateGlowPosition)
-}
-
-function destroyGlow() {
-  if (typeof window === 'undefined') return
-  window.removeEventListener('mousemove', handleMouseMove)
-  document.removeEventListener('mouseleave', handleMouseLeave)
-  if (glowRafId) {
-    cancelAnimationFrame(glowRafId)
-  }
-}
-
+// ──────────────────────────────────────────────
+// 滚动渐入
+// ──────────────────────────────────────────────
 let revealObserver = null
 
 function initScrollReveal() {
   if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return
 
-  // 1. 获取所有带有 hbu-reveal 的自定义容器
-  const revealElements = document.querySelectorAll('.hbu-reveal')
-  
-  // 2. 动态为 VitePress 原生的 VPFeatures（首页卡片组）添加 hbu-reveal 类，使其也能参与渐入
   const vpFeatures = document.querySelector('.VPFeatures')
   if (vpFeatures) {
     vpFeatures.classList.add('hbu-reveal')
   }
 
-  // 再次获取所有需要 reveal 的元素（包含动态添加的）
   const allElements = document.querySelectorAll('.hbu-reveal')
 
   revealObserver = new IntersectionObserver((entries) => {
@@ -219,10 +183,17 @@ function destroyScrollReveal() {
   }
 }
 
+function onResize() {
+  constrainHeroImage()
+}
+
 onMounted(() => {
-  // 延迟初始化，等 VitePress 渲染完
-  setTimeout(initHeroEffect, 500)
-  initGlow()
+  setTimeout(() => {
+    constrainHeroImage()
+    initHeroTilt()
+  }, 400)
+  window.addEventListener('resize', onResize)
+  cleanupFns.push(() => window.removeEventListener('resize', onResize))
   nextTick(() => {
     setTimeout(initScrollReveal, 600)
   })
@@ -231,19 +202,29 @@ onMounted(() => {
 onUnmounted(() => {
   cleanupFns.forEach(fn => fn())
   cleanupFns = []
-  destroyGlow()
+  destroyHeroTilt()
   destroyScrollReveal()
 })
 </script>
 
 <template>
-  <div class="hbu-mouse-glow" ref="glowRef"></div>
-  <Layout>
-    <template #home-features-after>
-      <StatsCounter />
-      <TagBar />
-      <ChannelBar />
-      <Contributors />
-    </template>
-  </Layout>
+  <Layout />
 </template>
+
+<style>
+/* 强制在亮色模式下将主页校徽和顶部 Logo 改为黑色 */
+:root:not(.dark) .VPHero .VPImage,
+:root:not(.dark) .VPHero .image-src {
+  /* 默认阴影为 0px 4px，当 JS 接管时由变量控制 */
+  filter: brightness(0) drop-shadow(var(--shadow-x, 0px) var(--shadow-y, 4px) 12px rgba(0, 0, 0, 0.15)) !important;
+}
+
+.dark .VPHero .VPImage,
+.dark .VPHero .image-src {
+  filter: drop-shadow(var(--shadow-x, 0px) var(--shadow-y, 4px) 12px rgba(0, 0, 0, 0.3)) !important;
+}
+
+:root:not(.dark) .VPNavBarTitle .logo {
+  filter: brightness(0) !important;
+}
+</style>

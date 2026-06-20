@@ -46,15 +46,11 @@ const tags = [
 }
 
 .hbu-section-title {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--vp-c-text-1);
   letter-spacing: -0.02em;
   margin-bottom: 6px;
-  background: linear-gradient(135deg, var(--vp-c-text-1) 30%, var(--vp-c-brand-1) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
 }
 
 .hbu-section-subtitle {
@@ -111,18 +107,16 @@ const tags = [
 }
 
 .hbu-tag-pill:hover {
-  transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   border-color: var(--tag-text-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
 .dark .hbu-tag-pill:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .hbu-tag-pill:hover .hbu-tag-bullet {
-  transform: scale(1.6);
+  transform: scale(1.3);
   opacity: 1;
 }
 

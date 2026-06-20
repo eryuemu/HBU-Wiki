@@ -19,36 +19,36 @@
   --bg-elevated: #e8e8ed;
 
   /* 文字层级 */
-  --text-primary: #000000;
+  --text-primary: #1d1d1f;
   --text-secondary: #515154;
   --text-muted: #86868b;
 
   /* 边框 */
   --border-subtle: #e5e5e7;
-  --border-active: #000000;
+  --border-active: #1d1d1f;
 
   /* 阴影 */
   --shadow-card: none;
-  --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-/* ---------- 设计令牌：暗色模式（曜石黑 & 深空灰） ---------- */
+/* ---------- 设计令牌：暗色模式 ---------- */
 .dark {
   --hbu-blue-muted: rgba(30, 86, 176, 0.1);
 
-  --bg-base: #000000;
-  --bg-surface: #121212;
+  --bg-base: #0a0a0a;
+  --bg-surface: #141414;
   --bg-elevated: #1e1e1e;
 
-  --text-primary: #ffffff;
+  --text-primary: #f5f5f7;
   --text-secondary: #a1a1a6;
   --text-muted: #6e6e73;
 
   --border-subtle: #222222;
-  --border-active: #ffffff;
+  --border-active: #f5f5f7;
 
   --shadow-card: none;
-  --shadow-hover: 0 12px 36px rgba(255, 255, 255, 0.02);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 /* ---------- 字体 & 圆角 ---------- */
@@ -57,7 +57,7 @@
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
   --radius-sm: 6px;
   --radius-md: 16px;
-  --radius-lg: 28px;
+  --radius-lg: 24px;
   --radius-full: 9999px;
 }
 
@@ -86,10 +86,11 @@
   --vp-c-default-3: var(--text-muted);
   --vp-c-default-soft: var(--hbu-blue-muted);
 
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, var(--hbu-blue), var(--hbu-blue-light));
-  --vp-home-hero-image-background-image: radial-gradient(circle, var(--hbu-blue-muted) 0%, transparent 70%);
-  --vp-home-hero-image-filter: blur(56px);
+  /* Hero 标题：纯色，不要渐变 */
+  --vp-home-hero-name-color: var(--vp-c-text-1);
+  --vp-home-hero-name-background: none;
+  --vp-home-hero-image-background-image: none;
+  --vp-home-hero-image-filter: brightness(0) invert(27%) sepia(85%) saturate(1696%) hue-rotate(200deg) brightness(96%) contrast(97%) drop-shadow(0px 4px 12px rgba(30, 86, 176, 0.15));
 
   --vp-button-brand-bg: var(--hbu-blue);
   --vp-button-brand-hover-bg: var(--hbu-blue-light);
@@ -117,10 +118,33 @@
   --vp-c-border: var(--border-subtle);
   --vp-c-border-alt: var(--border-subtle);
   --vp-c-divider: var(--border-subtle);
+
+  --vp-home-hero-name-color: var(--vp-c-text-1);
+  --vp-home-hero-image-filter: drop-shadow(0px 4px 12px rgba(30, 86, 176, 0.15));
 }
 
 /* ============================================
-   导航栏 —— 毛玻璃 + 品牌色
+   全局底噪纹理 —— 纸质/胶片触感
+   极淡，只在大面积纯色背景上提供质感
+   ============================================ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+.dark body::before {
+  opacity: 0.04;
+}
+
+/* ============================================
+   导航栏 —— 毛玻璃 + 生长下划线
    ============================================ */
 .VPNav {
   background: rgba(255, 255, 255, 0.82) !important;
@@ -139,9 +163,9 @@
   color: var(--text-primary) !important;
 }
 
-/* 导航栏 logo：亮色模式变深色 */
+/* 导航栏 logo：在亮色模式下呈现黑色，暗色模式下呈现原色（白色） */
 .VPNavBarTitle .logo {
-  filter: brightness(0.15);
+  filter: brightness(0);
 }
 
 .dark .VPNavBarTitle .logo {
@@ -158,9 +182,32 @@
   color: var(--hbu-blue-light) !important;
 }
 
+/* 导航链接：从中心生长的下划线 */
 .VPNavBarMenuLink,
 .VPNavBarMenuGroup .text {
+  position: relative;
   transition: color 0.2s ease;
+}
+
+.VPNavBarMenuLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background: var(--hbu-blue);
+  transition: width 0.25s ease, left 0.25s ease;
+}
+
+.dark .VPNavBarMenuLink::after {
+  background: var(--hbu-blue-light);
+}
+
+.VPNavBarMenuLink:hover::after,
+.VPNavBarMenuLink.active::after {
+  width: 100%;
+  left: 0;
 }
 
 .VPNavBarMenuLink:hover,
@@ -196,7 +243,7 @@
   margin-right: 16px;
   margin-left: 8px;
   padding-left: 16px;
-  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .VPSidebarItem.level-0 .item:hover {
@@ -227,75 +274,124 @@
 }
 
 /* ============================================
-   首页 Hero 区域
+   首页 Hero 区域 —— 干净、分层入场
    ============================================ */
 .VPHero .name {
   font-size: clamp(40px, 8vw, 72px) !important;
   line-height: 1.1 !important;
-  background: linear-gradient(135deg, var(--hbu-blue) 0%, var(--hbu-blue-light) 60%, #4a8af4 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
+  color: var(--hbu-blue) !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  /* 分层入场动画 */
+  animation: hero-text-in 0.6s ease both;
+  animation-delay: 0.1s;
+}
+
+.dark .VPHero .name {
+  color: var(--hbu-blue-light) !important;
 }
 
 .VPHero .text {
   font-size: clamp(28px, 5vw, 48px) !important;
   color: var(--text-primary) !important;
   font-weight: 700;
+  animation: hero-text-in 0.6s ease both;
+  animation-delay: 0.2s;
 }
 
 .VPHero .tagline {
   font-size: 18px !important;
   color: var(--text-secondary) !important;
   line-height: 1.6;
+  animation: hero-text-in 0.6s ease both;
+  animation-delay: 0.3s;
 }
 
-/* 校徽 —— 悬浮 + 3D 交互 */
+.VPHero .actions {
+  animation: hero-text-in 0.6s ease both;
+  animation-delay: 0.4s;
+}
+
+.VPHero .image {
+  animation: hero-image-in 0.8s ease both;
+  animation-delay: 0.15s;
+}
+
+@keyframes hero-text-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-image-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 校徽 —— 轻微悬浮呼吸，3D 倾斜由 JS 控制 */
 .VPHero .VPImage {
-  animation: hero-float 4s ease-in-out infinite;
+  animation: hero-float 5s ease-in-out infinite;
   display: block;
+  will-change: transform, filter;
+  transition: transform 0.15s ease-out, filter 0.3s ease;
 }
 
 @keyframes hero-float {
-  0%, 100% { transform: translate(-50%, -50%); }
-  50% { transform: translate(-50%, calc(-50% - 6px)); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
 }
 
-.hero-3d-wrapper:hover .VPImage {
+/* 鼠标进入 hero 区域时暂停呼吸，让 JS 接管 */
+.VPHero .image:hover .VPImage {
   animation-play-state: paused;
 }
 
-/* 亮色模式：白色校徽变深色 */
-.VPHero .VPImage {
-  filter: brightness(0.15);
+/* 亮色模式：白色校徽变黑色，且添加 !important 确保覆盖 VitePress 默认变量 */
+.VPHero .VPImage,
+.VPHero .image-src {
+  filter: brightness(0) drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.15)) !important;
 }
 
-.dark .VPHero .VPImage {
-  filter: none;
+.dark .VPHero .VPImage,
+.dark .VPHero .image-src {
+  filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.3)) !important;
 }
 
-/* 暗色模式：消除面板边缘，融入背景 */
+/* 暗色模式：消除面板边缘 */
 .dark .VPHero .image-bg {
   background: transparent !important;
-  box-shadow: 0 10px 80px 40px rgba(0, 0, 0, 0.9);
 }
 
-/* Hero 按钮 */
+/* Hero 按钮 —— 扁平胶囊 */
 .VPHero .actions .VPButton.brand {
-  background: var(--text-primary) !important;
-  border: 1px solid var(--text-primary) !important;
-  color: var(--bg-base) !important;
+  background: var(--hbu-blue) !important;
+  border: 1px solid var(--hbu-blue) !important;
+  color: #fff !important;
   border-radius: var(--radius-full) !important;
   padding: 12px 36px !important;
   font-size: 15px !important;
   font-weight: 500 !important;
   box-shadow: none !important;
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 
 .VPHero .actions .VPButton.brand:hover {
-  opacity: 0.85;
-  transform: scale(1.02);
+  background: var(--hbu-blue-light) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 86, 176, 0.2) !important;
 }
 
 .VPHero .actions .VPButton.alt {
@@ -305,29 +401,28 @@
   color: var(--text-primary) !important;
   padding: 12px 36px !important;
   font-size: 15px !important;
-  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease !important;
+  transition: border-color 0.2s ease, color 0.2s ease !important;
   box-shadow: none !important;
 }
 
 .VPHero .actions .VPButton.alt:hover {
   border-color: var(--text-primary) !important;
-  transform: scale(1.02);
 }
 
 /* ============================================
-   首页 Feature 卡片 —— 干净简洁
+   首页 Feature 卡片 —— 图标区域 hover 色彩过渡
    ============================================ */
 .VPFeature {
   background: var(--bg-surface) !important;
   border: 1px solid transparent !important;
   border-radius: var(--radius-lg) !important;
   padding: 32px !important;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
   box-shadow: none !important;
 }
 
 .VPFeature:hover {
-  transform: translateY(-4px) !important;
+  transform: translateY(-3px) !important;
   border-color: var(--border-subtle) !important;
   box-shadow: var(--shadow-hover) !important;
 }
@@ -345,19 +440,24 @@
   align-items: center !important;
   justify-content: center !important;
   margin-bottom: 16px !important;
+  transition: background 0.3s ease !important;
+}
+
+.VPFeature:hover .icon {
+  background: rgba(30, 86, 176, 0.1) !important;
+}
+
+.dark .VPFeature:hover .icon {
+  background: rgba(46, 111, 216, 0.15) !important;
 }
 
 .VPFeature .icon svg {
   color: var(--hbu-blue);
-  transition: transform 0.25s ease;
+  transition: color 0.3s ease;
 }
 
 .dark .VPFeature .icon svg {
   color: var(--hbu-blue-light);
-}
-
-.VPFeature:hover .icon svg {
-  transform: scale(1.08);
 }
 
 .VPFeature .title {
@@ -373,9 +473,6 @@
   line-height: 1.6;
 }
 
-/* ============================================
-   文档页面
-   ============================================ */
 /* ============================================
    文档页面
    ============================================ */
@@ -523,7 +620,7 @@
 
 .vp-doc tr {
   background: transparent !important;
-  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.2s ease;
 }
 
 .vp-doc tr:hover td {
@@ -542,29 +639,13 @@
 }
 
 /* ============================================
-   页面过渡动画
+   页面过渡动画 —— 简洁淡入
    ============================================ */
 .VPContent {
-  animation: page-enter 0.4s ease both;
+  animation: page-enter 0.35s ease both;
 }
 
 @keyframes page-enter {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.VPDoc {
-  animation: doc-enter 0.35s ease both;
-  animation-delay: 0.05s;
-}
-
-@keyframes doc-enter {
   from {
     opacity: 0;
     transform: translateY(8px);
@@ -575,14 +656,15 @@
   }
 }
 
-.VPHero {
-  animation: hero-enter 0.6s ease both;
+.VPDoc {
+  animation: doc-enter 0.3s ease both;
+  animation-delay: 0.05s;
 }
 
-@keyframes hero-enter {
+@keyframes doc-enter {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -590,20 +672,22 @@
   }
 }
 
+/* Hero 整体入场由子元素分层控制，这里不再加整体动画 */
+
 .VPFeature {
-  animation: feature-enter 0.4s ease both;
+  animation: feature-enter 0.35s ease both;
 }
 
-.VPFeature:nth-child(1) { animation-delay: 0.1s; }
-.VPFeature:nth-child(2) { animation-delay: 0.18s; }
-.VPFeature:nth-child(3) { animation-delay: 0.26s; }
-.VPFeature:nth-child(4) { animation-delay: 0.34s; }
-.VPFeature:nth-child(5) { animation-delay: 0.42s; }
+.VPFeature:nth-child(1) { animation-delay: 0.08s; }
+.VPFeature:nth-child(2) { animation-delay: 0.14s; }
+.VPFeature:nth-child(3) { animation-delay: 0.20s; }
+.VPFeature:nth-child(4) { animation-delay: 0.26s; }
+.VPFeature:nth-child(5) { animation-delay: 0.32s; }
 
 @keyframes feature-enter {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -640,12 +724,12 @@
 }
 
 ::selection {
-  background: rgba(30, 86, 176, 0.25);
+  background: rgba(30, 86, 176, 0.2);
   color: var(--text-primary);
 }
 
 .dark ::selection {
-  background: rgba(30, 86, 176, 0.35);
+  background: rgba(30, 86, 176, 0.3);
 }
 
 /* ============================================
@@ -692,79 +776,35 @@
   }
 }
 
-
 /* ============================================
    路由切换过渡（由 Layout.vue 触发）
    ============================================ */
 .VPContent.page-transition-active {
-  animation: hbu-page-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: hbu-page-in 0.35s ease both;
 }
 
 @keyframes hbu-page-in {
   from {
     opacity: 0;
-    transform: translateY(14px) scale(0.995);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
 /* ============================================
-   首页高级感渐变背景
-   ============================================ */
-.VPHome {
-  background-image: 
-    radial-gradient(circle at 15% 15%, rgba(30, 86, 176, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 85% 85%, rgba(30, 86, 176, 0.04) 0%, transparent 50%);
-  background-attachment: fixed;
-}
-
-.dark .VPHome {
-  background-image: 
-    radial-gradient(circle at 15% 15%, rgba(30, 86, 176, 0.07) 0%, transparent 60%),
-    radial-gradient(circle at 85% 85%, rgba(30, 86, 176, 0.07) 0%, transparent 60%);
-}
-
-/* ============================================
-   鼠标跟随背景光晕（MiMo 风格桌面端专用）
-   ============================================ */
-.hbu-mouse-glow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(30, 86, 176, 0.04) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-.dark .hbu-mouse-glow {
-  background: radial-gradient(circle, rgba(46, 111, 216, 0.06) 0%, transparent 70%);
-}
-
-@media (max-width: 960px) {
-  .hbu-mouse-glow {
-    display: none !important;
-  }
-}
-
-/* ============================================
-   从下往上滑动渐入特效（MiMo 风格）
+   滚动渐入特效 —— 简洁版
    ============================================ */
 .hbu-reveal {
   opacity: 0;
-  transform: translateY(28px) scale(0.995);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
   will-change: transform, opacity;
 }
 
 .hbu-reveal.reveal-active {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }

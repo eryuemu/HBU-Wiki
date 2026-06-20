@@ -21,7 +21,13 @@ export default defineConfig({
           { text: '学校概况', link: '/general/intro' },
           { text: '校园地图', link: '/general/map' },
           { text: '校历与节点', link: '/general/calendar' },
-          { text: '新生指引', link: '/general/freshmen' },
+        ]
+      },
+      {
+        text: '🌱 新生引导',
+        collapsed: false,
+        items: [
+          { text: '新生引导', link: '/general/freshmen' },
         ]
       },
       {
@@ -32,9 +38,13 @@ export default defineConfig({
           { text: '图书馆指南', link: '/academics/library' },
           { text: '教务办事处', link: '/academics/office' },
           { text: '实验与科研', link: '/academics/research' },
-          { text: '奖学金与综测', link: '/academics/scholarships' },
-          { text: '升学与求职', link: '/academics/career' },
-          { text: '毕业与离校', link: '/academics/graduation' },
+        ]
+      },
+      {
+        text: '🔄 转专业',
+        collapsed: false,
+        items: [
+          { text: '转专业数据全解', link: '/academics/transfer' },
         ]
       },
       {
