@@ -20,7 +20,7 @@
 
 - **框架**：[VitePress](https://vitepress.dev/) — 极速的静态站点生成器
 - **样式**：自定义精简设计系统 + 3D 悬浮防晕动效
-- **预览**：[http://localhost:5174/HBU-Wiki/](http://localhost:5174/HBU-Wiki/)
+- **预览**：`http://localhost:5174/HBU-Wiki/`
 - **部署方式**：GitHub Pages 自动化构建与发布
 
 ---
@@ -58,4 +58,4 @@
 
 ## 📄 开源协议
 
-[MIT License](LICENSE)
+[MIT License](https://github.com/eryuemu/HBU-Wiki/blob/main/LICENSE)
