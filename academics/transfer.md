@@ -1,9 +1,5 @@
 # 转专业数据全解（2026年）
 
-<TransferExplorer />
-
-<GPAAnalyzer />
-
 ---
 
 ::: tip 本文作者

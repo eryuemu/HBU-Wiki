@@ -19,7 +19,8 @@ export default defineConfig({
     
     nav: [
       { text: '首页', link: '/' },
-      { text: '转专业数据', link: '/academics/transfer' },
+      { text: '转专业数据探索器', link: '/academics/data-explorer' },
+      { text: '转专业数据全解', link: '/academics/transfer' },
       { text: '保定攻略', link: '/life/surroundings' },
     ],
 
@@ -28,6 +29,7 @@ export default defineConfig({
         text: '🔄 转专业',
         collapsed: false,
         items: [
+          { text: '转专业数据探索器', link: '/academics/data-explorer' },
           { text: '转专业数据全解', link: '/academics/transfer' },
         ]
       },
