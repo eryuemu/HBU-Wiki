@@ -5,7 +5,7 @@ import transferData from '../../data/transferData.json'
 const gpaInput = ref('')
 const gpaValue = computed(() => parseFloat(gpaInput.value) || 0)
 const isValidGPA = computed(() => gpaValue.value > 0 && gpaValue.value <= 5)
-const isMedOrArt = ref(false) // 文科/医科学生（无法转电院/网计）
+const noMathRequired = ref(false) // 是否只看不需要高数C的专业
 
 // 只分析有最低绩点数据的专业
 const majorsWithGPA = computed(() =>
@@ -19,8 +19,8 @@ const analysis = computed(() => {
   const gpa = gpaValue.value
   let all = majorsWithGPA.value
 
-  // 如果是文/医科学生，过滤掉需要高数的专业
-  if (isMedOrArt.value) {
+  // 如果勾选了只看不需要高数的专业，过滤掉需要高数的专业
+  if (noMathRequired.value) {
     all = all.filter(m => !m.mathRequired)
   }
 
@@ -48,7 +48,7 @@ const analysis = computed(() => {
   reach.sort((a, b) => a.minGPA - b.minGPA)
   impossible.sort((a, b) => a.minGPA - b.minGPA)
 
-  return { safe, match, reach, impossible, filtered: isMedOrArt.value }
+  return { safe, match, reach, impossible, filtered: noMathRequired.value }
 })
 
 // 志愿模拟
@@ -109,12 +109,12 @@ const volunteerAnalysis = computed(() => {
   }
 
   // 检查数学限制
-  if (isMedOrArt.value) {
+  if (noMathRequired.value) {
     const mathRequired = selectedMajors.value.filter(m => m.mathRequired)
     if (mathRequired.length > 0) {
       tips.push({
         type: 'error',
-        text: `🚫 你选的「${mathRequired.map(m => m.name).join('、')}」需要大学数学C，文/医科学生无法转入！`
+        text: `🚫 你选的「${mathRequired.map(m => m.name).join('、')}」需要大学数学C及以上成绩！`
       })
     }
   }
@@ -169,9 +169,9 @@ function getRatioColor(ratio) {
       </div>
       
       <label class="ga-toggle">
-        <input type="checkbox" v-model="isMedOrArt" />
+        <input type="checkbox" v-model="noMathRequired" />
         <span class="ga-toggle-slider"></span>
-        <span class="ga-toggle-label">我是文科/医科生（过滤掉需要高数C的专业）</span>
+        <span class="ga-toggle-label">只看不需要大学数学C及以上成绩的专业</span>
       </label>
     </div>
 

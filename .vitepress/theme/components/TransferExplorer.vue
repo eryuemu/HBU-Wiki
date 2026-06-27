@@ -195,7 +195,7 @@ function getRatioColor(ratio) {
         <label class="te-toggle">
           <input type="checkbox" v-model="showMathOnly" />
           <span class="te-toggle-slider"></span>
-          <span class="te-toggle-label">只看不需要高数的专业（文/医/艺可转入）</span>
+          <span class="te-toggle-label">只看不需要大学数学C及以上成绩的专业</span>
         </label>
       </div>
     </div>
