@@ -32,6 +32,7 @@ export default defineConfig({
           { text: '转专业数据探索器', link: '/academics/data-explorer' },
           { text: '转专业数据全解', link: '/academics/transfer' },
           { text: '各专业录取绩点及分析', link: '/academics/gpa-analysis' },
+          { text: '官方文件及附件下载', link: '/academics/transfer-materials' },
         ]
       },
       {
