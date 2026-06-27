@@ -12,6 +12,7 @@ export default defineConfig({
     ['meta', { property: 'og:description', content: '帮河大人做出更聪明的选择' }],
   ],
 
+  ignoreDeadLinks: true,
   lastUpdated: true,
 
   themeConfig: {
