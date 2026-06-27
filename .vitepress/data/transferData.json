@@ -72,8 +72,8 @@
       "applicants": 144,
       "ratio": 14.40,
       "minGPA": 3.9906,
-      "mathRequired": true,
-      "tags": ["工科", "数学ABC均可"]
+      "mathRequired": false,
+      "tags": ["工科", "无高数要求"]
     },
     {
       "name": "会计学",
@@ -270,8 +270,8 @@
       "applicants": 49,
       "ratio": 8.17,
       "minGPA": null,
-      "mathRequired": true,
-      "tags": ["工科", "数学ABC均可"]
+      "mathRequired": false,
+      "tags": ["工科", "无高数要求"]
     },
     {
       "name": "金融学",
@@ -292,8 +292,8 @@
       "applicants": 44,
       "ratio": 7.33,
       "minGPA": null,
-      "mathRequired": true,
-      "tags": ["工科", "数学ABC均可"]
+      "mathRequired": false,
+      "tags": ["工科", "无高数要求"]
     },
     {
       "name": "中国语言文学类",
