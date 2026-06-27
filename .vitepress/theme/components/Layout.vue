@@ -1,9 +1,11 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
-import { useRoute } from 'vitepress'
+import { useRoute, useData } from 'vitepress'
 import { watch, nextTick, onMounted, onUnmounted } from 'vue'
+import GiscusComments from './GiscusComments.vue'
 
 const { Layout } = DefaultTheme
+const { frontmatter } = useData()
 
 const route = useRoute()
 
@@ -204,7 +206,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <Layout />
+  <Layout>
+    <!-- 文档页面底部：评论区 -->
+    <template #doc-after>
+      <GiscusComments />
+    </template>
+  </Layout>
 </template>
 
 <style>

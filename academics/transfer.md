@@ -1,5 +1,11 @@
 # 转专业数据全解（2026年）
 
+<TransferExplorer />
+
+<GPAAnalyzer />
+
+---
+
 ::: tip 本文作者
 作者：[@eryuemu](https://github.com/eryuemu)（内容首发于贴吧「河大转专业开源计划」系列帖）
 

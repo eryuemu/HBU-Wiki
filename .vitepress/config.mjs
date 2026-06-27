@@ -3,43 +3,27 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   base: '/HBU-Wiki/',
   title: "HBU Wiki",
-  description: "一个关于河北大学的开源知识库",
+  description: "河北大学非官方学生生存指南 — 帮河大人做出更聪明的选择",
+  
+  head: [
+    ['meta', { name: 'keywords', content: '河北大学,HBU,转专业,保定,校园指南,大学生活' }],
+    ['meta', { name: 'author', content: 'eryuemu' }],
+    ['meta', { property: 'og:title', content: 'HBU Wiki — 河北大学学生生存指南' }],
+    ['meta', { property: 'og:description', content: '帮河大人做出更聪明的选择' }],
+  ],
+
+  lastUpdated: true,
+
   themeConfig: {
     logo: 'https://www.hbu.edu.cn/images/logo.png',
+    
     nav: [
       { text: '首页', link: '/' },
-      { text: '走进河大', link: '/general/intro' },
-      { text: '生活指南', link: '/life/food' },
-      { text: '常用工具', link: '/tools/links' }
+      { text: '转专业数据', link: '/academics/transfer' },
+      { text: '保定攻略', link: '/life/surroundings' },
     ],
 
     sidebar: [
-      {
-        text: '🏛️ 走进河大',
-        collapsed: false,
-        items: [
-          { text: '学校概况', link: '/general/intro' },
-          { text: '校园地图', link: '/general/map' },
-          { text: '校历与节点', link: '/general/calendar' },
-        ]
-      },
-      {
-        text: '🌱 新生引导',
-        collapsed: false,
-        items: [
-          { text: '新生引导', link: '/general/freshmen' },
-        ]
-      },
-      {
-        text: '📚 学术科研',
-        collapsed: true,
-        items: [
-          { text: '院系设置', link: '/academics/departments' },
-          { text: '图书馆指南', link: '/academics/library' },
-          { text: '教务办事处', link: '/academics/office' },
-          { text: '实验与科研', link: '/academics/research' },
-        ]
-      },
       {
         text: '🔄 转专业',
         collapsed: false,
@@ -48,36 +32,10 @@ export default defineConfig({
         ]
       },
       {
-        text: '🍱 生活指南',
-        collapsed: true,
+        text: '🍜 校园生活',
+        collapsed: false,
         items: [
-          { text: '舌尖上的河大', link: '/life/food' },
-          { text: '住宿生活', link: '/life/dormitory' },
-          { text: '交通出行', link: '/life/transport' },
-          { text: '医疗/后勤', link: '/life/service' },
-          { text: '军训生存指南', link: '/life/military-training' },
-          { text: '快递与驿站', link: '/life/express' },
-          { text: '周边商圈与娱乐', link: '/life/surroundings' },
-        ]
-      },
-      {
-        text: '🎸 校园文化与社团',
-        collapsed: true,
-        items: [
-          { text: '社团百科', link: '/culture/societies' },
-          { text: '传统活动', link: '/culture/activities' },
-          { text: '校园传说', link: '/culture/legends' },
-        ]
-      },
-      {
-        text: '🛠️ 实用工具与资源',
-        collapsed: true,
-        items: [
-          { text: '常用链接', link: '/tools/links' },
-          { text: '下载专区', link: '/tools/download' },
-          { text: '避坑指南', link: '/tools/avoid-traps' },
-          { text: '校园网与 VPN', link: '/tools/network' },
-          { text: '正版软件与服务', link: '/tools/software' },
+          { text: '玩遍保定指南', link: '/life/surroundings' },
         ]
       }
     ],
@@ -86,7 +44,30 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/eryuemu/HBU-Wiki' }
     ],
 
+    search: {
+      provider: 'local',
+      options: {
+        translations: {
+          button: { buttonText: '搜索', buttonAriaLabel: '搜索' },
+          modal: {
+            noResultsText: '没有找到相关结果',
+            resetButtonTitle: '清除搜索',
+            footer: { selectText: '选择', navigateText: '切换' }
+          }
+        }
+      }
+    },
+
+    lastUpdated: {
+      text: '最后更新于',
+    },
+
     docFooter: { prev: '上一页', next: '下一页' },
-    outline: { label: '本页目录', level: 'deep' }
+    outline: { label: '本页目录', level: 'deep' },
+
+    footer: {
+      message: '基于 MIT 协议开源 · 非官方项目',
+      copyright: '© 2026 HBU Wiki Contributors'
+    }
   }
 })
