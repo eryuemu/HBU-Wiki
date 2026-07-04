@@ -37,6 +37,13 @@ export default defineConfig({
         ]
       },
       {
+        text: '📖 选课',
+        collapsed: false,
+        items: [
+          { text: '选课推荐与避雷 (小红书篇)', link: '/academics/course-recommendations-xhs' },
+        ]
+      },
+      {
         text: '🍜 校园生活',
         collapsed: false,
         items: [
