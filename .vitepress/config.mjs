@@ -16,7 +16,7 @@ export default defineConfig({
   lastUpdated: true,
 
   themeConfig: {
-    logo: 'https://www.hbu.edu.cn/images/logo.png',
+    logo: '/hbuwiki.jpg',
     
     nav: [
       { text: '首页', link: '/' },
