@@ -3,6 +3,7 @@ import DefaultTheme from 'vitepress/theme'
 import { useRoute, useData } from 'vitepress'
 import { watch, nextTick, onMounted, onUnmounted } from 'vue'
 import GiscusComments from './GiscusComments.vue'
+import PageView from './PageView.vue'
 
 const { Layout } = DefaultTheme
 const { frontmatter } = useData()
@@ -209,6 +210,7 @@ onUnmounted(() => {
   <Layout>
     <!-- 文档页面底部：评论区 -->
     <template #doc-after>
+      <PageView v-if="!frontmatter.home" />
       <GiscusComments />
     </template>
   </Layout>

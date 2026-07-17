@@ -28,6 +28,7 @@ HBU Wiki 是一个面向河北大学学生的**功能性知识平台**，不同�
 - **交互组件**：Vue 3 Composition API（TransferExplorer 数据探索器）
 - **数据层**：结构化 JSON 数据驱动
 - **评论系统**：[Giscus](https://giscus.app/)（基于 GitHub Discussions）
+- **访问统计**：[Umami Cloud](https://umami.is/)（实时流量分析） + [Vercount](https://github.com/Evan-ry/Vercount)（基于 Cloudflare 的文章级与全站 PV/UV 统计）
 - **搜索**：VitePress 内置本地搜索
 - **部署**：GitHub Actions → GitHub Pages
 - **样式**：自定义 CSS 设计系统（亮/暗模式）
@@ -65,12 +66,15 @@ HBU-Wiki/
 │           ├── Layout.vue          # 自定义布局
 │           ├── TransferExplorer.vue # 转专业数据探索器
 │           ├── GPAAnalyzer.vue      # 绩点定位与志愿模拟器
-│           └── GiscusComments.vue   # 评论组件
+│           ├── GiscusComments.vue   # 评论组件
+│           ├── PageView.vue         # 访问量统计组件（PV/UV）
+│           └── AnalyticsDashboard.vue # 实时访问统计大屏组件
 ├── academics/
 │   ├── transfer.md               # 转专业数据全解
 │   └── transfer-materials.md     # 转专业官方文件及附件下载
 ├── life/
 │   └── surroundings.md      # 保定吃喝玩乐指南
+├── analytics.md             # 实时统计大屏
 └── index.md                 # 首页
 ```
 
