@@ -10,6 +10,7 @@ export default defineConfig({
     ['meta', { name: 'author', content: 'eryuemu' }],
     ['meta', { property: 'og:title', content: 'HBU Wiki — 河北大学学生生存指南' }],
     ['meta', { property: 'og:description', content: '帮河大人做出更聪明的选择' }],
+    ['script', { defer: true, src: 'https://cloud.umami.is/script.js', 'data-website-id': '1d20e51d-d353-46f6-9e0e-d2ae9909fa6c' }]
   ],
 
   ignoreDeadLinks: true,
@@ -17,12 +18,14 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/hbuwiki.jpg',
+    analyticsShareUrl: 'https://cloud.umami.is/share/D4DaAkY7F16XlfNy', // 请在此处填入您的 Umami 公开分享链接
     
     nav: [
       { text: '首页', link: '/' },
       { text: '转专业数据探索器', link: '/academics/data-explorer' },
       { text: '转专业数据全解', link: '/academics/transfer' },
       { text: '保定攻略', link: '/life/surroundings' },
+      { text: '📊 实时数据', link: '/analytics' }
     ],
 
     sidebar: [
