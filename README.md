@@ -2,7 +2,7 @@
 
 > 河北大学非官方学生生存指南 — 帮河大人做出更聪明的选择
 
-🔗 **在线访问**：[hbuwiki.com](https://hbuwiki.com) *(部署在 GitHub Pages)*
+🔗 **在线访问**：[guide.hbuwiki.top](https://guide.hbuwiki.top) *(部署在 GitHub Pages)*
 
 ## 这是什么？
 
