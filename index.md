@@ -13,6 +13,9 @@ hero:
       text: 📊 转专业探索器
       link: /academics/data-explorer
     - theme: alt
+      text: 🏠 官方主站
+      link: https://hbuwiki.top
+    - theme: alt
       text: 🍜 保定攻略
       link: /life/surroundings
 
