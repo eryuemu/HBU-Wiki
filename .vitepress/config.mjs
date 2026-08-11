@@ -26,7 +26,7 @@ export default defineConfig({
       { text: '转专业数据全解', link: '/academics/transfer' },
       { text: '保定攻略', link: '/life/surroundings' },
       { text: '📊 实时数据', link: '/analytics' },
-      { text: '🏠 官方主站', link: 'https://hbuwiki.top' }
+      { text: '🏠 HBU Wiki 主站', link: 'https://hbuwiki.top' }
     ],
 
     sidebar: [
@@ -82,7 +82,7 @@ export default defineConfig({
     outline: { label: '本页目录', level: 'deep' },
 
     footer: {
-      message: '基于 MIT 协议开源 · 非官方项目 · 友情链接：<a href="https://hbuwiki.top" target="_blank" rel="noopener">HBU Wiki 官方主站 (Wiki.js)</a>',
+      message: '基于 MIT 协议开源 · 非官方项目 · 友情链接：<a href="https://hbuwiki.top" target="_blank" rel="noopener">HBU Wiki 主站 (Wiki.js)</a>',
       copyright: '© 2026 HBU Wiki Contributors'
     }
   }
