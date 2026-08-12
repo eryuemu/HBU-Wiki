@@ -227,7 +227,7 @@ function getRatioColor(ratio) {
 
       <div
         v-for="major in filteredMajors"
-        :key="major.name"
+        :key="major.college + '-' + major.name"
         class="te-card"
       >
         <div class="te-card-header">
