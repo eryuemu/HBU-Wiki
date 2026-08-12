@@ -195,16 +195,8 @@ function getRatioColor(ratio) {
         <label class="te-toggle">
           <input type="checkbox" v-model="showMathOnly" />
           <span class="te-toggle-slider"></span>
-          <span class="te-toggle-label">只看无大学数学C限制的专业（文/医/理工皆可报）</span>
+          <span class="te-toggle-label">只看无高数C门槛专业</span>
         </label>
-        <div class="te-math-tip">
-          💡 <strong>高数门槛避雷说明</strong>：
-          <ul class="te-math-tip-list">
-            <li>🔴 <strong>需高数C（限理工生）</strong>：指电院、网计学院等要求“大学数学C ≥ 75分”的专业。学医学文同学由于大一未分配数学C课程，<strong>无法跨选或转入</strong>。</li>
-            <li>🟢 <strong>数学ABC均可 ≥ 75</strong>：如测控技术与仪器、会计学、财务管理，修读 A/B/C 任意一种数学达到 75 分均可转入。</li>
-            <li>🌿 <strong>无高数门槛</strong>：法学、土木工程、智能建造、语言、人文社科等，不设高数分数限制。</li>
-          </ul>
-        </div>
       </div>
     </div>
 
@@ -244,8 +236,7 @@ function getRatioColor(ratio) {
               {{ getTierByRatio(major.ratio).label.split(' ')[0] }}
             </span>
             <h4 class="te-major-name">{{ major.name }}</h4>
-            <span v-if="major.mathRequired" class="te-math-badge te-math-badge-c" title="需大学数学C/B成绩≥75分（学医学文同学无法跨选）">📐 需高数C (限理工)</span>
-            <span v-else-if="major.tags.includes('数学ABC均可≥75')" class="te-math-badge te-math-badge-abc" title="大学数学 A/B/C 达到 75 分即可（文医理工均可报）">📐 数学ABC均可≥75</span>
+            <span v-if="major.mathRequired" class="te-math-tag-c" title="需大学数学C/B成绩≥75分（学医学文不可转入）">需高数C</span>
           </div>
           <div class="te-card-college">{{ major.college }}</div>
         </div>
@@ -619,44 +610,14 @@ function getRatioColor(ratio) {
   margin: 0;
 }
 
-.te-math-badge {
+.te-math-tag-c {
   font-size: 11px;
-  padding: 2px 8px;
-  border-radius: 99px;
   font-weight: 600;
-  white-space: nowrap;
-}
-
-.te-math-badge-c {
-  background: rgba(239, 68, 68, 0.12);
-  color: #dc2626;
-  border: 1px solid rgba(239, 68, 68, 0.2);
-}
-
-.te-math-badge-abc {
-  background: rgba(34, 197, 94, 0.12);
-  color: #16a34a;
-  border: 1px solid rgba(34, 197, 94, 0.2);
-}
-
-.te-math-tip {
-  margin-top: 10px;
-  padding: 10px 14px;
-  background: var(--vp-c-bg-alt);
-  border: 1px solid var(--vp-c-border);
-  border-radius: 10px;
-  font-size: 12.5px;
-  color: var(--vp-c-text-2);
-  line-height: 1.5;
-}
-
-.te-math-tip-list {
-  margin: 6px 0 0 0;
-  padding-left: 18px;
-}
-
-.te-math-tip-list li {
-  margin: 3px 0;
+  color: var(--vp-c-danger-1, #e11d48);
+  background: var(--vp-c-danger-soft, rgba(225, 29, 72, 0.08));
+  padding: 1px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
 }
 
 .te-card-college {
