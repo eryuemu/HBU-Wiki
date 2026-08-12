@@ -17,7 +17,7 @@ export default defineConfig({
   lastUpdated: true,
 
   themeConfig: {
-    logo: '/hbuwiki.jpg',
+    logo: '/hbuwiki.png',
     analyticsShareUrl: 'https://cloud.umami.is/share/D4DaAkY7F16XlfNy', // 请在此处填入您的 Umami 公开分享链接
     
     nav: [
