@@ -55,8 +55,12 @@ const analysis = computed(() => {
 const selectedMajors = ref([]) // 最多5个
 const showVolunteerPanel = ref(false)
 
+function isSameMajor(a, b) {
+  return a.college === b.college && a.name === b.name
+}
+
 function toggleMajor(major) {
-  const idx = selectedMajors.value.findIndex(m => m.name === major.name)
+  const idx = selectedMajors.value.findIndex(m => isSameMajor(m, major))
   if (idx >= 0) {
     selectedMajors.value.splice(idx, 1)
   } else if (selectedMajors.value.length < 5) {
@@ -65,7 +69,7 @@ function toggleMajor(major) {
 }
 
 function isMajorSelected(major) {
-  return selectedMajors.value.some(m => m.name === major.name)
+  return selectedMajors.value.some(m => isSameMajor(m, major))
 }
 
 function removeMajor(index) {
@@ -235,7 +239,7 @@ function getRatioColor(ratio) {
         </div>
         <div class="ga-major-list">
           <div
-            v-for="m in analysis.safe" :key="m.name"
+            v-for="m in analysis.safe" :key="m.college + '-' + m.name"
             :class="['ga-major-item', { 'ga-selected': isMajorSelected(m) }]"
             @click="toggleMajor(m)"
           >
@@ -263,7 +267,7 @@ function getRatioColor(ratio) {
         </div>
         <div class="ga-major-list">
           <div
-            v-for="m in analysis.match" :key="m.name"
+            v-for="m in analysis.match" :key="m.college + '-' + m.name"
             :class="['ga-major-item', { 'ga-selected': isMajorSelected(m) }]"
             @click="toggleMajor(m)"
           >
@@ -291,7 +295,7 @@ function getRatioColor(ratio) {
         </div>
         <div class="ga-major-list">
           <div
-            v-for="m in analysis.reach" :key="m.name"
+            v-for="m in analysis.reach" :key="m.college + '-' + m.name"
             :class="['ga-major-item', { 'ga-selected': isMajorSelected(m) }]"
             @click="toggleMajor(m)"
           >
@@ -321,7 +325,7 @@ function getRatioColor(ratio) {
           <summary class="ga-collapse-trigger">展开查看 {{ analysis.impossible.length }} 个专业</summary>
           <div class="ga-major-list">
             <div
-              v-for="m in analysis.impossible" :key="m.name"
+              v-for="m in analysis.impossible" :key="m.college + '-' + m.name"
               class="ga-major-item ga-faded"
             >
               <div class="ga-major-info">
@@ -348,9 +352,9 @@ function getRatioColor(ratio) {
           <p class="ga-volunteer-hint">👆 点击上方专业列表中的「+」将专业加入志愿（最多5个），系统会分析你的冲稳保策略。</p>
 
           <div v-if="selectedMajors.length > 0" class="ga-volunteer-list">
-            <div v-for="(m, i) in selectedMajors" :key="m.name" class="ga-volunteer-item">
+            <div v-for="(m, i) in selectedMajors" :key="m.college + '-' + m.name" class="ga-volunteer-item">
               <span class="ga-volunteer-index">志愿{{ i + 1 }}</span>
-              <span class="ga-volunteer-name">{{ m.name }}</span>
+              <span class="ga-volunteer-name">{{ m.name }} <small style="opacity: 0.75; font-weight: normal">({{ m.college }})</small></span>
               <span :class="['ga-volunteer-badge', `ga-badge-${getMajorAdvice(m).type}`]">
                 {{ getMajorAdvice(m).label }}
               </span>
