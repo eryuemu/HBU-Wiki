@@ -175,8 +175,16 @@ function getRatioColor(ratio) {
       <label class="ga-toggle">
         <input type="checkbox" v-model="noMathRequired" />
         <span class="ga-toggle-slider"></span>
-        <span class="ga-toggle-label">只看无需大学数学C门槛的专业（文/医/理工皆可报）</span>
+        <span class="ga-toggle-label">只看无大学数学C限制的专业（文/医/理工皆可报）</span>
       </label>
+      <div class="ga-math-tip">
+        💡 <strong>高数门槛说明</strong>：
+        <ul class="ga-math-tip-list">
+          <li>🔴 <strong>需高数C（限理工生）</strong>：要求“大学数学C ≥ 75分”（电院、网计学院等），学医学文由于未学数学C<strong>无法转入</strong>。</li>
+          <li>🟢 <strong>数学ABC均可 ≥ 75</strong>：如测控技术与仪器、会计学、财务管理，修读 A/B/C 任意数学达到 75 分均可转入。</li>
+          <li>🌿 <strong>无高数门槛</strong>：法学、土木工程、智能建造、语言、人文社科等，不设高数分数限制。</li>
+        </ul>
+      </div>
     </div>
 
     <!-- Results -->
@@ -518,6 +526,26 @@ function getRatioColor(ratio) {
 .ga-toggle-label {
   font-size: 13.5px;
   color: var(--vp-c-text-2);
+}
+
+.ga-math-tip {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 10px;
+  font-size: 12.5px;
+  color: var(--vp-c-text-2);
+  line-height: 1.5;
+}
+
+.ga-math-tip-list {
+  margin: 6px 0 0 0;
+  padding-left: 18px;
+}
+
+.ga-math-tip-list li {
+  margin: 3px 0;
 }
 
 /* Summary */
