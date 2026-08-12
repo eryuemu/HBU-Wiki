@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "HBU Wiki"
   text: "河北大学生存指南"
-  tagline: 非官方 · 帮河大人做出更聪明的选择 — 转专业数据 · 校园攻略 · 真实经验
+  tagline: 非官方项目 · 帮河大人做出更聪明的选择 — 转专业数据 · 校园攻略 · 真实经验
   image:
     src: https://www.hbu.edu.cn/images/logo.png
     alt: HBU Logo
