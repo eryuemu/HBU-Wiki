@@ -22,6 +22,8 @@ export default defineConfig({
     
     nav: [
       { text: '首页', link: '/' },
+      { text: '📖 进入Wiki', link: '/academics/data-explorer' },
+      { text: '🤝 参与贡献', link: 'https://github.com/eryuemu/HBU-Wiki' },
       { text: '📊 实时数据', link: '/analytics' },
       { text: '🏠 HBU Wiki 主站', link: 'https://hbuwiki.top' }
     ],
