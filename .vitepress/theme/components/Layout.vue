@@ -229,7 +229,7 @@ onUnmounted(() => {
   filter: drop-shadow(var(--shadow-x, 0px) var(--shadow-y, 4px) 12px rgba(0, 0, 0, 0.3)) !important;
 }
 
-:root:not(.dark) .VPNavBarTitle .logo {
+/* :root:not(.dark) .VPNavBarTitle .logo {
   filter: brightness(0) !important;
-}
+} */
 </style>
