@@ -96,20 +96,20 @@ const volunteerAnalysis = computed(() => {
   
   const tips = []
 
-  if (!hasSafe && selectedMajors.value.length >= 3) {
-    tips.push({ type: 'warning', text: '⚠️ 没有"保底"志愿！建议至少加一个绩点余量充足的专业，避免全部滑档。' })
+  if (!hasSafe) {
+    tips.push({ type: 'warning', text: '没有保底志愿，建议至少添加一个绩点余量充足的专业。' })
   }
   if (types.every(t => t === 'safe')) {
-    tips.push({ type: 'info', text: '💡 全是保底志愿，太保守了！可以把第1-2志愿换成更好的专业冲一冲。' })
+    tips.push({ type: 'info', text: '志愿设置偏保守，可将前 1-2 个志愿调整为更有挑战力的目标专业。' })
   }
   if (types.every(t => t === 'danger' || t === 'reach')) {
-    tips.push({ type: 'warning', text: '⚠️ 全是冲刺志愿，风险极高！强烈建议加入稳/保志愿。' })
+    tips.push({ type: 'warning', text: '志愿整体风险较高，强烈建议补充稳妥或保底专业。' })
   }
   if (hasSafe && hasReach) {
-    tips.push({ type: 'success', text: '✅ 冲稳保搭配合理，志愿梯度不错！' })
+    tips.push({ type: 'success', text: '志愿梯度搭配结构合理。' })
   }
   if (hasDanger) {
-    tips.push({ type: 'warning', text: '⚠️ 有"危险"志愿（绩点差距过大），大概率浪费志愿名额。' })
+    tips.push({ type: 'warning', text: '部分志愿与目前绩点差距较大，可能占用有效志愿名额。' })
   }
 
   // 检查数学限制
@@ -118,7 +118,7 @@ const volunteerAnalysis = computed(() => {
     if (mathRequired.length > 0) {
       tips.push({
         type: 'error',
-        text: `🚫 你选的「${mathRequired.map(m => m.name).join('、')}」需要大学数学C及以上成绩！`
+        text: `已选专业「${mathRequired.map(m => m.name).join('、')}」包含大学数学C成绩限制。`
       })
     }
   }
@@ -193,19 +193,19 @@ function getRatioColor(ratio) {
       <div class="ga-summary">
         <div class="ga-summary-item ga-safe">
           <span class="ga-summary-count">{{ analysis.safe.length }}</span>
-          <span class="ga-summary-label">🟢 可保底</span>
+          <span class="ga-summary-label">保底专业</span>
         </div>
         <div class="ga-summary-item ga-match">
           <span class="ga-summary-count">{{ analysis.match.length }}</span>
-          <span class="ga-summary-label">🟡 可冲稳</span>
+          <span class="ga-summary-label">稳妥专业</span>
         </div>
         <div class="ga-summary-item ga-reach">
           <span class="ga-summary-count">{{ analysis.reach.length }}</span>
-          <span class="ga-summary-label">🟠 搏一搏</span>
+          <span class="ga-summary-label">冲刺专业</span>
         </div>
         <div class="ga-summary-item ga-impossible">
           <span class="ga-summary-count">{{ analysis.impossible.length }}</span>
-          <span class="ga-summary-label">🔴 难度极大</span>
+          <span class="ga-summary-label">困难专业</span>
         </div>
       </div>
 
@@ -217,7 +217,7 @@ function getRatioColor(ratio) {
               class="ga-visual-marker" 
               :style="{ left: Math.min((gpaValue / 5) * 100, 100) + '%' }"
             >
-              <span class="ga-visual-marker-label">你的绩点 {{ gpaValue.toFixed(2) }}</span>
+              <span class="ga-visual-marker-label">当前绩点 {{ gpaValue.toFixed(2) }}</span>
               <span class="ga-visual-marker-dot"></span>
             </div>
             <!-- T0-T4 区间标记 -->
@@ -241,9 +241,8 @@ function getRatioColor(ratio) {
       <!-- Major Lists by Category -->
       <div v-if="analysis.safe.length" class="ga-group">
         <div class="ga-group-header ga-safe-header">
-          <span class="ga-group-icon">🟢</span>
-          <span class="ga-group-title">保底区</span>
-          <span class="ga-group-desc">— 你的绩点高于去年最低录取线 0.15+，上岸概率大</span>
+          <span class="ga-group-title">保底专业</span>
+          <span class="ga-group-desc">— 绩点高于去年录取线 0.15 分以上，录胜率较高</span>
         </div>
         <div class="ga-major-list">
           <div
@@ -269,9 +268,8 @@ function getRatioColor(ratio) {
 
       <div v-if="analysis.match.length" class="ga-group">
         <div class="ga-group-header ga-match-header">
-          <span class="ga-group-icon">🟡</span>
-          <span class="ga-group-title">冲稳区</span>
-          <span class="ga-group-desc">— 和去年录取线接近（±0.15），有机会但有风险</span>
+          <span class="ga-group-title">稳妥专业</span>
+          <span class="ga-group-desc">— 与去年录取线在 ±0.15 范围内，具备较强竞争实力</span>
         </div>
         <div class="ga-major-list">
           <div
@@ -297,9 +295,8 @@ function getRatioColor(ratio) {
 
       <div v-if="analysis.reach.length" class="ga-group">
         <div class="ga-group-header ga-reach-header">
-          <span class="ga-group-icon">🟠</span>
-          <span class="ga-group-title">搏一搏区</span>
-          <span class="ga-group-desc">— 绩点低于去年线 0.15~0.4，需要运气加持</span>
+          <span class="ga-group-title">冲刺专业</span>
+          <span class="ga-group-desc">— 绩点低于去年线 0.15~0.4，适合作为冲刺志愿</span>
         </div>
         <div class="ga-major-list">
           <div
@@ -325,9 +322,8 @@ function getRatioColor(ratio) {
 
       <div v-if="analysis.impossible.length" class="ga-group">
         <div class="ga-group-header ga-impossible-header">
-          <span class="ga-group-icon">🔴</span>
-          <span class="ga-group-title">难度极大</span>
-          <span class="ga-group-desc">— 绩点差距超过 0.4，建议另选目标</span>
+          <span class="ga-group-title">困难专业</span>
+          <span class="ga-group-desc">— 绩点差距超过 0.4 分，建议慎重分摊志愿</span>
         </div>
         <details class="ga-collapse">
           <summary class="ga-collapse-trigger">展开查看 {{ analysis.impossible.length }} 个专业</summary>
@@ -352,12 +348,12 @@ function getRatioColor(ratio) {
       <!-- Volunteer Simulator -->
       <div class="ga-volunteer-section">
         <div class="ga-volunteer-header" @click="showVolunteerPanel = !showVolunteerPanel">
-          <h4 class="ga-volunteer-title">📋 志愿模拟器</h4>
+          <h4 class="ga-volunteer-title">志愿模拟清单</h4>
           <span class="ga-volunteer-toggle">{{ showVolunteerPanel ? '收起' : '展开' }}</span>
         </div>
 
         <div v-if="showVolunteerPanel" class="ga-volunteer-panel">
-          <p class="ga-volunteer-hint">👆 点击上方专业列表中的「+」将专业加入志愿（最多5个），系统会分析你的冲稳保策略。</p>
+          <p class="ga-volunteer-hint">在上方专业列表中点击「+」将专业加入拟报志愿（最多 5 个），系统将自动评估组合梯度的合理性。</p>
 
           <div v-if="selectedMajors.length > 0" class="ga-volunteer-list">
             <div v-for="(m, i) in selectedMajors" :key="m.college + '-' + m.name" class="ga-volunteer-item">

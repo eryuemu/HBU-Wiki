@@ -14,57 +14,57 @@
     "ratio": [
       {
         "id": "hell",
-        "label": "💀 地狱级卷王",
+        "label": "地狱级（≥20:1）",
         "min": 20,
-        "color": "#dc2626"
+        "color": "#991b1b"
       },
       {
         "id": "dusk",
-        "label": "💀 诸神黄昏",
+        "label": "极高竞争（≥15:1）",
         "min": 15,
-        "color": "#ea580c"
+        "color": "#9a3412"
       },
       {
         "id": "red-sea",
-        "label": "🔥 爆红海",
+        "label": "红海级（≥10:1）",
         "min": 10,
-        "color": "#f59e0b"
+        "color": "#c2410c"
       },
       {
         "id": "fierce",
-        "label": "⚔️ 激烈火拼",
+        "label": "高竞争（≥6.5:1）",
         "min": 6.5,
-        "color": "#eab308"
+        "color": "#b45309"
       },
       {
         "id": "moderate",
-        "label": "📊 竞争适中",
+        "label": "竞争适中（≥3:1）",
         "min": 3,
-        "color": "#22c55e"
+        "color": "#047857"
       },
       {
         "id": "stable",
-        "label": "🌿 相对平稳",
+        "label": "相对平稳（≥1.01:1）",
         "min": 1.01,
-        "color": "#06b6d4"
+        "color": "#0e7490"
       },
       {
         "id": "exact",
-        "label": "🔴 刚消名额",
+        "label": "刚好满额（=1:1）",
         "min": 1,
-        "color": "#8b5cf6"
+        "color": "#6b21a8"
       },
       {
         "id": "pickup",
-        "label": "⬛ 终极捡漏",
+        "label": "低竞争（<1:1）",
         "min": 0.01,
-        "color": "#64748b"
+        "color": "#475569"
       },
       {
         "id": "none",
-        "label": "🚫 无人问津",
+        "label": "无人报考",
         "min": 0,
-        "color": "#94a3b8"
+        "color": "#64748b"
       }
     ],
     "gpa": [
