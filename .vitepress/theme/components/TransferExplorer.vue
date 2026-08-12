@@ -195,7 +195,7 @@ function getRatioColor(ratio) {
         <label class="te-toggle">
           <input type="checkbox" v-model="showMathOnly" />
           <span class="te-toggle-slider"></span>
-          <span class="te-toggle-label">只看不需要大学数学C及以上成绩的专业</span>
+          <span class="te-toggle-label">只看无需大学数学C门槛的专业（文/医/理工皆可报）</span>
         </label>
       </div>
     </div>
@@ -236,7 +236,7 @@ function getRatioColor(ratio) {
               {{ getTierByRatio(major.ratio).label.split(' ')[0] }}
             </span>
             <h4 class="te-major-name">{{ major.name }}</h4>
-            <span v-if="major.mathRequired" class="te-math-badge" title="需要大学数学C及以上">📐 需高数</span>
+            <span v-if="major.mathRequired" class="te-math-badge" title="需要大学数学C及以上成绩≥75分">📐 需高数C</span>
           </div>
           <div class="te-card-college">{{ major.college }}</div>
         </div>
