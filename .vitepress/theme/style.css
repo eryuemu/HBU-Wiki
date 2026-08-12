@@ -163,12 +163,8 @@ body::before {
   color: var(--text-primary) !important;
 }
 
-/* 导航栏 logo：在亮色模式下呈现黑色，暗色模式下呈现原色（白色） */
+/* 导航栏 logo：原色呈现 */
 .VPNavBarTitle .logo {
-  filter: brightness(0);
-}
-
-.dark .VPNavBarTitle .logo {
   filter: none;
 }
 
