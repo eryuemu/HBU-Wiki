@@ -22,9 +22,6 @@ export default defineConfig({
     
     nav: [
       { text: '首页', link: '/' },
-      { text: '转专业数据探索器', link: '/academics/data-explorer' },
-      { text: '转专业数据全解', link: '/academics/transfer' },
-      { text: '保定攻略', link: '/life/surroundings' },
       { text: '📊 实时数据', link: '/analytics' },
       { text: '🏠 HBU Wiki 主站', link: 'https://hbuwiki.top' }
     ],
