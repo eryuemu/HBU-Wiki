@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import transferData from '../../data/transferData.json'
+import MajorIcon from './MajorIcon.vue'
 
 const gpaInput = ref('')
 const gpaValue = computed(() => parseFloat(gpaInput.value) || 0)
@@ -251,6 +252,7 @@ function getRatioColor(ratio) {
             @click="toggleMajor(m)"
           >
             <div class="ga-major-info">
+              <MajorIcon :name="m.name" :college="m.college" :category="m.category" :color="getRatioColor(m.ratio)" :size="16" />
               <span class="ga-major-name">{{ m.name }}</span>
               <span class="ga-major-college">{{ m.college }}</span>
             </div>
@@ -278,6 +280,7 @@ function getRatioColor(ratio) {
             @click="toggleMajor(m)"
           >
             <div class="ga-major-info">
+              <MajorIcon :name="m.name" :college="m.college" :category="m.category" :color="getRatioColor(m.ratio)" :size="16" />
               <span class="ga-major-name">{{ m.name }}</span>
               <span class="ga-major-college">{{ m.college }}</span>
             </div>
@@ -305,6 +308,7 @@ function getRatioColor(ratio) {
             @click="toggleMajor(m)"
           >
             <div class="ga-major-info">
+              <MajorIcon :name="m.name" :college="m.college" :category="m.category" :color="getRatioColor(m.ratio)" :size="16" />
               <span class="ga-major-name">{{ m.name }}</span>
               <span class="ga-major-college">{{ m.college }}</span>
             </div>
@@ -333,6 +337,7 @@ function getRatioColor(ratio) {
               class="ga-major-item ga-faded"
             >
               <div class="ga-major-info">
+                <MajorIcon :name="m.name" :college="m.college" :category="m.category" :color="getRatioColor(m.ratio)" :size="16" />
                 <span class="ga-major-name">{{ m.name }}</span>
                 <span class="ga-major-college">{{ m.college }}</span>
               </div>
@@ -704,6 +709,10 @@ function getRatioColor(ratio) {
 .ga-major-info {
   flex: 1;
   min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .ga-major-name {
