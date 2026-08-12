@@ -10,14 +10,14 @@ hero:
     alt: HBU Logo
   actions:
     - theme: brand
-      text: 📊 转专业探索器
+      text: 📖 进入Wiki
       link: /academics/data-explorer
+    - theme: alt
+      text: 🤝 参与贡献
+      link: https://github.com/eryuemu/HBU-Wiki
     - theme: alt
       text: 🏠 HBU Wiki 主站
       link: https://hbuwiki.top
-    - theme: alt
-      text: 🍜 保定攻略
-      link: /life/surroundings
 
 features:
   - icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>
