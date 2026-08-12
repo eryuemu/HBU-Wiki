@@ -135,7 +135,7 @@ function getRatioColor(ratio) {
     <!-- Header -->
     <div class="te-header">
       <div class="te-title-row">
-        <h3 class="te-title">🔍 转专业数据探索器</h3>
+        <h3 class="te-title">转专业数据探索器</h3>
         <span class="te-badge">{{ filteredMajors.length }} / {{ transferData.majors.length }} 个专业</span>
       </div>
       <p class="te-subtitle">{{ transferData.year }}年数据 · 支持筛选、排序、搜索</p>
@@ -195,15 +195,13 @@ function getRatioColor(ratio) {
         <label class="te-toggle">
           <input type="checkbox" v-model="showMathOnly" />
           <span class="te-toggle-slider"></span>
-          <span class="te-toggle-label">只看无大学数学C限制的专业（文/医/理工皆可报）</span>
+          <span class="te-toggle-label">只看无高数C门槛专业</span>
         </label>
         <div class="te-math-tip">
-          💡 <strong>高数门槛避雷说明</strong>：
-          <ul class="te-math-tip-list">
-            <li>🔴 <strong>需高数C（限理工生）</strong>：指电院、网计学院等要求“大学数学C ≥ 75分”的专业。学医学文同学由于大一未分配数学C课程，<strong>无法跨选或转入</strong>。</li>
-            <li>🟢 <strong>数学ABC均可 ≥ 75</strong>：如测控技术与仪器、会计学、财务管理，修读 A/B/C 任意一种数学达到 75 分均可转入。</li>
-            <li>🌿 <strong>无高数门槛</strong>：法学、土木工程、智能建造、语言、人文社科等，不设高数分数限制。</li>
-          </ul>
+          <div class="te-math-tip-title">高数门槛限制提示</div>
+          <div class="te-math-tip-content">
+            电气工程、自动化、计算机、人工智能等专业在官方条件中要求大学数学C成绩达75分及以上。文科与医学专业大一未分配数学C课程，无法跨选转入；测控、会计、财务管理等专业要求数学A/B/C达75分，文医理工均可报考。
+          </div>
         </div>
       </div>
     </div>
@@ -227,7 +225,7 @@ function getRatioColor(ratio) {
     <!-- Results -->
     <div class="te-results">
       <div v-if="filteredMajors.length === 0" class="te-empty">
-        <p>没有找到匹配的专业 😅</p>
+        <p>没有找到匹配的专业</p>
         <button class="te-reset-btn" @click="searchQuery = ''; selectedCategory = 'all'; selectedTier = 'all'; showMathOnly = false">
           重置筛选
         </button>
@@ -240,12 +238,11 @@ function getRatioColor(ratio) {
       >
         <div class="te-card-header">
           <div class="te-card-title-row">
-            <span class="te-tier-icon" :style="{ color: getRatioColor(major.ratio) }">
-              {{ getTierByRatio(major.ratio).label.split(' ')[0] }}
-            </span>
             <h4 class="te-major-name">{{ major.name }}</h4>
-            <span v-if="major.mathRequired" class="te-math-badge te-math-badge-c" title="需大学数学C/B成绩≥75分（学医学文同学无法跨选）">📐 需高数C (限理工)</span>
-            <span v-else-if="major.tags.includes('数学ABC均可≥75')" class="te-math-badge te-math-badge-abc" title="大学数学 A/B/C 达到 75 分即可（文医理工均可报）">📐 数学ABC均可≥75</span>
+            <span v-if="major.mathRequired" class="te-math-tag-c" title="需大学数学C/B成绩≥75分">需高数C</span>
+            <span class="te-tier-tag" :style="{ color: getRatioColor(major.ratio), borderColor: getRatioColor(major.ratio) }">
+              {{ getTierByRatio(major.ratio).label }}
+            </span>
           </div>
           <div class="te-card-college">{{ major.college }}</div>
         </div>
@@ -282,8 +279,7 @@ function getRatioColor(ratio) {
             <div
               class="te-gpa-bar-fill"
               :style="{
-                width: getGPAPercent(major.minGPA) + '%',
-                backgroundColor: getRatioColor(major.ratio)
+                width: getGPAPercent(major.minGPA) + '%'
               }"
             ></div>
           </div>
@@ -607,56 +603,40 @@ function getRatioColor(ratio) {
   flex-wrap: wrap;
 }
 
-.te-tier-icon {
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.te-major-name {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--vp-c-text-1);
-  margin: 0;
-}
-
-.te-math-badge {
+.te-tier-tag {
   font-size: 11px;
-  padding: 2px 8px;
-  border-radius: 99px;
-  font-weight: 600;
-  white-space: nowrap;
+  font-weight: 500;
+  padding: 1px 7px;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+  opacity: 0.85;
 }
 
-.te-math-badge-c {
-  background: rgba(239, 68, 68, 0.12);
-  color: #dc2626;
-  border: 1px solid rgba(239, 68, 68, 0.2);
-}
-
-.te-math-badge-abc {
-  background: rgba(34, 197, 94, 0.12);
-  color: #16a34a;
-  border: 1px solid rgba(34, 197, 94, 0.2);
+.te-math-tag-c {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  padding: 1px 7px;
+  border-radius: 4px;
 }
 
 .te-math-tip {
   margin-top: 10px;
   padding: 10px 14px;
   background: var(--vp-c-bg-alt);
-  border: 1px solid var(--vp-c-border);
-  border-radius: 10px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
   font-size: 12.5px;
   color: var(--vp-c-text-2);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-.te-math-tip-list {
-  margin: 6px 0 0 0;
-  padding-left: 18px;
-}
-
-.te-math-tip-list li {
-  margin: 3px 0;
+.te-math-tip-title {
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  margin-bottom: 4px;
 }
 
 .te-card-college {
@@ -750,6 +730,7 @@ function getRatioColor(ratio) {
 .te-gpa-bar-fill {
   height: 100%;
   border-radius: 3px;
+  background: var(--vp-c-brand-1, #3eaf7c);
   transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
