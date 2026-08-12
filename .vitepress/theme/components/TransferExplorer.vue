@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import transferData from '../../data/transferData.json'
+import MajorIcon from './MajorIcon.vue'
 
 const searchQuery = ref('')
 const sortBy = ref('ratio')
@@ -15,17 +16,17 @@ const categories = computed(() => {
 })
 
 const categoryLabels = {
-  'all': '全部',
-  '工学': '🔧 工学',
-  '理学': '🔬 理学',
-  '医学': '🏥 医学',
-  '管理学': '📊 管理学',
-  '经济学': '💰 经济学',
-  '法学': '⚖️ 法学',
-  '文学': '📝 文学',
-  '教育学': '📖 教育学',
-  '历史学': '📜 历史学',
-  '哲学': '💭 哲学'
+  'all': '全部门类',
+  '工学': '工学',
+  '理学': '理学',
+  '医学': '医学',
+  '管理学': '管理学',
+  '经济学': '经济学',
+  '法学': '法学',
+  '文学': '文学',
+  '教育学': '教育学',
+  '历史学': '历史学',
+  '哲学': '哲学'
 }
 
 function getTierByRatio(ratio) {
@@ -238,6 +239,7 @@ function getRatioColor(ratio) {
       >
         <div class="te-card-header">
           <div class="te-card-title-row">
+            <MajorIcon :name="major.name" :college="major.college" :category="major.category" :color="getRatioColor(major.ratio)" :size="20" />
             <h4 class="te-major-name">{{ major.name }}</h4>
             <span v-if="major.mathRequired" class="te-math-tag-c" title="需大学数学C/B成绩≥75分">需高数C</span>
             <span class="te-tier-tag" :style="{ color: getRatioColor(major.ratio), borderColor: getRatioColor(major.ratio) }">
