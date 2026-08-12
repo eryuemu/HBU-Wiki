@@ -149,7 +149,7 @@
       "mathRequired": false,
       "tags": [
         "工科",
-        "无高数要求"
+        "无高数门槛"
       ]
     },
     {
@@ -163,7 +163,8 @@
       "mathRequired": false,
       "tags": [
         "经管",
-        "热门"
+        "热门",
+        "数学ABC均可≥75"
       ]
     },
     {
@@ -177,7 +178,8 @@
       "mathRequired": false,
       "tags": [
         "经管",
-        "热门"
+        "热门",
+        "数学ABC均可≥75"
       ]
     },
     {
@@ -188,10 +190,10 @@
       "applicants": 130,
       "ratio": 13.0,
       "minGPA": 4.0594,
-      "mathRequired": true,
+      "mathRequired": false,
       "tags": [
         "工科",
-        "数学ABC均可"
+        "数学ABC均可≥75"
       ]
     },
     {
@@ -327,7 +329,7 @@
       "applicants": 144,
       "ratio": 9.6,
       "minGPA": 4.0625,
-      "mathRequired": true,
+      "mathRequired": false,
       "tags": [
         "计算机",
         "数学"
@@ -398,7 +400,7 @@
       "mathRequired": false,
       "tags": [
         "工科",
-        "无高数要求"
+        "无高数门槛"
       ]
     },
     {
@@ -426,7 +428,7 @@
       "mathRequired": false,
       "tags": [
         "工科",
-        "无高数要求"
+        "无高数门槛"
       ]
     },
     {
@@ -464,7 +466,7 @@
       "applicants": 87,
       "ratio": 6.69,
       "minGPA": 3.8417,
-      "mathRequired": true,
+      "mathRequired": false,
       "tags": [
         "数学"
       ]
@@ -806,9 +808,10 @@
       "applicants": 10,
       "ratio": 1.25,
       "minGPA": 2.7625,
-      "mathRequired": true,
+      "mathRequired": false,
       "tags": [
-        "工科"
+        "工科",
+        "无高数门槛"
       ]
     },
     {
@@ -956,11 +959,10 @@
       "applicants": 3,
       "ratio": 0.17,
       "minGPA": 3.1056,
-      "mathRequired": true,
+      "mathRequired": false,
       "tags": [
         "工科",
-        "捡漏",
-        "时代的眼泪"
+        "无高数门槛"
       ]
     },
     {
@@ -985,10 +987,10 @@
       "applicants": 0,
       "ratio": 0,
       "minGPA": null,
-      "mathRequired": true,
+      "mathRequired": false,
       "tags": [
         "工科",
-        "无人问津"
+        "无高数门槛"
       ]
     },
     {

@@ -175,7 +175,7 @@ function getRatioColor(ratio) {
       <label class="ga-toggle">
         <input type="checkbox" v-model="noMathRequired" />
         <span class="ga-toggle-slider"></span>
-        <span class="ga-toggle-label">只看不需要大学数学C及以上成绩的专业</span>
+        <span class="ga-toggle-label">只看无需大学数学C门槛的专业（文/医/理工皆可报）</span>
       </label>
     </div>
 
