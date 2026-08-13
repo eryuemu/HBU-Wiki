@@ -22,13 +22,20 @@ export default defineConfig({
     
     nav: [
       { text: '首页', link: '/' },
-      { text: '📖 进入Wiki', link: '/academics/data-explorer' },
+      { text: '📖 进入Wiki', link: '/about' },
       { text: '🤝 参与贡献', link: 'https://github.com/eryuemu/HBU-Wiki' },
       { text: '📊 实时数据', link: '/analytics' },
       { text: '🏠 HBU Wiki 主站', link: 'https://hbuwiki.top' }
     ],
 
     sidebar: [
+      {
+        text: '📋 关于本站',
+        collapsed: false,
+        items: [
+          { text: '项目介绍', link: '/about' },
+        ]
+      },
       {
         text: '🔄 转专业',
         collapsed: false,
