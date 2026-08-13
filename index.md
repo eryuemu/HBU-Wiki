@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 📖 进入Wiki
-      link: /academics/data-explorer
+      link: /about
     - theme: alt
       text: 🤝 参与贡献
       link: https://github.com/eryuemu/HBU-Wiki
