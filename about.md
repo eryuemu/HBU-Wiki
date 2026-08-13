@@ -36,6 +36,8 @@ HBU-Wiki是关于河北大学的开源知识库项目，此站定位为副站，
 
 如果你会使用GitHub，会提issue和pr，想成为Contributor，可以到GitHub项目仓库：[github.com/eryuemu/HBU-Wiki](https://github.com/eryuemu/HBU-Wiki)
 
+如果觉得项目还不错，欢迎点个 Star ⭐，对我来说是很大的鼓励！
+
 当然，更方便的方式是去主站联系主站站长雪雪，加入编辑组，自由编辑：[雪雪的主页](https://hbuwiki.top/zh/%E9%9B%AA%E9%9B%AA%E4%B8%8D%E6%98%AF%E7%99%BD%E6%AF%9B%E5%B0%8F%E8%90%9D%E8%8E%89%E4%B8%BB%E9%A1%B5)
 
 后续也有规划建立wiki讨论群。
