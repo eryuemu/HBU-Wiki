@@ -14,7 +14,7 @@ hero:
       link: /about
     - theme: alt
       text: 🤝 参与贡献
-      link: https://github.com/eryuemu/HBU-Wiki
+      link: /about#如何参与贡献
     - theme: alt
       text: 🏠 HBU Wiki 主站
       link: https://hbuwiki.top
@@ -22,7 +22,7 @@ hero:
 features:
   - icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>
     title: 转专业数据探索器
-    details: 2026年最新67个专业的报录比、最低绩点、竞争分析，支持交互式筛选和志愿模拟。
+    details: 2026年70个专业的报录比、最低绩点、竞争分析，支持交互式筛选和志愿模拟。
     link: /academics/data-explorer
   - icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v1c0 3.87 3.13 7 7 7h2c3.87 0 7-3.13 7-7v-1a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><path d="M12 22v-4"/></svg>
     title: 保定吃喝玩乐
