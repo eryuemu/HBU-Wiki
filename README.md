@@ -80,14 +80,6 @@ HBU-Wiki/
 ├── analytics.md             # 实时统计大屏
 └── index.md                 # 首页
 ```
-
-## 后续计划
-
-- [ ] 食堂评价数据
-- [ ] 课程/老师评价系统
-- [ ] 宿舍对比工具
-- [ ] 选课攻略
-
 ## 参与贡献
 
 如果你会使用GitHub，会提issue和pr，想成为Contributor，欢迎直接提PR。
