@@ -1,13 +1,14 @@
 # HBU Wiki
 
-> 河北大学非官方学生生存指南 — 帮河大人做出更聪明的选择
+> 河北大学非官方开源知识库 — 致力于打破泥河的信息差，惠及更多河大人
 
-🔗 **生存指南 (Pages)**：[guide.hbuwiki.top](https://guide.hbuwiki.top)  
-🏠 **HBU Wiki 主站**：[hbuwiki.top](https://hbuwiki.top)
+🔗 **此站 (GitHub Pages)**：[guide.hbuwiki.top](https://guide.hbuwiki.top)  
+🏠 **HBU Wiki 主站**：[hbuwiki.top](https://hbuwiki.top)  
+📖 **项目介绍**：[guide.hbuwiki.top/about](https://guide.hbuwiki.top/about)
 
-## 这是什么？
+## 这是什么
 
-HBU Wiki 是一个面向河北大学学生的**功能性知识平台**，不同于传统百科式信息堆砌，我们聚焦于「帮助学生做出具体决策」的高价值内容。
+HBU-Wiki是关于河北大学的开源知识库项目，此站定位为副站，主站为 [hbuwiki.top](https://hbuwiki.top)，偏向传统的知识库，部署在VPS上。此站托管在GitHub Pages。
 
 ## 当前内容
 
@@ -75,6 +76,7 @@ HBU-Wiki/
 │   └── transfer-materials.md     # 转专业官方文件及附件下载
 ├── life/
 │   └── surroundings.md      # 保定吃喝玩乐指南
+├── about.md                 # 项目介绍
 ├── analytics.md             # 实时统计大屏
 └── index.md                 # 首页
 ```
@@ -88,8 +90,22 @@ HBU-Wiki/
 
 ## 参与贡献
 
-内容由站长策展 + 社群收集。如果你有想分享的校园信息，欢迎联系我。
+如果你会使用GitHub，会提issue和pr，想成为Contributor，欢迎直接提PR。
+
+如果觉得项目还不错，欢迎点个 Star ⭐，对我来说是很大的鼓励！
+
+也可以联系我：
+
+- 个人邮箱：eryuemu1213@qq.com / eryuemu1213@outlook.com
+- 个人博客：[eryuemu.com](https://eryuemu.com)
+- 个人QQ：3419144842
+
+## 免责声明
+
+Wiki信息来自互联网公开信息和在校学生及已毕业学长学姐，难免有错误和疏漏，如果你发现问题请及时提出。
+
+Wiki的文章观点仅为发布者个人观点，不代表校方观点，此项目性质为非官方的，公益性质的，校园知识库开源项目，与校方无关。
 
 ## 协议
 
-[MIT License](https://opensource.org/licenses/MIT)
+[MIT License](LICENSE)
