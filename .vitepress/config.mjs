@@ -10,6 +10,8 @@ export default defineConfig({
     hostname: 'https://guide.hbuwiki.top'
   },
 
+  srcExclude: ['**/CLAUDE.md', '**/README.md'],
+
   head: [
     // SEO 基础
     ['meta', { name: 'keywords', content: '河北大学,HBU,转专业,保定,校园指南,大学生活,选课,绩点,河大' }],
@@ -18,19 +20,14 @@ export default defineConfig({
     // Favicon
     ['link', { rel: 'icon', type: 'image/png', href: '/hbuwiki.png' }],
 
-    // Open Graph
+    // Open Graph (静态部分，动态部分由 transformHead 注入)
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'HBU Wiki' }],
-    ['meta', { property: 'og:title', content: 'HBU Wiki — 河北大学学生生存指南' }],
-    ['meta', { property: 'og:description', content: '帮河大人做出更聪明的选择 — 转专业数据 · 校园攻略 · 真实经验' }],
     ['meta', { property: 'og:image', content: 'https://guide.hbuwiki.top/hbuwiki.png' }],
-    ['meta', { property: 'og:url', content: 'https://guide.hbuwiki.top' }],
     ['meta', { property: 'og:locale', content: 'zh_CN' }],
 
-    // Twitter Card
+    // Twitter Card (静态部分)
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:title', content: 'HBU Wiki — 河北大学学生生存指南' }],
-    ['meta', { name: 'twitter:description', content: '帮河大人做出更聪明的选择 — 转专业数据 · 校园攻略 · 真实经验' }],
     ['meta', { name: 'twitter:image', content: 'https://guide.hbuwiki.top/hbuwiki.png' }],
 
     // Analytics
@@ -39,6 +36,24 @@ export default defineConfig({
 
   ignoreDeadLinks: true,
   lastUpdated: true,
+
+  transformHead({ pageData }) {
+    const canonicalUrl = `https://guide.hbuwiki.top/${pageData.relativePath}`
+      .replace(/index\.md$/, '')
+      .replace(/\.md$/, '.html')
+
+    const title = pageData.frontmatter.title || pageData.title || 'HBU Wiki'
+    const description = pageData.frontmatter.description || pageData.description || '河北大学非官方学生生存指南 — 帮河大人做出更聪明的选择'
+
+    return [
+      ['link', { rel: 'canonical', href: canonicalUrl }],
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }],
+      ['meta', { property: 'og:url', content: canonicalUrl }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: description }],
+    ]
+  },
 
   themeConfig: {
     logo: '/hbuwiki.png',
