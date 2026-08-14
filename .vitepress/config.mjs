@@ -4,12 +4,36 @@ export default defineConfig({
   base: '/',
   title: "HBU Wiki",
   description: "河北大学非官方学生生存指南 — 帮河大人做出更聪明的选择",
-  
+  lang: 'zh-CN',
+
+  sitemap: {
+    hostname: 'https://guide.hbuwiki.top'
+  },
+
   head: [
-    ['meta', { name: 'keywords', content: '河北大学,HBU,转专业,保定,校园指南,大学生活' }],
+    // SEO 基础
+    ['meta', { name: 'keywords', content: '河北大学,HBU,转专业,保定,校园指南,大学生活,选课,绩点,河大' }],
     ['meta', { name: 'author', content: 'eryuemu' }],
+
+    // Favicon
+    ['link', { rel: 'icon', type: 'image/png', href: '/hbuwiki.png' }],
+
+    // Open Graph
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'HBU Wiki' }],
     ['meta', { property: 'og:title', content: 'HBU Wiki — 河北大学学生生存指南' }],
-    ['meta', { property: 'og:description', content: '帮河大人做出更聪明的选择' }],
+    ['meta', { property: 'og:description', content: '帮河大人做出更聪明的选择 — 转专业数据 · 校园攻略 · 真实经验' }],
+    ['meta', { property: 'og:image', content: 'https://guide.hbuwiki.top/hbuwiki.png' }],
+    ['meta', { property: 'og:url', content: 'https://guide.hbuwiki.top' }],
+    ['meta', { property: 'og:locale', content: 'zh_CN' }],
+
+    // Twitter Card
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'HBU Wiki — 河北大学学生生存指南' }],
+    ['meta', { name: 'twitter:description', content: '帮河大人做出更聪明的选择 — 转专业数据 · 校园攻略 · 真实经验' }],
+    ['meta', { name: 'twitter:image', content: 'https://guide.hbuwiki.top/hbuwiki.png' }],
+
+    // Analytics
     ['script', { defer: true, src: 'https://cloud.umami.is/script.js', 'data-website-id': '1d20e51d-d353-46f6-9e0e-d2ae9909fa6c' }]
   ],
 
