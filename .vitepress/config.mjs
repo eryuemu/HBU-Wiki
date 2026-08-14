@@ -14,6 +14,7 @@ export default defineConfig({
 
   head: [
     // SEO 基础
+    ['meta', { name: 'google-site-verification', content: 'pGPoExqwEc0-BewUPBRHHFs33Ks-ngO7qslBGjDwI5Y' }],
     ['meta', { name: 'keywords', content: '河北大学,HBU,转专业,保定,校园指南,大学生活,选课,绩点,河大' }],
     ['meta', { name: 'author', content: 'eryuemu' }],
 
