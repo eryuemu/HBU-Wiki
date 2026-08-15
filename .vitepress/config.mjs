@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   base: '/',
   title: "HBU Wiki - 河北大学生存指南",
+  titleTemplate: ':title | HBU Wiki',
   description: "河北大学非官方学生生存指南 — 帮河大人做出更聪明的选择",
   lang: 'zh-CN',
 
