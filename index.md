@@ -1,5 +1,6 @@
 ---
 layout: home
+titleTemplate: false
 
 hero:
   name: "HBU Wiki"
