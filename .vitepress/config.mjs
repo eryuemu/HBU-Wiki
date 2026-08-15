@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   base: '/',
-  title: "HBU Wiki",
+  title: "HBU Wiki - 河北大学生存指南",
   description: "河北大学非官方学生生存指南 — 帮河大人做出更聪明的选择",
   lang: 'zh-CN',
 
@@ -43,7 +43,9 @@ export default defineConfig({
       .replace(/index\.md$/, '')
       .replace(/\.md$/, '.html')
 
-    const title = pageData.frontmatter.title || pageData.title || 'HBU Wiki'
+    const title = pageData.frontmatter.title 
+      ? `${pageData.frontmatter.title} | HBU Wiki` 
+      : (pageData.title && pageData.title !== 'HBU Wiki' ? `${pageData.title} | HBU Wiki` : 'HBU Wiki - 河北大学生存指南')
     const description = pageData.frontmatter.description || pageData.description || '河北大学非官方学生生存指南 — 帮河大人做出更聪明的选择'
 
     return [
@@ -57,7 +59,8 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: '/hbuwiki.png',
+    logo: { src: '/hbuwiki.png', alt: 'HBU Wiki Logo' },
+    siteTitle: 'HBU Wiki',
     analyticsShareUrl: 'https://cloud.umami.is/share/D4DaAkY7F16XlfNy', // 请在此处填入您的 Umami 公开分享链接
     
     nav: [
