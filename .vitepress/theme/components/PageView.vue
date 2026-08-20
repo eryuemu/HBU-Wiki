@@ -61,13 +61,19 @@ async function fetchStats() {
   }
   
   try {
+    // 规范化统计 URL：统一映射到带 .html 的历史统计标识，无缝继承 cleanUrls 开启前的历史单页阅读量资产
+    let statUrl = window.location.href.split('?')[0].split('#')[0].replace(/\/$/, '')
+    if (!statUrl.endsWith('.html') && !statUrl.endsWith('.top') && !statUrl.endsWith('.io') && !statUrl.endsWith('.com')) {
+      statUrl = `${statUrl}.html`
+    }
+
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        url: window.location.href,
+        url: statUrl,
         isNewUv: isNewUv
       })
     })
