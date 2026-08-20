@@ -7,6 +7,8 @@ export default defineConfig({
   description: "河北大学非官方学生生存指南 — 帮河大人做出更聪明的选择",
   lang: 'zh-CN',
 
+  cleanUrls: true,
+
   sitemap: {
     hostname: 'https://guide.hbuwiki.top'
   },
@@ -40,9 +42,10 @@ export default defineConfig({
   lastUpdated: true,
 
   transformHead({ pageData }) {
-    const canonicalUrl = `https://guide.hbuwiki.top/${pageData.relativePath}`
+    const cleanPath = pageData.relativePath
       .replace(/index\.md$/, '')
-      .replace(/\.md$/, '.html')
+      .replace(/\.md$/, '')
+    const canonicalUrl = `https://guide.hbuwiki.top/${cleanPath}`
 
     const title = pageData.frontmatter.title 
       ? `${pageData.frontmatter.title} | HBU Wiki` 
