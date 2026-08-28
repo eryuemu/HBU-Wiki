@@ -1,6 +1,7 @@
 ---
 title: 项目介绍
 description: HBU-Wiki 是关于河北大学的开源知识库项目，致力于打破信息差，惠及更多河大人。
+keywords: 河北大学wiki, 河北大学 Wiki, 河北大学Wiki, HBU Wiki, HBU-Wiki, 河大Wiki, 河北大学知识库, 河大开源项目
 ---
 
 # 项目介绍

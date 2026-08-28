@@ -1,10 +1,13 @@
 ---
 layout: home
+title: 河北大学 Wiki (HBU Wiki) - 河北大学生存指北
 titleTemplate: false
+description: 河北大学 Wiki (HBU Wiki) 是关于河北大学的非官方学生生存指北与开源知识库，汇集转专业数据、选课推荐、保定周边攻略等。
+keywords: 河北大学wiki, 河北大学 wiki, 河北大学Wiki, 河大wiki, 河大Wiki, HBU Wiki, HBU-Wiki, hbuwiki, 河北大学生存指北, 河北大学生存指南, 河北大学转专业, 河北大学选课, 河北大学绩点, 河北大学, 河大, 保定河北大学, 河北大学知识库
 
 hero:
   name: "HBU Wiki"
-  text: "河北大学生存指南"
+  text: "河北大学生存指北"
   tagline: 非官方项目 · 帮河大人做出更聪明的选择 — 转专业数据 · 校园攻略 · 真实经验
   image:
     src: https://www.hbu.edu.cn/images/logo.png
@@ -34,3 +37,5 @@ features:
     details: 食堂评价、课程点评、宿舍对比……更多实用内容正在路上，欢迎提供线索。
     link: https://github.com/eryuemu/HBU-Wiki
 ---
+
+
