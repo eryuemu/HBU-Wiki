@@ -106,6 +106,13 @@ export default defineConfig({
         items: [
           { text: '玩遍保定指南', link: '/life/surroundings' },
         ]
+      },
+      {
+        text: '🧰 实用教程',
+        collapsed: false,
+        items: [
+          { text: '第二课堂（中青二课）密码找回', link: '/tools/erke-password' },
+        ]
       }
     ],
 
