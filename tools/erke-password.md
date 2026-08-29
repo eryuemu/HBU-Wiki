@@ -10,7 +10,7 @@ keywords: 河北大学第二课堂, 中青二课密码找回, 志愿汇第二课
 
 「中青二课」平台在 2026 年暑期完成了一次功能升级更新，登录方式有调整，学校授权一键登录被取消。平台官方通知如下：
 
-![中青二课平台功能更新通知](/tools/erke-notice.jpeg)
+<img src="/tools/erke-notice.jpeg" alt="中青二课平台功能更新通知" width="280" />
 
 ## 账号是什么？
 
@@ -47,7 +47,7 @@ keywords: 河北大学第二课堂, 中青二课密码找回, 志愿汇第二课
 
 填完点「确认」即可重置成功：
 
-![忘记密码重置页面](/tools/erke-forgot-password.jpeg)
+<img src="/tools/erke-forgot-password.jpeg" alt="忘记密码重置页面" width="280" />
 
 ::: warning 注意
 如果你的手机号已经变更，无法接收短信，需要联系学校管理员修改。
