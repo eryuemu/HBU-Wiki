@@ -155,6 +155,7 @@ export default defineConfig({
         items: [
           { text: '玩遍保定指南', link: '/life/surroundings' },
           { text: '常用软件与网址', link: '/life/apps-and-websites' },
+          { text: '课本的准备方式', link: '/life/textbooks' },
         ]
       },
       {
