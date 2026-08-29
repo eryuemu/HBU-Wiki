@@ -8,7 +8,9 @@ keywords: 河北大学, 常用软件, 常用网址, WEBVPN, 教务系统, 学工
 
 此文章整理河大学生常用到的软件与网址，方便新生和老生查阅和使用。
 
-<img src="/apps/phone-school-folder.jpeg" alt="手机上的「学校」文件夹，常用的APP基本都在这了" width="280" />
+<div align="center">
+    <img src="/apps/phone-school-folder.jpeg" alt="手机上的「学校」文件夹，常用的APP基本都在这了" width="280" />
+</div>
 
 ## 常用软件
 
@@ -74,7 +76,9 @@ keywords: 河北大学, 常用软件, 常用网址, WEBVPN, 教务系统, 学工
 - 用途广泛，鄙人未全部探索完。
 - 进入APP,点击下方的工作台，常用的有：
 
-<img src="/apps/wecom-workbench.jpeg" alt="企业微信工作台，B2-WEBVPN就在这里" width="280" />
+<div align="center">
+    <img src="/apps/wecom-workbench.jpeg" alt="企业微信工作台，B2-WEBVPN就在这里" width="280" />
+</div>
 
 - **B2-WEBVPN**：用于非校园网情况下进入学校整合的资源管理系统，一般是进教务系统。
 - **C5-河大体育馆预约**：用于羽毛球、乒乓球等球类场地的预约。
@@ -82,7 +86,9 @@ keywords: 河北大学, 常用软件, 常用网址, WEBVPN, 教务系统, 学工
 
 ### 10. 河大教务小程序
 
-<img src="/apps/hbu-jiaowu.jpeg" alt="河大教务图标" width="160" />
+<div align="center">
+    <img src="/apps/hbu-jiaowu.jpeg" alt="河大教务图标" width="160" />
+</div>
 
 - 学号+密码登录
 - 查看成绩和绩点、考试时间、查看课程表。
