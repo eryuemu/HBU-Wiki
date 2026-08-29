@@ -28,13 +28,13 @@ keywords: 河北大学第二课堂, 中青二课密码找回, 志愿汇第二课
 
 打开「志愿汇」App，在首页点击「第二课堂」图标：
 
-![志愿汇首页的第二课堂入口](/tools/erke-home.jpeg)
+<img src="/tools/erke-home.jpeg" alt="志愿汇首页的第二课堂入口" width="280" />
 
 ### 2. 在登录页点击「忘记密码」
 
 进入「中青二课」登录界面后，原来的学校授权一键登录已经没有了，只能走账号密码登录。点击右下角的「忘记密码」：
 
-![中青二课登录页](/tools/erke-login.jpeg)
+<img src="/tools/erke-login.jpeg" alt="中青二课登录页" width="280" />
 
 ### 3. 重置密码
 
