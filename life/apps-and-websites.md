@@ -96,10 +96,14 @@ keywords: 河北大学, 常用软件, 常用网址, WEBVPN, 教务系统, 学工
 
 ### 一、直接就能打开的（不需要校园网，不需要VPN）
 
-- [河北大学官网](https://hbu.edu.cn/)：很多网站的入口都在官网里挂着，找不着就从这进
-- [河北大学网络认证](https://gate.hbu.cn/)：用于电脑设备连接校园网，前提是在校园网覆盖范围内；泥河的宿舍没有校园网覆盖，用不上
-- [河北大学缴费平台](https://plat.hbu.cn/)：用于每年交学费、住宿费以及新生的体检费
-- [河北大学教务处](https://jwc.hbu.edu.cn/)：这里的消息通知对于我们才有用，常用的几个页面：
+- [河北大学官网](https://hbu.edu.cn/)：`https://hbu.edu.cn/`
+    很多网站的入口都在官网里挂着，找不着就从这进
+- [河北大学网络认证](https://gate.hbu.cn/)：`https://gate.hbu.cn/`
+    用于电脑设备连接校园网，前提是在校园网覆盖范围内；泥河的宿舍没有校园网覆盖，用不上
+- [河北大学缴费平台](https://plat.hbu.cn/)：`https://plat.hbu.cn/`
+    用于每年交学费、住宿费以及新生的体检费
+- [河北大学教务处](https://jwc.hbu.edu.cn/)：`https://jwc.hbu.edu.cn/`
+    这里的消息通知对于我们才有用，常用的几个页面：
     - [综合教务系统进入入口](https://jwc.hbu.edu.cn/index/zhjwxt.htm)
     - [人才培养方案发布页](https://jwc.hbu.edu.cn/jxjs/rcpyfa.htm)
     - [2026级人才培养方案](https://jwc.hbu.edu.cn/info/1043/12341.htm)
@@ -107,12 +111,14 @@ keywords: 河北大学, 常用软件, 常用网址, WEBVPN, 教务系统, 学工
 
 ### 二、要过WEBVPN的（宿舍没校园网就全走这里）
 
-[WEBVPN资源访问系统](https://v.hbu.cn/) 和企业微信工作台里的B2-WEBVPN是同一个东西，只是企业微信做了个入口，手机和电脑都能访问。
+[WEBVPN资源访问系统](https://v.hbu.cn/)：`https://v.hbu.cn/`，和企业微信工作台里的B2-WEBVPN是同一个东西，只是企业微信做了个入口，手机和电脑都能访问。
 
 进去之后常用的系统：
 
-- [综合教务系统](http://zhjw.hbu.cn/)：查成绩、查绩点、查课表、查考试时间，选课退课操作也在这里
-- [学工系统](http://xgxt.hbu.edu.cn/)：请销假等学生事务，对应易班手机端里的请假功能
+- [综合教务系统](http://zhjw.hbu.cn/)：`http://zhjw.hbu.cn/`
+    查成绩、查绩点、查课表、查考试时间，选课退课操作也在这里
+- [学工系统](http://xgxt.hbu.edu.cn/)：`http://xgxt.hbu.edu.cn/`
+    请销假等学生事务，对应易班手机端里的请假功能
 
 ---
 
