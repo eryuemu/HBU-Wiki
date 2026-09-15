@@ -8,7 +8,7 @@ keywords: 河北大学wiki, 河北大学 wiki, 河北大学Wiki, 河大wiki, 河
 hero:
   name: "HBU Wiki"
   text: "河北大学生存指北"
-  tagline: 非官方项目 · 帮河大人做出更聪明的选择 — 转专业数据 · 校园攻略 · 真实经验
+  tagline: 让散落的信息 汇集成体系
   image:
     src: https://www.hbu.edu.cn/images/logo.png
     alt: HBU Logo
