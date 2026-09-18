@@ -1,7 +1,7 @@
 ---
 title: 常用软件与网址
 description: 整理河大学生常用到的软件与网址，方便新生和老生查阅和使用。
-keywords: 河北大学, 常用软件, 常用网址, WEBVPN, 教务系统, 学工系统, 河大教务
+keywords: 河北大学, 常用软件, 常用网址, WEBVPN, 教务系统, 学工系统, 河大教务, 正版软件
 ---
 # 常用软件与网址
 
@@ -113,6 +113,8 @@ keywords: 河北大学, 常用软件, 常用网址, WEBVPN, 教务系统, 学工
   - [人才培养方案发布页](https://jwc.hbu.edu.cn/jxjs/rcpyfa.htm)
   - [2026级人才培养方案](https://jwc.hbu.edu.cn/info/1043/12341.htm)
   - [选课通知发布页](https://jwc.hbu.cn/jxyx/pkxk/xk.htm)
+- [河北大学正版软件管理与服务平台](https://gsp.hbu.edu.cn/)：`https://gsp.hbu.edu.cn/`
+  提供微软 Windows、Office、WPS、福昕高级 PDF 编辑器等正版软件下载及激活服务，支持通过统一身份认证登录
 
 ### 二、要过WEBVPN的（宿舍没校园网就全走这里）
 
