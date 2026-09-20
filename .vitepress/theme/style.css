@@ -688,9 +688,9 @@ body::before {
   margin-bottom: 28px;
   font-family: var(--font-sans);
   line-height: 1.2 !important;
-  /* 类似首页大标题的轻盈分层渐入动效 */
-  animation: doc-h1-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 0.05s;
+  /* 类似首页大标题的轻盈分层渐入动效，优雅放缓 */
+  animation: doc-h1-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.08s;
   will-change: transform, opacity;
 }
 
@@ -850,7 +850,7 @@ body::before {
    页面与文章过渡动画 —— 优雅分层渐入
    ============================================ */
 .VPContent {
-  animation: page-fade 0.3s ease both;
+  animation: page-fade 0.4s ease both;
 }
 
 @keyframes page-fade {
@@ -862,11 +862,11 @@ body::before {
   }
 }
 
-/* 文章 H1 大标题位移动效（仿首页Hero大标题） */
+/* 文章 H1 大标题位移动效（仿首页Hero大标题，优雅舒展） */
 @keyframes doc-h1-in {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -876,15 +876,15 @@ body::before {
 
 /* 文章正文整体轻微渐入 */
 .vp-doc > div {
-  animation: doc-body-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 0.08s;
+  animation: doc-body-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.14s;
   will-change: transform, opacity;
 }
 
 @keyframes doc-body-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -897,15 +897,15 @@ body::before {
 .vp-doc > div > h1 + blockquote,
 .vp-doc > div > h1 + .custom-block,
 .vp-doc > div > h1 + div {
-  animation: doc-lead-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 0.12s;
+  animation: doc-lead-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.18s;
   will-change: transform, opacity;
 }
 
 @keyframes doc-lead-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -915,15 +915,15 @@ body::before {
 
 /* 右侧大纲导航（TOC Aside）轻缓侧入 */
 .VPDocAside {
-  animation: doc-aside-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 0.16s;
+  animation: doc-aside-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.22s;
   will-change: transform, opacity;
 }
 
 @keyframes doc-aside-in {
   from {
     opacity: 0;
-    transform: translateX(10px);
+    transform: translateX(14px);
   }
   to {
     opacity: 1;
@@ -934,8 +934,8 @@ body::before {
 /* 文档底部与评论区域 */
 .VPDocFooter,
 .giscus-comments-wrapper {
-  animation: doc-lead-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 0.2s;
+  animation: doc-lead-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.28s;
 }
 
 /* Hero 整体入场由子元素分层控制，这里不再加整体动画 */
