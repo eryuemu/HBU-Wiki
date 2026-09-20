@@ -451,9 +451,14 @@ body::before {
 }
 
 /* ============================================
-   移动端 Hero 居中排布（完全不影响电脑端）
+   移动端 Hero 视觉精修（方案 A：并排双主按钮 + 紧凑轻量，完全不影响电脑端）
    ============================================ */
 @media (max-width: 959px) {
+  .VPHero {
+    padding-top: calc(var(--vp-nav-height) + 16px) !important;
+    padding-bottom: 20px !important;
+  }
+
   .VPHero .container {
     text-align: center !important;
   }
@@ -464,6 +469,7 @@ body::before {
     align-items: center !important;
     text-align: center !important;
     margin: 0 auto !important;
+    max-width: 100% !important;
   }
 
   .VPHero .heading {
@@ -471,27 +477,78 @@ body::before {
     text-align: center !important;
   }
 
-  .VPHero .name,
+  .VPHero .name {
+    font-size: 28px !important;
+    line-height: 36px !important;
+    margin: 0 auto 4px !important;
+    text-align: center !important;
+  }
+
   .VPHero .text {
-    margin-left: auto !important;
-    margin-right: auto !important;
+    font-size: 20px !important;
+    line-height: 28px !important;
+    margin: 0 auto 8px !important;
     text-align: center !important;
   }
 
   .VPHero .tagline {
-    margin-left: auto !important;
-    margin-right: auto !important;
+    font-size: 14px !important;
+    line-height: 22px !important;
+    max-width: 320px !important;
+    margin: 0 auto 14px !important;
     text-align: center !important;
   }
 
   .VPHero .actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
     justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding-top: 6px !important;
+    margin: 0 auto !important;
     width: 100% !important;
   }
 
   .VPHero .action {
+    padding: 0 !important;
     display: flex !important;
     justify-content: center !important;
+  }
+
+  /* 移动端按钮：紧凑精致，避免大胶囊占满屏幕 */
+  .VPHero .actions .VPButton {
+    padding: 8px 18px !important;
+    font-size: 13.5px !important;
+    min-height: 38px !important;
+  }
+
+  .VPHero .actions .VPButton::before {
+    width: 14px !important;
+    height: 14px !important;
+    margin-right: 6px !important;
+  }
+}
+
+/* 窄屏手机（< 640px）：前两个按钮并排同行，第三个居中换行 */
+@media (max-width: 639px) {
+  .VPHero .actions .action:nth-child(1),
+  .VPHero .actions .action:nth-child(2) {
+    flex: 0 1 auto;
+  }
+
+  .VPHero .actions .action:nth-child(3) {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 2px;
+  }
+
+  .VPHero .actions .action:nth-child(3) .VPButton {
+    opacity: 0.82;
+    padding: 6px 16px !important;
+    font-size: 13px !important;
+    min-height: 34px !important;
   }
 }
 
