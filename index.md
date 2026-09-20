@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: 开始阅读
-      link: /academics/transfer
+      link: /categories
     - theme: alt
       text: 转专业探索器
       link: /academics/data-explorer
