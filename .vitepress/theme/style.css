@@ -451,6 +451,51 @@ body::before {
 }
 
 /* ============================================
+   移动端 Hero 居中排布（完全不影响电脑端）
+   ============================================ */
+@media (max-width: 959px) {
+  .VPHero .container {
+    text-align: center !important;
+  }
+
+  .VPHero .main {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+
+  .VPHero .heading {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .VPHero .name,
+  .VPHero .text {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .VPHero .tagline {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .VPHero .actions {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .VPHero .action {
+    display: flex !important;
+    justify-content: center !important;
+  }
+}
+
+/* ============================================
    首页 Feature 卡片 —— 精细化展卡交互与悬停微光
    ============================================ */
 .dark .VPHome {
