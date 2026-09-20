@@ -145,7 +145,10 @@ export default defineConfig({
                 text: `${ICONS.study} 学习`,
                 items: [
                     { text: '选课推荐与避雷 (小红书篇)', link: '/academics/course-recommendations-xhs' },
-                    { text: '绩点', link: '/academics/grade-point-average' }
+                    { text: '平均学分绩点计算', link: '/academics/grade-point-average' },
+                    { text: '综评成绩计算', link: '/academics/comprehensive-assessment-score' },
+                    { text: '竞赛加分表', link: '/academics/competition-bonus-table' },
+                    { text: '体育成绩评分细则', link: '/academics/sports-score' }
                 ]
             },
             {
@@ -189,7 +192,10 @@ export default defineConfig({
                 collapsed: false,
                 items: [
                     { text: '选课推荐与避雷 (小红书篇)', link: '/academics/course-recommendations-xhs' },
-                    { text: '绩点', link: '/academics/grade-point-average' },
+                    { text: '平均学分绩点计算', link: '/academics/grade-point-average' },
+                    { text: '综评成绩计算', link: '/academics/comprehensive-assessment-score' },
+                    { text: '竞赛加分表', link: '/academics/competition-bonus-table' },
+                    { text: '体育成绩评分细则', link: '/academics/sports-score' }
                 ]
             },
             {
