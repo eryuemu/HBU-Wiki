@@ -312,8 +312,8 @@ const groupedArticles = computed(() => {
 
 .catalog-header {
   margin-bottom: 24px;
-  animation: catalog-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 0.05s;
+  animation: catalog-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.08s;
 }
 
 .catalog-meta {
@@ -332,14 +332,14 @@ const groupedArticles = computed(() => {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  animation: catalog-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 0.12s;
+  animation: catalog-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.16s;
 }
 
 @keyframes catalog-in {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -475,15 +475,15 @@ const groupedArticles = computed(() => {
 /* 分组标题 */
 .catalog-section {
   margin-bottom: 36px;
-  animation: catalog-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: catalog-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.catalog-section:nth-child(1) { animation-delay: 0.15s; }
-.catalog-section:nth-child(2) { animation-delay: 0.20s; }
-.catalog-section:nth-child(3) { animation-delay: 0.25s; }
-.catalog-section:nth-child(4) { animation-delay: 0.30s; }
-.catalog-section:nth-child(5) { animation-delay: 0.35s; }
-.catalog-section:nth-child(6) { animation-delay: 0.40s; }
+.catalog-section:nth-child(1) { animation-delay: 0.20s; }
+.catalog-section:nth-child(2) { animation-delay: 0.28s; }
+.catalog-section:nth-child(3) { animation-delay: 0.36s; }
+.catalog-section:nth-child(4) { animation-delay: 0.44s; }
+.catalog-section:nth-child(5) { animation-delay: 0.52s; }
+.catalog-section:nth-child(6) { animation-delay: 0.60s; }
 
 .section-title {
   display: flex;
@@ -529,14 +529,14 @@ const groupedArticles = computed(() => {
   border-radius: var(--radius-sm);
   text-decoration: none !important;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  animation: card-appear 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: card-appear 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
   will-change: transform, opacity;
 }
 
 @keyframes card-appear {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -544,14 +544,14 @@ const groupedArticles = computed(() => {
   }
 }
 
-.articles-container .article-card:nth-child(1) { animation-delay: 0.04s; }
-.articles-container .article-card:nth-child(2) { animation-delay: 0.08s; }
-.articles-container .article-card:nth-child(3) { animation-delay: 0.12s; }
-.articles-container .article-card:nth-child(4) { animation-delay: 0.16s; }
-.articles-container .article-card:nth-child(5) { animation-delay: 0.20s; }
-.articles-container .article-card:nth-child(6) { animation-delay: 0.24s; }
-.articles-container .article-card:nth-child(7) { animation-delay: 0.28s; }
-.articles-container .article-card:nth-child(8) { animation-delay: 0.32s; }
+.articles-container .article-card:nth-child(1) { animation-delay: 0.06s; }
+.articles-container .article-card:nth-child(2) { animation-delay: 0.12s; }
+.articles-container .article-card:nth-child(3) { animation-delay: 0.18s; }
+.articles-container .article-card:nth-child(4) { animation-delay: 0.24s; }
+.articles-container .article-card:nth-child(5) { animation-delay: 0.30s; }
+.articles-container .article-card:nth-child(6) { animation-delay: 0.36s; }
+.articles-container .article-card:nth-child(7) { animation-delay: 0.42s; }
+.articles-container .article-card:nth-child(8) { animation-delay: 0.48s; }
 
 .article-card:hover {
   transform: translateY(-3px);
