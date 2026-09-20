@@ -312,6 +312,8 @@ const groupedArticles = computed(() => {
 
 .catalog-header {
   margin-bottom: 24px;
+  animation: catalog-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.05s;
 }
 
 .catalog-meta {
@@ -330,6 +332,19 @@ const groupedArticles = computed(() => {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  animation: catalog-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.12s;
+}
+
+@keyframes catalog-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* 分类 Chips 列表 */
@@ -460,7 +475,15 @@ const groupedArticles = computed(() => {
 /* 分组标题 */
 .catalog-section {
   margin-bottom: 36px;
+  animation: catalog-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+.catalog-section:nth-child(1) { animation-delay: 0.15s; }
+.catalog-section:nth-child(2) { animation-delay: 0.20s; }
+.catalog-section:nth-child(3) { animation-delay: 0.25s; }
+.catalog-section:nth-child(4) { animation-delay: 0.30s; }
+.catalog-section:nth-child(5) { animation-delay: 0.35s; }
+.catalog-section:nth-child(6) { animation-delay: 0.40s; }
 
 .section-title {
   display: flex;
@@ -506,7 +529,29 @@ const groupedArticles = computed(() => {
   border-radius: var(--radius-sm);
   text-decoration: none !important;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  animation: card-appear 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
 }
+
+@keyframes card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.articles-container .article-card:nth-child(1) { animation-delay: 0.04s; }
+.articles-container .article-card:nth-child(2) { animation-delay: 0.08s; }
+.articles-container .article-card:nth-child(3) { animation-delay: 0.12s; }
+.articles-container .article-card:nth-child(4) { animation-delay: 0.16s; }
+.articles-container .article-card:nth-child(5) { animation-delay: 0.20s; }
+.articles-container .article-card:nth-child(6) { animation-delay: 0.24s; }
+.articles-container .article-card:nth-child(7) { animation-delay: 0.28s; }
+.articles-container .article-card:nth-child(8) { animation-delay: 0.32s; }
 
 .article-card:hover {
   transform: translateY(-3px);
