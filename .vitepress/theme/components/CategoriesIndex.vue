@@ -51,11 +51,20 @@ const articles = [
     date: '2026-08'
   },
   {
-    title: '绩点',
+    title: '平均学分绩点计算',
     category: '学习',
     link: '/academics/grade-point-average',
     description: '河北大学学分绩点（GPA）官方计算规则、成绩等级换算对照表与保研推免绩点要求详解。',
     tags: ['学分绩点', 'GPA计算', '保研推免'],
+    date: '2026-09'
+  },
+  {
+    title: '竞赛加分表',
+    category: '学习',
+    link: '/academics/competition-bonus-table',
+    description: '河北大学学生创新实践能力加分标准，涵盖学科竞赛、学术论文、科研项目及发明专利等加分细则。',
+    tags: ['学科竞赛', '创新实践', '综合测评', '加分细则'],
+    badge: '评优必备',
     date: '2026-09'
   },
   {
