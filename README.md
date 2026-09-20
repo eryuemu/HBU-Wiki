@@ -4,7 +4,8 @@
 
 🔗 **此站 (GitHub Pages)**：[guide.hbuwiki.top](https://guide.hbuwiki.top)  
 🏠 **HBU Wiki 主站**：[hbuwiki.top](https://hbuwiki.top)  
-📖 **项目介绍**：[guide.hbuwiki.top/about](https://guide.hbuwiki.top/about)
+📖 **全部目录**：[guide.hbuwiki.top/categories](https://guide.hbuwiki.top/categories)  
+📋 **项目介绍**：[guide.hbuwiki.top/about](https://guide.hbuwiki.top/about)
 
 ## 这是什么
 
@@ -13,11 +14,11 @@ HBU-Wiki是关于河北大学的开源知识库项目，此站定位为副站，
 ## 技术栈
 
 - **框架**：[VitePress](https://vitepress.dev/) + Vue 3
-- **交互组件**：Vue 3 Composition API（TransferExplorer 数据探索器）
+- **交互组件**：Vue 3 Composition API（TransferExplorer 数据探索器、CategoriesIndex 全站目录等）
 - **数据层**：结构化 JSON 数据驱动
 - **评论系统**：[Giscus](https://giscus.app/)（基于 GitHub Discussions）
 - **访问统计**：[Umami Cloud](https://umami.is/)（实时流量分析） + [Vercount](https://github.com/Evan-ry/Vercount)（基于 Cloudflare 的文章级与全站 PV/UV 统计）
-- **搜索**：VitePress 内置本地搜索
+- **搜索**：VitePress 内置本地搜索（支持 Intl.Segmenter 中文分词）
 - **部署**：GitHub Actions → GitHub Pages
 - **样式**：自定义 CSS 设计系统（亮/暗模式）
 
@@ -42,6 +43,8 @@ npm run docs:preview
 ```
 HBU-Wiki/
 ├── public/
+│   ├── apps/                # 常用软件与平台相关配图
+│   ├── tools/               # 实用教程相关配图
 │   └── transfer/            # 转专业相关原始表格、PDF 附件资源
 ├── .vitepress/
 │   ├── config.mjs          # VitePress 配置
@@ -52,6 +55,7 @@ HBU-Wiki/
 │       ├── style.css        # 全局样式
 │       └── components/
 │           ├── Layout.vue          # 自定义布局
+│           ├── CategoriesIndex.vue # 全站分类目录组件
 │           ├── TransferExplorer.vue # 转专业数据探索器
 │           ├── GPAAnalyzer.vue      # 绩点定位与志愿模拟器
 │           ├── GiscusComments.vue   # 评论组件
@@ -59,9 +63,18 @@ HBU-Wiki/
 │           └── AnalyticsDashboard.vue # 实时访问统计大屏组件
 ├── academics/
 │   ├── transfer.md               # 转专业数据全解
+│   ├── data-explorer.md          # 转专业数据探索器
+│   ├── gpa-analysis.md           # 各专业录取绩点及分析
+│   ├── grade-point-average.md    # 绩点规则
+│   ├── course-recommendations-xhs.md # 选课推荐与避雷 (小红书篇)
 │   └── transfer-materials.md     # 转专业官方文件及附件下载
 ├── life/
-│   └── surroundings.md      # 保定吃喝玩乐指南
+│   ├── apps-and-websites.md # 常用软件&公众号&网址
+│   ├── surroundings.md      # 保定吃喝玩乐指南
+│   └── textbooks.md         # 课本的准备方式
+├── tools/
+│   └── erke-password.md     # 第二课堂密码找回
+├── categories.md            # 全站目录
 ├── about.md                 # 项目介绍
 ├── analytics.md             # 实时统计大屏
 └── index.md                 # 首页
