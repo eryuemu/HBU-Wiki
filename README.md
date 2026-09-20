@@ -79,17 +79,17 @@ HBU-Wiki/
 ├── analytics.md             # 实时统计大屏
 └── index.md                 # 首页
 ```
-## 参与贡献
+## 参与贡献与社群交流
 
-如果你会使用GitHub，会提issue和pr，想成为Contributor，欢迎直接提PR。
+HBU-Wiki 是一项人人皆可参与的开源公益项目，欢迎通过以下途径参与共建与交流：
 
-如果觉得项目还不错，欢迎点个 Star ⭐，对我来说是很大的鼓励！
-
-也可以联系我：
-
-- 个人邮箱：eryuemu1213@qq.com / eryuemu1213@outlook.com
-- 个人博客：[eryuemu.com](https://eryuemu.com)
-- 个人QQ：3419144842
+- **读者交流与反馈群**：`1126404483`（零门槛提问答疑、报错勘误、分享校内最新线索）
+- **编辑协作群**：`1055828781`（深度参与内容策展与审校、开通主站 [hbuwiki.top](https://hbuwiki.top) 在线编辑权限）
+- **GitHub 进阶贡献**：欢迎提交 Pull Request 或 Issue，参与前建议加入编辑协作群以方便协同沟通。
+- **联系站长**：
+  - 个人 QQ：3419144842
+  - 个人邮箱：eryuemu1213@qq.com / eryuemu1213@outlook.com
+  - 个人博客：[eryuemu.com](https://eryuemu.com)
 
 ## 免责声明
 

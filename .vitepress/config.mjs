@@ -169,7 +169,7 @@ export default defineConfig({
                 text: `${ICONS.about} 关于本站`,
                 items: [
                     { text: '项目介绍', link: '/about' },
-                    { text: '参与贡献', link: '/about#如何参与贡献' },
+                    { text: '参与共建', link: '/contribution' },
                     { text: '实时数据', link: '/analytics' },
                     { text: 'HBU Wiki 主站', link: 'https://hbuwiki.top' }
                 ]
@@ -219,6 +219,7 @@ export default defineConfig({
                 collapsed: false,
                 items: [
                     { text: '项目介绍', link: '/about' },
+                    { text: '参与共建', link: '/contribution' },
                     { text: '实时数据', link: '/analytics' },
                 ]
             }
