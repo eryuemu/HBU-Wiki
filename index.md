@@ -9,9 +9,6 @@ hero:
   name: "HBU Wiki"
   text: "河北大学生存指北"
   tagline: 让散落的信息 汇集成体系
-  image:
-    src: https://www.hbu.edu.cn/images/logo.png
-    alt: HBU Logo
   actions:
     - theme: brand
       text: 开始阅读
