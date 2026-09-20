@@ -400,6 +400,7 @@ body::before {
 }
 
 /* 按钮 1：开始阅读 (展开书籍 SVG) */
+.VPHero .actions a[href*="categories"]::before,
 .VPHero .actions a[href*="/academics/transfer"]::before {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z'/%3E%3Cpath d='M6 6h10'/%3E%3Cpath d='M6 10h10'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z'/%3E%3Cpath d='M6 6h10'/%3E%3Cpath d='M6 10h10'/%3E%3C/svg%3E");
@@ -1022,4 +1023,19 @@ body::before {
 .hbu-reveal.reveal-active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ============================================
+   全站目录页面宽屏沉浸视图（无侧边栏模式）
+   ============================================ */
+.catalog-page-view .VPDoc:not(.has-sidebar) .container {
+  max-width: 1152px !important;
+}
+
+.catalog-page-view .VPDoc:not(.has-sidebar) .content {
+  max-width: 1152px !important;
+}
+
+.catalog-page-view .VPDoc:not(.has-sidebar) .content-container {
+  max-width: 1152px !important;
 }

@@ -4,6 +4,7 @@ import TransferExplorer from './components/TransferExplorer.vue'
 import GPAAnalyzer from './components/GPAAnalyzer.vue'
 import PageView from './components/PageView.vue'
 import AnalyticsDashboard from './components/AnalyticsDashboard.vue'
+import CategoriesIndex from './components/CategoriesIndex.vue'
 import './style.css'
 
 export default {
@@ -15,5 +16,6 @@ export default {
     app.component('GPAAnalyzer', GPAAnalyzer)
     app.component('PageView', PageView)
     app.component('AnalyticsDashboard', AnalyticsDashboard)
+    app.component('CategoriesIndex', CategoriesIndex)
   }
 }
