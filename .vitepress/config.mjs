@@ -1,5 +1,14 @@
 import { defineConfig } from 'vitepress'
 
+// 导航栏与侧边栏分组图标 (SVG 规范)
+const ICONS = {
+    transfer: '<svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>',
+    study: '<svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>',
+    life: '<svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/></svg>',
+    tools: '<svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+    about: '<svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>'
+}
+
 export default defineConfig({
     base: '/',
     title: "河北大学 Wiki (HBU Wiki) - 河北大学生存指北",
@@ -122,32 +131,60 @@ export default defineConfig({
 
         nav: [
             { text: '首页', link: '/' },
-            { text: '📖 进入Wiki', link: '/about' },
-            { text: '🤝 参与贡献', link: '/about#如何参与贡献' },
-            { text: '📊 实时数据', link: '/analytics' },
-            { text: '🏠 HBU Wiki 主站', link: 'https://hbuwiki.top' }
+            {
+                text: `${ICONS.transfer} 转专业`,
+                items: [
+                    { text: '转专业数据全解', link: '/academics/transfer' },
+                    { text: '转专业数据探索器', link: '/academics/data-explorer' },
+                    { text: '各专业录取绩点及分析', link: '/academics/gpa-analysis' },
+                    { text: '官方文件及附件下载', link: '/academics/transfer-materials' }
+                ]
+            },
+            {
+                text: `${ICONS.study} 学习`,
+                items: [
+                    { text: '选课推荐与避雷 (小红书篇)', link: '/academics/course-recommendations-xhs' },
+                    { text: '绩点', link: '/academics/grade-point-average' }
+                ]
+            },
+            {
+                text: `${ICONS.life} 校园生活`,
+                items: [
+                    { text: '常用软件&公众号&网址', link: '/life/apps-and-websites' },
+                    { text: '玩遍保定指南', link: '/life/surroundings' },
+                    { text: '课本的准备方式', link: '/life/textbooks' }
+                ]
+            },
+            {
+                text: `${ICONS.tools} 实用教程`,
+                items: [
+                    { text: '第二课堂（中青二课）密码找回', link: '/tools/erke-password' }
+                ]
+            },
+            {
+                text: `${ICONS.about} 关于本站`,
+                items: [
+                    { text: '项目介绍', link: '/about' },
+                    { text: '参与贡献', link: '/about#如何参与贡献' },
+                    { text: '实时数据', link: '/analytics' },
+                    { text: 'HBU Wiki 主站', link: 'https://hbuwiki.top' }
+                ]
+            }
         ],
 
         sidebar: [
             {
-                text: '📋 关于本站',
+                text: `${ICONS.transfer} 转专业`,
                 collapsed: false,
                 items: [
-                    { text: '项目介绍', link: '/about' },
-                ]
-            },
-            {
-                text: '🔄 转专业',
-                collapsed: false,
-                items: [
-                    { text: '转专业数据探索器', link: '/academics/data-explorer' },
                     { text: '转专业数据全解', link: '/academics/transfer' },
+                    { text: '转专业数据探索器', link: '/academics/data-explorer' },
                     { text: '各专业录取绩点及分析', link: '/academics/gpa-analysis' },
                     { text: '官方文件及附件下载', link: '/academics/transfer-materials' },
                 ]
             },
             {
-                text: '📖 学习',
+                text: `${ICONS.study} 学习`,
                 collapsed: false,
                 items: [
                     { text: '选课推荐与避雷 (小红书篇)', link: '/academics/course-recommendations-xhs' },
@@ -155,19 +192,27 @@ export default defineConfig({
                 ]
             },
             {
-                text: '🍜 校园生活',
+                text: `${ICONS.life} 校园生活`,
                 collapsed: false,
                 items: [
-                    { text: '玩遍保定指南', link: '/life/surroundings' },
                     { text: '常用软件&公众号&网址', link: '/life/apps-and-websites' },
+                    { text: '玩遍保定指南', link: '/life/surroundings' },
                     { text: '课本的准备方式', link: '/life/textbooks' },
                 ]
             },
             {
-                text: '🧰 实用教程',
+                text: `${ICONS.tools} 实用教程`,
                 collapsed: false,
                 items: [
                     { text: '第二课堂（中青二课）密码找回', link: '/tools/erke-password' },
+                ]
+            },
+            {
+                text: `${ICONS.about} 关于本站`,
+                collapsed: false,
+                items: [
+                    { text: '项目介绍', link: '/about' },
+                    { text: '实时数据', link: '/analytics' },
                 ]
             }
         ],

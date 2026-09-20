@@ -371,13 +371,58 @@ body::before {
   background: transparent !important;
 }
 
-/* Hero 按钮 —— 扁平胶囊 */
+/* Hero 按钮 —— 扁平胶囊与矢量 SVG 图标 */
+.VPHero .actions .VPButton {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.VPHero .actions .VPButton::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  transition: transform 0.2s ease;
+}
+
+.VPHero .actions .VPButton:hover::before {
+  transform: scale(1.08);
+}
+
+/* 按钮 1：开始阅读 (展开书籍 SVG) */
+.VPHero .actions a[href*="/academics/transfer"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z'/%3E%3Cpath d='M6 6h10'/%3E%3Cpath d='M6 10h10'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z'/%3E%3Cpath d='M6 6h10'/%3E%3Cpath d='M6 10h10'/%3E%3C/svg%3E");
+}
+
+/* 按钮 2：转专业探索器 (交互互换箭头 SVG) */
+.VPHero .actions a[href*="/academics/data-explorer"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m16 3 4 4-4 4'/%3E%3Cpath d='M20 7H4'/%3E%3Cpath d='m8 21-4-4 4-4'/%3E%3Cpath d='M4 17h16'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m16 3 4 4-4 4'/%3E%3Cpath d='M20 7H4'/%3E%3Cpath d='m8 21-4-4 4-4'/%3E%3Cpath d='M4 17h16'/%3E%3C/svg%3E");
+}
+
+/* 按钮 3：参与贡献 (握手协作 SVG) */
+.VPHero .actions a[href*="about"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m11 17 2 2a1 1 0 0 0 1.4 0l4.3-4.3a1 1 0 0 0 0-1.4l-2-2'/%3E%3Cpath d='m7 13 4.3 4.3a1 1 0 0 0 1.4 0l2-2'/%3E%3Cpath d='M19 6 8.7 16.3a1 1 0 0 1-1.4 0l-2-2a1 1 0 0 1 0-1.4L15.6 2.6a2.8 2.8 0 0 1 4 0 2.8 2.8 0 0 1 0 4Z'/%3E%3Cpath d='m2 12 5 5'/%3E%3Cpath d='m5 9 5 5'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m11 17 2 2a1 1 0 0 0 1.4 0l4.3-4.3a1 1 0 0 0 0-1.4l-2-2'/%3E%3Cpath d='m7 13 4.3 4.3a1 1 0 0 0 1.4 0l2-2'/%3E%3Cpath d='M19 6 8.7 16.3a1 1 0 0 1-1.4 0l-2-2a1 1 0 0 1 0-1.4L15.6 2.6a2.8 2.8 0 0 1 4 0 2.8 2.8 0 0 1 0 4Z'/%3E%3Cpath d='m2 12 5 5'/%3E%3Cpath d='m5 9 5 5'/%3E%3C/svg%3E");
+}
+
 .VPHero .actions .VPButton.brand {
   background: var(--hbu-blue) !important;
   border: 1px solid var(--hbu-blue) !important;
   color: #fff !important;
   border-radius: var(--radius-full) !important;
-  padding: 12px 36px !important;
+  padding: 12px 30px !important;
   font-size: 15px !important;
   font-weight: 500 !important;
   box-shadow: none !important;
@@ -395,7 +440,7 @@ body::before {
   border: 1px solid var(--border-subtle) !important;
   background: transparent !important;
   color: var(--text-primary) !important;
-  padding: 12px 36px !important;
+  padding: 12px 30px !important;
   font-size: 15px !important;
   transition: border-color 0.2s ease, color 0.2s ease !important;
   box-shadow: none !important;
@@ -406,45 +451,64 @@ body::before {
 }
 
 /* ============================================
-   首页 Feature 卡片 —— 图标区域 hover 色彩过渡
+   首页 Feature 卡片 —— 精细化展卡交互与悬停微光
    ============================================ */
+.dark .VPHome {
+  background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(30, 86, 176, 0.14), transparent 70%);
+}
+
+:root:not(.dark) .VPHome {
+  background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(30, 86, 176, 0.04), transparent 70%);
+}
+
 .VPFeature {
   background: var(--bg-surface) !important;
-  border: 1px solid transparent !important;
-  border-radius: var(--radius-lg) !important;
-  padding: 32px !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 16px !important;
+  padding: 26px 28px !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease !important;
   box-shadow: none !important;
 }
 
 .VPFeature:hover {
-  transform: translateY(-3px) !important;
-  border-color: var(--border-subtle) !important;
-  box-shadow: var(--shadow-hover) !important;
+  transform: translateY(-4px) !important;
+  border-color: rgba(30, 86, 176, 0.35) !important;
+  box-shadow: 0 10px 24px rgba(30, 86, 176, 0.08) !important;
+}
+
+.dark .VPFeature {
+  background: rgba(22, 25, 35, 0.6) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 .dark .VPFeature:hover {
-  background: #161616 !important;
+  background: rgba(26, 30, 42, 0.8) !important;
+  border-color: rgba(46, 111, 216, 0.45) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 16px rgba(30, 86, 176, 0.12) !important;
 }
 
 .VPFeature .icon {
-  width: 44px !important;
-  height: 44px !important;
-  border-radius: var(--radius-sm) !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 10px !important;
   background: var(--hbu-blue-muted) !important;
+  border: 1px solid rgba(30, 86, 176, 0.12) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   margin-bottom: 16px !important;
-  transition: background 0.3s ease !important;
+  transition: transform 0.25s ease, background 0.25s ease !important;
 }
 
 .VPFeature:hover .icon {
-  background: rgba(30, 86, 176, 0.1) !important;
+  transform: scale(1.06);
+  background: rgba(30, 86, 176, 0.12) !important;
 }
 
 .dark .VPFeature:hover .icon {
-  background: rgba(46, 111, 216, 0.15) !important;
+  background: rgba(46, 111, 216, 0.2) !important;
+  border-color: rgba(46, 111, 216, 0.3) !important;
 }
 
 .VPFeature .icon svg {
@@ -457,16 +521,51 @@ body::before {
 }
 
 .VPFeature .title {
-  font-size: 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  font-size: 17px !important;
   font-weight: 600 !important;
   color: var(--text-primary) !important;
   margin-bottom: 8px !important;
 }
 
+.VPFeature .title::after {
+  content: '→';
+  font-family: var(--font-sans);
+  font-weight: 400;
+  color: var(--hbu-blue-light);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.VPFeature:hover .title::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .VPFeature .details {
-  font-size: 14px !important;
+  font-size: 13.5px !important;
   color: var(--text-secondary) !important;
-  line-height: 1.6;
+  line-height: 1.6 !important;
+}
+
+/* ============================================
+   侧边栏与导航栏 SVG 图标对齐与交互
+   ============================================ */
+.menu-icon {
+  display: inline-block;
+  vertical-align: -2.5px;
+  margin-right: 6px;
+  color: var(--text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.VPSidebarItem .text:hover .menu-icon,
+.VPSidebarItem.has-active .menu-icon,
+.VPNavBarMenuGroup:hover .menu-icon {
+  color: var(--hbu-blue-light);
 }
 
 /* ============================================
