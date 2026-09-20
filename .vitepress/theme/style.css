@@ -501,10 +501,11 @@ body::before {
 
   .VPHero .actions {
     display: flex !important;
+    flex-direction: row !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 10px !important;
+    gap: 8px !important;
     padding-top: 6px !important;
     margin: 0 auto !important;
     width: 100% !important;
@@ -512,21 +513,24 @@ body::before {
 
   .VPHero .action {
     padding: 0 !important;
+    margin: 0 !important;
     display: flex !important;
     justify-content: center !important;
+    flex: 0 0 auto !important;
   }
 
-  /* 移动端按钮：紧凑精致，避免大胶囊占满屏幕 */
-  .VPHero .actions .VPButton {
-    padding: 8px 18px !important;
-    font-size: 13.5px !important;
-    min-height: 38px !important;
+  /* 移动端按钮：必须精准覆盖 .brand 与 .alt 的高特异性权重 */
+  .VPHero .actions .VPButton.brand,
+  .VPHero .actions .VPButton.alt {
+    padding: 7px 14px !important;
+    font-size: 13px !important;
+    min-height: 36px !important;
   }
 
   .VPHero .actions .VPButton::before {
     width: 14px !important;
     height: 14px !important;
-    margin-right: 6px !important;
+    margin-right: 5px !important;
   }
 }
 
@@ -534,21 +538,22 @@ body::before {
 @media (max-width: 639px) {
   .VPHero .actions .action:nth-child(1),
   .VPHero .actions .action:nth-child(2) {
-    flex: 0 1 auto;
+    flex: 0 0 auto !important;
   }
 
   .VPHero .actions .action:nth-child(3) {
+    flex: 0 0 100% !important;
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
-    margin-top: 2px;
+    margin-top: 4px !important;
   }
 
-  .VPHero .actions .action:nth-child(3) .VPButton {
-    opacity: 0.82;
-    padding: 6px 16px !important;
-    font-size: 13px !important;
-    min-height: 34px !important;
+  .VPHero .actions .action:nth-child(3) .VPButton.alt {
+    opacity: 0.8;
+    padding: 5px 14px !important;
+    font-size: 12px !important;
+    min-height: 30px !important;
   }
 }
 
