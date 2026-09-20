@@ -688,6 +688,10 @@ body::before {
   margin-bottom: 28px;
   font-family: var(--font-sans);
   line-height: 1.2 !important;
+  /* 类似首页大标题的轻盈分层渐入动效 */
+  animation: doc-h1-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.05s;
+  will-change: transform, opacity;
 }
 
 .vp-doc h2 {
@@ -843,13 +847,41 @@ body::before {
 }
 
 /* ============================================
-   页面过渡动画 —— 简洁淡入
+   页面与文章过渡动画 —— 优雅分层渐入
    ============================================ */
 .VPContent {
-  animation: page-enter 0.35s ease both;
+  animation: page-fade 0.3s ease both;
 }
 
-@keyframes page-enter {
+@keyframes page-fade {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 文章 H1 大标题位移动效（仿首页Hero大标题） */
+@keyframes doc-h1-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 文章正文整体轻微渐入 */
+.vp-doc > div {
+  animation: doc-body-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.08s;
+  will-change: transform, opacity;
+}
+
+@keyframes doc-body-in {
   from {
     opacity: 0;
     transform: translateY(8px);
@@ -860,20 +892,50 @@ body::before {
   }
 }
 
-.VPDoc {
-  animation: doc-enter 0.3s ease both;
-  animation-delay: 0.05s;
+/* 文章引导段落 / 引用块 / 自定义块轻快跟进 */
+.vp-doc > div > h1 + p,
+.vp-doc > div > h1 + blockquote,
+.vp-doc > div > h1 + .custom-block,
+.vp-doc > div > h1 + div {
+  animation: doc-lead-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.12s;
+  will-change: transform, opacity;
 }
 
-@keyframes doc-enter {
+@keyframes doc-lead-in {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* 右侧大纲导航（TOC Aside）轻缓侧入 */
+.VPDocAside {
+  animation: doc-aside-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.16s;
+  will-change: transform, opacity;
+}
+
+@keyframes doc-aside-in {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 文档底部与评论区域 */
+.VPDocFooter,
+.giscus-comments-wrapper {
+  animation: doc-lead-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.2s;
 }
 
 /* Hero 整体入场由子元素分层控制，这里不再加整体动画 */
@@ -997,17 +1059,15 @@ body::before {
    路由切换过渡（由 Layout.vue 触发）
    ============================================ */
 .VPContent.page-transition-active {
-  animation: hbu-page-in 0.35s ease both;
+  animation: hbu-page-fade 0.3s ease both;
 }
 
-@keyframes hbu-page-in {
+@keyframes hbu-page-fade {
   from {
-    opacity: 0;
-    transform: translateY(10px);
+    opacity: 0.35;
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
