@@ -17,8 +17,8 @@ hero:
       text: 转专业探索器
       link: /academics/data-explorer
     - theme: alt
-      text: 参与贡献
-      link: /about#如何参与贡献
+      text: 参与共建
+      link: /contribution
 
 features:
   - icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>

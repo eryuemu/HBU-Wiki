@@ -94,9 +94,18 @@ const articles = [
     title: '项目介绍',
     category: '关于本站',
     link: '/about',
-    description: '关于河北大学 Wiki 的创立初衷、开源定位、内容规范与如何参与共建指南。',
-    tags: ['开源共建', '项目定位', '贡献指南'],
+    description: '关于河北大学 Wiki 的创立初衷、开源定位、技术栈与社群背景。',
+    tags: ['开源共建', '项目定位', '发起故事'],
     date: '2026-08'
+  },
+  {
+    title: '参与共建',
+    category: '关于本站',
+    link: '/contribution',
+    description: '读者交流群与编辑群、主站 Wiki.js 在线撰写、GitHub 开源贡献全流程指引。',
+    tags: ['读者群', '编辑组', '在线编辑', 'PR贡献'],
+    badge: '社群交流',
+    date: '2026-09'
   },
   {
     title: '实时数据',

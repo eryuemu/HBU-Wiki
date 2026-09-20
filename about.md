@@ -31,23 +31,17 @@ HBU-Wiki是关于河北大学的开源知识库项目，此站定位为副站，
 
 更多内容持续更新中。
 
-## 如何参与贡献
+## 如何参与贡献 {#如何参与贡献}
 
-此项目托管在GitHub上。
+HBU-Wiki 是一项人人皆可参与的开源公益项目，其生命力来源于全校同学的共同维护与经验沉淀。
 
-如果你会使用GitHub，会提issue和pr，想成为Contributor，可以到GitHub项目仓库：[github.com/eryuemu/HBU-Wiki](https://github.com/eryuemu/HBU-Wiki)
+无论你是想加入读者群日常交流报错、在主站 Wiki.js 网页端撰写词条，还是为本站贡献代码与数据工具，我们都准备了清晰的分层参与流程与交流群号：
 
-如果觉得项目还不错，欢迎点个 Star ⭐，对我来说是很大的鼓励！
+👉 **欢迎查阅独立专页**：[参与共建指南](/contribution)
 
-当然，更方便的方式是去主站联系主站站长雪雪，加入编辑组，自由编辑：[雪雪的主页](https://hbuwiki.top/zh/%E9%9B%AA%E9%9B%AA%E4%B8%8D%E6%98%AF%E7%99%BD%E6%AF%9B%E5%B0%8F%E8%90%9D%E8%8E%89%E4%B8%BB%E9%A1%B5)
-
-后续也有规划建立wiki讨论群。
-
-也可以联系我：
-
-- 个人邮箱：eryuemu1213@qq.com / eryuemu1213@outlook.com
-- 个人博客：[eryuemu.com](https://eryuemu.com)
-- 个人QQ：3419144842
+- **读者交流与反馈群**：`1126404483`
+- **编辑协作群**：`1055828781`
+- **GitHub 仓库**：[github.com/eryuemu/HBU-Wiki](https://github.com/eryuemu/HBU-Wiki)
 
 ## 免责声明
 
