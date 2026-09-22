@@ -163,6 +163,7 @@ export default defineConfig({
             {
                 text: `${ICONS.tools} 实用教程`,
                 items: [
+                    { text: '五星级宿舍公示查询与加分统计', link: '/tools/star-dorm-query' },
                     { text: '第二课堂（中青二课）密码找回', link: '/tools/erke-password' }
                 ]
             },
@@ -213,6 +214,7 @@ export default defineConfig({
                 text: `${ICONS.tools} 实用教程`,
                 collapsed: false,
                 items: [
+                    { text: '五星级宿舍公示查询与加分统计', link: '/tools/star-dorm-query' },
                     { text: '第二课堂（中青二课）密码找回', link: '/tools/erke-password' },
                 ]
             },
