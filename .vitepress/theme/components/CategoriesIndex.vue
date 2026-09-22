@@ -51,6 +51,15 @@ const articles = [
     date: '2026-08'
   },
   {
+    title: '教师授课评价 (真实反馈篇)',
+    category: '学习',
+    link: '/academics/teacher-evaluations',
+    description: '收录各院系与公共课教师的课堂考勤、纪律规范、教学风格与平时分考核等学生真实客观反馈。',
+    tags: ['教师评价', '授课风格', '课堂纪律', '真实反馈'],
+    badge: '持续更新',
+    date: '2026-09'
+  },
+  {
     title: '平均学分绩点计算',
     category: '学习',
     link: '/academics/grade-point-average',

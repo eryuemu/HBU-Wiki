@@ -67,6 +67,8 @@ HBU-Wiki/
 │   ├── gpa-analysis.md           # 各专业录取绩点及分析
 │   ├── grade-point-average.md    # 绩点规则
 │   ├── course-recommendations-xhs.md # 选课推荐与避雷 (小红书篇)
+│   ├── teacher-evaluations.md    # 教师授课评价 (真实反馈篇)
+│   ├── competition-bonus-table.md # 竞赛加分表
 │   └── transfer-materials.md     # 转专业官方文件及附件下载
 ├── life/
 │   ├── apps-and-websites.md # 常用软件&公众号&网址
