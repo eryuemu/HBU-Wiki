@@ -4,6 +4,7 @@ import { useRoute, useData } from 'vitepress'
 import { watch, nextTick, onMounted, onUnmounted } from 'vue'
 import GiscusComments from './GiscusComments.vue'
 import PageView from './PageView.vue'
+import CommunityAside from './CommunityAside.vue'
 
 const { Layout } = DefaultTheme
 const { frontmatter } = useData()
@@ -208,10 +209,20 @@ onUnmounted(() => {
 
 <template>
   <Layout>
+    <!-- 文档页面右侧目录下方：联系我们 / 社群加入卡片 -->
+    <template #aside-outline-after>
+      <CommunityAside aside-only />
+    </template>
+
     <!-- 文档页面底部：评论区 -->
     <template #doc-after>
       <PageView v-if="!frontmatter.home" />
       <GiscusComments />
+    </template>
+
+    <!-- 全站移动端悬浮加群按钮与弹窗 -->
+    <template #layout-bottom>
+      <CommunityAside floating-only />
     </template>
   </Layout>
 </template>
