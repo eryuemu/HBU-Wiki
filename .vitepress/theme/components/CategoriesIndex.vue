@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { withBase } from 'vitepress'
 
 const categories = ['全部', '转专业', '学习', '校园生活', '实用教程', '关于本站']
 
@@ -83,6 +84,15 @@ const articles = [
     description: '河北大学综合素质测评（综测）成绩计算公式、德育分构成、绩点换算对照、申报材料及评奖要求说明。',
     tags: ['综合测评', '综测计算', '德育加分', '奖学金评定'],
     badge: '刚需必看',
+    date: '2026-09'
+  },
+  {
+    title: '体育成绩评分细则',
+    category: '学习',
+    link: '/academics/sports-score',
+    description: '河北大学本科生体育课程成绩考核构成、体测项目评分对照、免测缓测申请流程与常见问题说明。',
+    tags: ['体育成绩', '体测标准', '评分细则', '免测申请'],
+    badge: '必修必过',
     date: '2026-09'
   },
   {
@@ -291,7 +301,7 @@ const groupedArticles = computed(() => {
             <a
               v-for="item in list"
               :key="item.link"
-              :href="item.link"
+              :href="withBase(item.link)"
               class="article-card"
             >
               <div class="card-header">
@@ -317,7 +327,7 @@ const groupedArticles = computed(() => {
         <a
           v-for="item in filteredArticles"
           :key="item.link"
-          :href="item.link"
+          :href="withBase(item.link)"
           class="article-card"
         >
           <div class="card-header">

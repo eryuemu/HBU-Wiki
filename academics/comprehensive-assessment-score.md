@@ -175,7 +175,7 @@ $$
 
 <div class="download-container">
 
-<a class="download-card" href="/academics/电子信息工程学院优秀学生奖学金评定细则.docx" download>
+<a class="download-card" href="/academics/telecom-scholarship-assessment-rules.docx" download="电子信息工程学院优秀学生奖学金评定细则.docx">
   <div class="download-icon">📘</div>
   <div class="download-info">
     <div class="download-title">电子信息工程学院优秀学生奖学金评定细则</div>
