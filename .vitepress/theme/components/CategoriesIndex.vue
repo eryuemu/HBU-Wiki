@@ -77,6 +77,15 @@ const articles = [
     date: '2026-09'
   },
   {
+    title: '综合测评成绩计算与奖学金评定',
+    category: '学习',
+    link: '/academics/comprehensive-assessment-score',
+    description: '河北大学综合素质测评（综测）成绩计算公式、德育分构成、绩点换算对照、申报材料及评奖要求说明。',
+    tags: ['综合测评', '综测计算', '德育加分', '奖学金评定'],
+    badge: '刚需必看',
+    date: '2026-09'
+  },
+  {
     title: '常用软件&公众号&网址',
     category: '校园生活',
     link: '/life/apps-and-websites',
@@ -98,6 +107,15 @@ const articles = [
     link: '/life/textbooks',
     description: '大学教材准备全指北，涵盖新书购买、二手教材淘选流转与电子教材获取渠道建议。',
     tags: ['教材准备', '二手书', '电子教材'],
+    date: '2026-09'
+  },
+  {
+    title: '五星级宿舍公示查询与加分统计',
+    category: '实用教程',
+    link: '/tools/star-dorm-query',
+    description: '河北大学五星级宿舍月度公示查询方法、官方公众号查找入口、宿舍星级评定结果检索与综测加分统计步骤。',
+    tags: ['五星级宿舍', '宿舍星级', '综测加分', '河大学工'],
+    badge: '综测必备',
     date: '2026-09'
   },
   {

@@ -62,7 +62,7 @@ onMounted(() => {
     </div>
     <div ref="container" class="giscus-container"></div>
     <div class="giscus-notice">
-      <p>评论基于 <a href="https://giscus.app" target="_blank" rel="noopener">Giscus</a>，需要 GitHub 账号登录。</p>
+      <p>评论基于 <a href="https://giscus.app" target="_blank" rel="noopener">Giscus</a>（需 GitHub 登录）。没有 GitHub 账号？欢迎加入 <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=t3o7wT8D4G9XuA50RJ%2BqLzknO9lFZhb73rpMswrq%2BhkjO5wfPBemg4PqJVG99%2BG0&busi_data=eyJncm91cENvZGUiOiIxMTI2NDA0NDgzIiwidG9rZW4iOiJBeksrZnh3Zkw3STZTRHZKTTNaZzJROUFmVW1jeXpkN21odXY0aW1mMWhxbWtnOHQxN3psNnA4bUozaVNSV1Y5IiwidWluIjoiMzQxOTE0NDg0MiJ9&data=HSyeTU6RPB8ppy95JU1qXTNNd7NbScFAtqhR6r0CIOrCrKdwkbZt00sF2e9ZvI4CAYktIDzT2OtNYZtfzVYwtw&svctype=4&tempid=h5_group_info" target="_blank" rel="noopener">读者交流群（QQ: 1126404483）</a> 随手截图报错或提问贡献！</p>
     </div>
   </div>
 </template>
