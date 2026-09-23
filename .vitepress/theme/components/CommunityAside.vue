@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const props = defineProps({
   asideOnly: { type: Boolean, default: false },
@@ -8,6 +8,23 @@ const props = defineProps({
 
 const currentTab = ref('reader') // 'reader' | 'editor'
 const showMobileModal = ref(false)
+const isFloatVisible = ref(true)
+
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    const isDismissed = sessionStorage.getItem('hbuwiki_hide_float_capsule') === 'true'
+    if (isDismissed) {
+      isFloatVisible.value = false
+    }
+  }
+})
+
+function dismissFloat() {
+  isFloatVisible.value = false
+  if (typeof window !== 'undefined') {
+    sessionStorage.setItem('hbuwiki_hide_float_capsule', 'true')
+  }
+}
 
 const READER_LINK = 'https://qun.qq.com/universal-share/share?ac=1&authKey=t3o7wT8D4G9XuA50RJ%2BqLzknO9lFZhb73rpMswrq%2BhkjO5wfPBemg4PqJVG99%2BG0&busi_data=eyJncm91cENvZGUiOiIxMTI2NDA0NDgzIiwidG9rZW4iOiJBeksrZnh3Zkw3STZTRHZKTTNaZzJROUFmVW1jeXpkN21odXY0aW1mMWhxbWtnOHQxN3psNnA4bUozaVNSV1Y5IiwidWluIjoiMzQxOTE0NDg0MiJ9&data=HSyeTU6RPB8ppy95JU1qXTNNd7NbScFAtqhR6r0CIOrCrKdwkbZt00sF2e9ZvI4CAYktIDzT2OtNYZtfzVYwtw&svctype=4&tempid=h5_group_info'
 
@@ -100,20 +117,33 @@ const EDITOR_LINK = 'https://qun.qq.com/universal-share/share?ac=1&authKey=lcEI8
     </div>
   </div>
 
-  <!-- 移动端悬浮加群触发按钮（仅在小于 1280px 屏幕展示） -->
-  <div v-if="!props.asideOnly" class="mobile-community-trigger">
-    <button
-      class="mobile-float-btn"
-      type="button"
-      @click="showMobileModal = true"
-      aria-label="加入社群交流"
-    >
-      <svg class="float-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-      </svg>
-      <span>加入群聊</span>
-    </button>
-  </div>
+  <!-- 移动端悬浮加群触发按钮（仅在小于 1280px 屏幕展示，支持用户点击 ✕ 隐藏） -->
+  <Transition name="fade">
+    <div v-if="!props.asideOnly && isFloatVisible" class="mobile-community-trigger">
+      <div class="mobile-capsule-wrap">
+        <button
+          class="mobile-float-btn"
+          type="button"
+          @click="showMobileModal = true"
+          aria-label="加入社群交流"
+        >
+          <svg class="float-svg" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span>加入群聊</span>
+        </button>
+        <button
+          class="mobile-close-capsule-btn"
+          type="button"
+          @click.stop="dismissFloat"
+          title="不再显示"
+          aria-label="隐藏悬浮按钮"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
+  </Transition>
 
   <!-- 移动端弹窗 -->
   <Teleport to="body">
@@ -366,24 +396,52 @@ const EDITOR_LINK = 'https://qun.qq.com/universal-share/share?ac=1&authKey=lcEI8
     z-index: 80;
   }
 
+  .mobile-capsule-wrap {
+    display: inline-flex;
+    align-items: center;
+    background: var(--vp-c-brand-1);
+    border-radius: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .mobile-capsule-wrap:active {
+    transform: scale(0.97);
+  }
+
   .mobile-float-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 9px 14px;
-    border-radius: 24px;
-    background: var(--vp-c-brand-1);
+    gap: 5px;
+    padding: 8px 10px 8px 13px;
+    background: transparent;
     color: #ffffff;
     font-size: 13px;
     font-weight: 600;
     border: none;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
   }
 
-  .mobile-float-btn:active {
-    transform: scale(0.96);
+  .mobile-close-capsule-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 32px;
+    padding: 0 8px 0 0;
+    margin-right: 3px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 11px;
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+
+  .mobile-close-capsule-btn:hover,
+  .mobile-close-capsule-btn:active {
+    color: #ffffff;
   }
 }
 
