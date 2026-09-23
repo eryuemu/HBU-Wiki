@@ -109,6 +109,13 @@ $$
 3. **佐证材料留存**：  
    建议将获评五星级月份的表格截图并标注本人寝室号，妥善留存备查，以便在班级审核需要时提供佐证。
 
+---
+
+## 🔗 相关链接
+
+- [综合测评成绩计算与奖学金评定](/academics/comprehensive-assessment-score) - 了解五星级宿舍加分在德育总分中的折算与奖学金资格红线
+- [常用软件&公众号&网址](/life/apps-and-websites) - 查看教务系统与官方新媒体公众号入口
+
 <style>
 .page-intro {
   background: var(--hbu-blue-muted);

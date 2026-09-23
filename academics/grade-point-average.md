@@ -190,6 +190,8 @@ $$
 
 ## 🔗 相关链接
 
+- [综合测评成绩计算与奖学金评定](/academics/comprehensive-assessment-score) - 了解文化课与德育加分折算综合绩点规则
+- [竞赛加分表](/academics/competition-bonus-table) - 查看学科竞赛与创新实践加分对照表
 - [转专业数据全解](/academics/transfer) - 查看 70 个专业的录取绩点要求
 - [GPA 分析器](/academics/gpa-analysis) - 输入绩点自动分析冲/稳/保策略
 - [教务处官网](https://jwc.hbu.edu.cn/) - 查看官方成绩

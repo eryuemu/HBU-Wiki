@@ -85,7 +85,24 @@ export default defineConfig({
         })],
 
         // Analytics
-        ['script', { defer: true, src: 'https://cloud.umami.is/script.js', 'data-website-id': '1d20e51d-d353-46f6-9e0e-d2ae9909fa6c' }]
+        ['script', { defer: true, src: 'https://cloud.umami.is/script.js', 'data-website-id': '1d20e51d-d353-46f6-9e0e-d2ae9909fa6c' }],
+
+        // 404 防御与 cleanUrls 路由兜底
+        ['script', {}, `
+            (function() {
+                try {
+                    // 1. 若访问带尾部斜杠的路径（如 /categories/ 或 /academics/xxx/），自动跳转至 cleanUrl 规避 GitHub Pages 404
+                    if (location.pathname.length > 1 && location.pathname.endsWith('/')) {
+                        var clean = location.pathname.replace(/\\/+$/, '');
+                        location.replace(clean + location.search + location.hash);
+                    }
+                    // 2. 监听跨版本构建 chunk hash 变动导致的模块加载失败，自动刷新拉取最新资源
+                    window.addEventListener('vite:preloadError', function() {
+                        window.location.reload();
+                    });
+                } catch (e) {}
+            })();
+        `]
     ],
 
     ignoreDeadLinks: true,
@@ -147,7 +164,7 @@ export default defineConfig({
                     { text: '选课推荐与避雷 (小红书篇)', link: '/academics/course-recommendations-xhs' },
                     { text: '教师授课评价 (真实反馈篇)', link: '/academics/teacher-evaluations' },
                     { text: '平均学分绩点计算', link: '/academics/grade-point-average' },
-                    { text: '综评成绩计算', link: '/academics/comprehensive-assessment-score' },
+                    { text: '综合测评与奖学金评定', link: '/academics/comprehensive-assessment-score' },
                     { text: '竞赛加分表', link: '/academics/competition-bonus-table' },
                     { text: '体育成绩评分细则', link: '/academics/sports-score' }
                 ]
@@ -196,7 +213,7 @@ export default defineConfig({
                     { text: '选课推荐与避雷 (小红书篇)', link: '/academics/course-recommendations-xhs' },
                     { text: '教师授课评价 (真实反馈篇)', link: '/academics/teacher-evaluations' },
                     { text: '平均学分绩点计算', link: '/academics/grade-point-average' },
-                    { text: '综评成绩计算', link: '/academics/comprehensive-assessment-score' },
+                    { text: '综合测评与奖学金评定', link: '/academics/comprehensive-assessment-score' },
                     { text: '竞赛加分表', link: '/academics/competition-bonus-table' },
                     { text: '体育成绩评分细则', link: '/academics/sports-score' }
                 ]

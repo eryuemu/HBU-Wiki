@@ -245,6 +245,7 @@ $$
 ## 🔗 相关链接
 
 - [竞赛分级详细目录](https://uclan.hbu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=2114448305&wbfileid=16444810) - 查询竞赛分级
+- [综合测评成绩计算与奖学金评定](/academics/comprehensive-assessment-score) - 查看德育加分与综合素质评定规则
 - [转专业数据全解](/academics/transfer) - 查看转专业对创新学分的要求
 - [平均学分绩点计算](/academics/grade-point-average) - 了解 GPA 计算方法
 - [教务处官网](https://jwc.hbu.edu.cn/) - 查看官方最新文件
