@@ -16,7 +16,14 @@ HBU-Wiki 是一项面向全体河大师生的开源公益校园知识库。无�
 
 如果你发现了任何页面内容有错误、想补充最新政策线索、或者日常有校园学业生活问题想交流求助，欢迎直接进群：
 
-- **HBU-Wiki 读者交流与反馈群**：`1126404483`
+- **HBU-Wiki 读者交流与反馈群**：`1126404483` ｜ [👉 点击一键加入群聊](https://qun.qq.com/universal-share/share?ac=1&authKey=t3o7wT8D4G9XuA50RJ%2BqLzknO9lFZhb73rpMswrq%2BhkjO5wfPBemg4PqJVG99%2BG0&busi_data=eyJncm91cENvZGUiOiIxMTI2NDA0NDgzIiwidG9rZW4iOiJBeksrZnh3Zkw3STZTRHZKTTNaZzJROUFmVW1jeXpkN21odXY0aW1mMWhxbWtnOHQxN3psNnA4bUozaVNSV1Y5IiwidWluIjoiMzQxOTE0NDg0MiJ9&data=HSyeTU6RPB8ppy95JU1qXTNNd7NbScFAtqhR6r0CIOrCrKdwkbZt00sF2e9ZvI4CAYktIDzT2OtNYZtfzVYwtw&svctype=4&tempid=h5_group_info)
+- **群二维码（扫码加入）**：
+  <details>
+  <summary>展开查看读者群二维码</summary>
+  <div style="margin-top: 10px;">
+    <img src="/qrcode/reader-group.jpg" alt="HBU-Wiki 读者交流群二维码" style="max-width: 260px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+  </div>
+  </details>
 - **适合人群**：所有河大在读学生、校友、新生。
 - **参与形式**：
   - 遇到信息过时、错别字或失效链接，在群里随手截个图或发一句话；
@@ -31,7 +38,13 @@ HBU-Wiki 主站（[hbuwiki.top](https://hbuwiki.top)）基于 Wiki.js 系统搭�
 
 - **适合人群**：想系统编写长篇经验（如专业培养方案、保研考研长文、社团介绍等），但不想折腾代码与 GitHub 的同学。
 - **参与流程**：
-  1. 加入 **HBU-Wiki 编辑协作群**：`1055828781`；
+  1. 加入 **HBU-Wiki 编辑协作群**：`1055828781` ｜ [👉 点击一键加入编辑群](https://qun.qq.com/universal-share/share?ac=1&authKey=lcEI8UhEM1a%2BR06rVXgBcBIt1ySfJsbC1ZaG2lkioyj5B20oYKsbD17e2eKhbku8&busi_data=eyJncm91cENvZGUiOiIxMDU1ODI4NzgxIiwidG9rZW4iOiJWRWc0bVJBQ0VXaW9tNG5JTnJQNlNkMERUWDgwZlRmS0Judkd5cTlSb20zOUlvWWlaNzBWNlhIOHhqZ1VxZ2x6IiwidWluIjoiMzQxOTE0NDg0MiJ9&data=zc72jJPO929XPR00M1vivCB7toz_ZVTeRGrIuiQpziGrpR4H29kftFbZNrBcG2ck0Bx6wLhc5zaCpAMDi9Xp_g&svctype=4&tempid=h5_group_info)
+     <details style="margin-top: 8px;">
+     <summary>展开查看编辑群二维码</summary>
+     <div style="margin-top: 10px;">
+       <img src="/qrcode/editor-group.jpg" alt="HBU-Wiki 编辑协作群二维码" style="max-width: 260px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+     </div>
+     </details>
   2. 联系主站站长雪雪（或在群内说明）为你开通主站编辑账号及对应目录权限；
   3. 登录 [hbuwiki.top](https://hbuwiki.top) 即可在浏览器中自由新建和修改页面。
 - **主站站长主页**：[雪雪的主页](https://hbuwiki.top/zh/%E9%9B%AA%E9%9B%AA%E4%B8%8D%E6%98%AF%E7%99%BD%E6%AF%9B%E5%B0%8F%E8%90%9D%E8%8E%89%E4%B8%BB%E9%A1%B5)

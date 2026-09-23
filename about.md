@@ -26,8 +26,12 @@ HBU-Wiki是关于河北大学的开源知识库项目，此站定位为副站，
 
 目前已有：
 
-- **转专业数据全解**：2026年70个专业的报录比、最低录取绩点、竞争分析，含交互式数据探索器与志愿模拟器
-- **保定吃喝玩乐指南**：贴吧老哥倾情贡献，东南西北中五大片区全覆盖
+- **转专业数据全解**：2026年 70 个专业真实报录比、最低录取绩点与竞争走势，配备交互式数据探索器与志愿模拟器
+- **综合测评与奖学金评定**：综测评定计算公式、德育分细则、创新实践竞赛加分对照表与 GPA 换算
+- **选课避坑与教师评价**：通识选修课红黑榜推荐，以及任课教师在考勤签到、课堂纪律与平时分考核上的真实客观反馈
+- **实用校园办事指北**：五星级宿舍月度加分公示检索教程、第二课堂（中青二课）密码找回、常用软件与教务系统导航
+- **保定吃喝玩乐指南**：贴吧老哥倾情贡献，东南西北中五大片区美食餐饮与周边游玩全覆盖
+- **课本准备指北**：教材获取途径、二手书淘选流转与电子版教材准备建议
 
 更多内容持续更新中。
 
@@ -39,8 +43,8 @@ HBU-Wiki 是一项人人皆可参与的开源公益项目，其生命力来源�
 
 👉 **欢迎查阅独立专页**：[参与共建指南](/contribution)
 
-- **读者交流与反馈群**：`1126404483`
-- **编辑协作群**：`1055828781`
+- **读者交流与反馈群**：`1126404483` ｜ [👉 一键加入读者群](https://qun.qq.com/universal-share/share?ac=1&authKey=t3o7wT8D4G9XuA50RJ%2BqLzknO9lFZhb73rpMswrq%2BhkjO5wfPBemg4PqJVG99%2BG0&busi_data=eyJncm91cENvZGUiOiIxMTI2NDA0NDgzIiwidG9rZW4iOiJBeksrZnh3Zkw3STZTRHZKTTNaZzJROUFmVW1jeXpkN21odXY0aW1mMWhxbWtnOHQxN3psNnA4bUozaVNSV1Y5IiwidWluIjoiMzQxOTE0NDg0MiJ9&data=HSyeTU6RPB8ppy95JU1qXTNNd7NbScFAtqhR6r0CIOrCrKdwkbZt00sF2e9ZvI4CAYktIDzT2OtNYZtfzVYwtw&svctype=4&tempid=h5_group_info)
+- **编辑协作群**：`1055828781` ｜ [👉 一键加入编辑群](https://qun.qq.com/universal-share/share?ac=1&authKey=lcEI8UhEM1a%2BR06rVXgBcBIt1ySfJsbC1ZaG2lkioyj5B20oYKsbD17e2eKhbku8&busi_data=eyJncm91cENvZGUiOiIxMDU1ODI4NzgxIiwidG9rZW4iOiJWRWc0bVJBQ0VXaW9tNG5JTnJQNlNkMERUWDgwZlRmS0Judkd5cTlSb20zOUlvWWlaNzBWNlhIOHhqZ1VxZ2x6IiwidWluIjoiMzQxOTE0NDg0MiJ9&data=zc72jJPO929XPR00M1vivCB7toz_ZVTeRGrIuiQpziGrpR4H29kftFbZNrBcG2ck0Bx6wLhc5zaCpAMDi9Xp_g&svctype=4&tempid=h5_group_info)
 - **GitHub 仓库**：[github.com/eryuemu/HBU-Wiki](https://github.com/eryuemu/HBU-Wiki)
 
 ## 免责声明
