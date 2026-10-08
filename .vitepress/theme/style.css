@@ -163,9 +163,17 @@ body::before {
   color: var(--text-primary) !important;
 }
 
-/* 导航栏 logo：原色呈现 */
+/* 导航栏 logo：对齐主站 hbuwiki.top 34px 圆形头像规范与原色呈现 */
+:root {
+  --vp-nav-logo-height: 34px;
+}
+
 .VPNavBarTitle .logo {
   filter: none;
+  height: 34px !important;
+  width: 34px !important;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .VPNavBar .VPNavBarMenuLink.active,
