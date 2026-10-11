@@ -25,7 +25,7 @@ keywords: 河北大学同好群, 河大galgame群, 河大东方project群, 河�
     <span class="group-name">坤舆少女的礼仪</span>
     <span class="group-size">114 人</span>
   </div>
-  <div class="group-number">QQ 群号：<code>733983094</code></div>
+  <div class="group-number">QQ 群号：<code>733983094</code><CopyButton text="733983094" /></div>
   <p class="group-desc">河大的 <strong>Galgame / 视觉小说同好群</strong>，校内二次元浓度最高的一处据点。推新作、聊剧本、问哪里能玩，基本都能在群里得到回应。群公告里挂着 HBU Wiki 的上线信息与编辑组招募，本站的诞生本身就与这类 QQ gal 群有关（见<a href="/about">项目介绍</a>）。</p>
 </div>
 
@@ -34,7 +34,7 @@ keywords: 河北大学同好群, 河大galgame群, 河大东方project群, 河�
     <span class="group-name">河大寺子屋</span>
     <span class="group-size">193 人</span>
   </div>
-  <div class="group-number">QQ 群号：<code>790169068</code></div>
+  <div class="group-number">QQ 群号：<code>790169068</code><CopyButton text="790169068" /></div>
   <p class="group-desc">河大的 <strong>东方 Project 同好群</strong>。「寺子屋」取自东方系列的同人梗，群里聊的是正作与二次创作、音乐、考据和线下活动。群公告开头那句「为欢迎车车同学们来群里玩」里的「车车」就是车万（东方）。规模在河大同好群里算相当能打的一个。</p>
 </div>
 
@@ -49,7 +49,7 @@ keywords: 河北大学同好群, 河大galgame群, 河大东方project群, 河�
     <span class="group-name">hbu steam/单机游戏群</span>
     <span class="group-size">34 人</span>
   </div>
-  <div class="group-number">QQ 群号：<code>1104603385</code></div>
+  <div class="group-number">QQ 群号：<code>1104603385</code><CopyButton text="1104603385" /></div>
   <p class="group-desc"><strong>Steam 与单机游戏</strong>为主，也聊游戏装备和外设。群公告写明可以把 Steam 账号发群里由群主设精，精华消息里存了一批群友账号，找人一起开黑或者抄作业都方便。</p>
 </div>
 
@@ -64,7 +64,7 @@ keywords: 河北大学同好群, 河大galgame群, 河大东方project群, 河�
     <span class="group-name">坤舆奶娃群</span>
     <span class="group-size">7 人</span>
   </div>
-  <div class="group-number">QQ 群号：<code>1127386681</code></div>
+  <div class="group-number">QQ 群号：<code>1127386681</code><CopyButton text="1127386681" /></div>
   <p class="group-desc">河大的<strong>抽象玩梗小群</strong>，奶娃、奶龙一类的表情包与整活内容集散地。2026 年 10 月 11 日刚建，人还不多，属于「进去说句话就是元老」的阶段。</p>
 </div>
 
@@ -81,7 +81,7 @@ keywords: 河北大学同好群, 河大galgame群, 河大东方project群, 河�
     <span class="group-name">河🧊聚集地（国庆赛季）</span>
     <span class="group-size">310 人</span>
   </div>
-  <div class="group-number">QQ 群号：<code>923342191</code></div>
+  <div class="group-number">QQ 群号：<code>923342191</code><CopyButton text="923342191" /></div>
   <p class="group-desc"><strong>河北大学吧的常驻交流群</strong>，本吧老哥的线上聚集地，校内八卦、答疑、吐槽都在这一处。群公告里在招「高考答疑官」，表现好可拿荣誉证书，想在假期帮新生答疑的可以看一眼。</p>
 </div>
 
@@ -90,7 +90,7 @@ keywords: 河北大学同好群, 河大galgame群, 河大东方project群, 河�
     <span class="group-name">河北大学迎新群（军训赛季）</span>
     <span class="group-size">328 人</span>
   </div>
-  <div class="group-number">QQ 群号：<code>1046165261</code></div>
+  <div class="group-number">QQ 群号：<code>1046165261</code><CopyButton text="1046165261" /></div>
   <p class="group-desc"><strong>河北大学吧的迎新群</strong>，成员跨届（25、26 级新生与老生都在），主打新生答疑与军训季信息同步。群公告置顶了本吧持续更新的新生指南帖，新生入学前建议先看那篇再进群提问。</p>
 </div>
 
@@ -156,6 +156,10 @@ keywords: 河北大学同好群, 河大galgame群, 河大东方project群, 河�
 }
 
 .group-number {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
   font-size: 13px;
   color: var(--text-secondary);
   margin-bottom: 10px;

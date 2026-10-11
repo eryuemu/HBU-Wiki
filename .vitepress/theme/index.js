@@ -5,6 +5,7 @@ import GPAAnalyzer from './components/GPAAnalyzer.vue'
 import PageView from './components/PageView.vue'
 import AnalyticsDashboard from './components/AnalyticsDashboard.vue'
 import CategoriesIndex from './components/CategoriesIndex.vue'
+import CopyButton from './components/CopyButton.vue'
 import './style.css'
 
 export default {
@@ -17,6 +18,7 @@ export default {
     app.component('PageView', PageView)
     app.component('AnalyticsDashboard', AnalyticsDashboard)
     app.component('CategoriesIndex', CategoriesIndex)
+    app.component('CopyButton', CopyButton)
 
     if (typeof window !== 'undefined' && router) {
       // 客户端路由跳转容灾：若因部署后 chunk hash 更新导致 SPA 路由意外命中 404，执行一次页面硬重载拉取最新 HTML
