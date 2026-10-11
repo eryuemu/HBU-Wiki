@@ -104,6 +104,15 @@ const articles = [
     date: '2026-09'
   },
   {
+    title: '同好群汇总',
+    category: '校园生活',
+    link: '/life/hobby-groups',
+    description: '河大 Galgame、东方Project、Steam 单机游戏与贴吧系同好 QQ 群汇总，附群号、人数与入群方式，找到自己的组织。',
+    tags: ['同好群', 'QQ群号', '二次元', '游戏'],
+    badge: '找组织',
+    date: '2026-10'
+  },
+  {
     title: '玩遍保定指南',
     category: '校园生活',
     link: '/life/surroundings',

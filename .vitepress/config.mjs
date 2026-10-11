@@ -173,6 +173,7 @@ export default defineConfig({
                 text: `${ICONS.life} 校园生活`,
                 items: [
                     { text: '常用软件&公众号&网址', link: '/life/apps-and-websites' },
+                    { text: '同好群汇总', link: '/life/hobby-groups' },
                     { text: '玩遍保定指南', link: '/life/surroundings' },
                     { text: '课本的准备方式', link: '/life/textbooks' }
                 ]
@@ -223,6 +224,7 @@ export default defineConfig({
                 collapsed: false,
                 items: [
                     { text: '常用软件&公众号&网址', link: '/life/apps-and-websites' },
+                    { text: '同好群汇总', link: '/life/hobby-groups' },
                     { text: '玩遍保定指南', link: '/life/surroundings' },
                     { text: '课本的准备方式', link: '/life/textbooks' },
                 ]
